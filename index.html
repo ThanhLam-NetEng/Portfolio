@@ -1,465 +1,1597 @@
 <!doctype html>
-<html>
+<html lang="en">
   <head>
-    <title>Phạm Thanh Lâm - Network Engineer</title>
-    <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, user-scalable=no"
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Phạm Thanh Lâm — Network & Communications Engineer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
     />
-    <link rel="stylesheet" href="assets/css/main.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <style>
+      :root {
+        --bg: #07091a;
+        --bg2: #0d1228;
+        --bg3: #141d3a;
+        --bg4: #1a2445;
+        --accent: #00d4c8;
+        --accent2: #f59e0b;
+        --text: #dde4f0;
+        --muted: #5a6a8a;
+        --muted2: #8899bb;
+        --border: rgba(0, 212, 200, 0.12);
+        --border2: rgba(0, 212, 200, 0.28);
+        --glow: 0 0 28px rgba(0, 212, 200, 0.18);
+        --font: "Sora", sans-serif;
+        --mono: "JetBrains Mono", monospace;
+      }
+
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        font-family: var(--font);
+        background: var(--bg);
+        color: var(--text);
+        line-height: 1.7;
+        overflow-x: hidden;
+      }
+      a {
+        color: var(--accent);
+        text-decoration: none;
+        transition: color 0.2s;
+      }
+      a:hover {
+        color: #fff;
+      }
+      ::selection {
+        background: rgba(0, 212, 200, 0.25);
+        color: #fff;
+      }
+
+      .dot-bg {
+        position: absolute;
+        inset: 0;
+        z-index: 0;
+        background-image: radial-gradient(
+          circle,
+          rgba(0, 212, 200, 0.13) 1px,
+          transparent 1px
+        );
+        background-size: 28px 28px;
+        mask-image: radial-gradient(
+          ellipse 80% 80% at 50% 50%,
+          black 40%,
+          transparent 100%
+        );
+        -webkit-mask-image: radial-gradient(
+          ellipse 80% 80% at 50% 50%,
+          black 40%,
+          transparent 100%
+        );
+      }
+
+      /* NAV */
+      #nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 100;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 2.5rem;
+        height: 64px;
+        background: transparent;
+        border-bottom: 1px solid transparent;
+        transition:
+          background 0.3s,
+          border-color 0.3s,
+          backdrop-filter 0.3s;
+      }
+      #nav.scrolled {
+        background: rgba(7, 9, 26, 0.9);
+        border-color: var(--border);
+        backdrop-filter: blur(14px);
+        -webkit-backdrop-filter: blur(14px);
+      }
+      .nav-logo {
+        font-family: var(--mono);
+        font-size: 1.1rem;
+        font-weight: 500;
+        color: var(--accent);
+      }
+      .nav-logo span {
+        color: var(--text);
+      }
+      .nav-links {
+        display: flex;
+        align-items: center;
+        gap: 2rem;
+        list-style: none;
+      }
+      .nav-links a {
+        font-size: 0.82rem;
+        font-weight: 500;
+        color: var(--muted2);
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        transition: color 0.2s;
+      }
+      .nav-links a:hover {
+        color: var(--accent);
+      }
+      .nav-cv {
+        font-family: var(--mono);
+        font-size: 0.78rem;
+        font-weight: 500;
+        padding: 0.45rem 1.1rem;
+        border: 1px solid var(--accent);
+        border-radius: 6px;
+        color: var(--accent);
+        letter-spacing: 0.04em;
+        transition:
+          background 0.2s,
+          color 0.2s;
+      }
+      .nav-cv:hover {
+        background: var(--accent);
+        color: var(--bg);
+      }
+      .nav-hamburger {
+        display: none;
+        flex-direction: column;
+        gap: 5px;
+        cursor: pointer;
+        background: none;
+        border: none;
+        padding: 4px;
+      }
+      .nav-hamburger span {
+        display: block;
+        width: 22px;
+        height: 2px;
+        background: var(--text);
+        border-radius: 2px;
+        transition:
+          transform 0.3s,
+          opacity 0.3s;
+      }
+      .nav-hamburger.open span:nth-child(1) {
+        transform: translateY(7px) rotate(45deg);
+      }
+      .nav-hamburger.open span:nth-child(2) {
+        opacity: 0;
+      }
+      .nav-hamburger.open span:nth-child(3) {
+        transform: translateY(-7px) rotate(-45deg);
+      }
+      .nav-mobile {
+        display: none;
+        position: fixed;
+        top: 64px;
+        left: 0;
+        right: 0;
+        z-index: 99;
+        background: rgba(7, 9, 26, 0.97);
+        border-bottom: 1px solid var(--border);
+        padding: 1.5rem 2rem;
+        flex-direction: column;
+        gap: 1.2rem;
+      }
+      .nav-mobile.open {
+        display: flex;
+      }
+      .nav-mobile a {
+        font-size: 0.9rem;
+        font-weight: 500;
+        color: var(--text);
+      }
+
+      /* HERO */
+      #hero {
+        position: relative;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        overflow: hidden;
+        padding: 6rem 2rem 4rem;
+      }
+      .hero-glow {
+        position: absolute;
+        width: 600px;
+        height: 600px;
+        background: radial-gradient(
+          circle,
+          rgba(0, 212, 200, 0.07) 0%,
+          transparent 70%
+        );
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        pointer-events: none;
+      }
+      .hero-inner {
+        position: relative;
+        z-index: 1;
+        max-width: 780px;
+      }
+      .hero-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-family: var(--mono);
+        font-size: 0.78rem;
+        color: var(--accent);
+        border: 1px solid var(--border2);
+        background: rgba(0, 212, 200, 0.06);
+        padding: 0.35rem 1rem;
+        border-radius: 999px;
+        margin-bottom: 2rem;
+        opacity: 0;
+        animation: fadeUp 0.6s 0.1s forwards;
+      }
+      .hero-name {
+        font-size: clamp(2.4rem, 6vw, 4.2rem);
+        font-weight: 700;
+        line-height: 1.1;
+        letter-spacing: -0.02em;
+        margin-bottom: 1rem;
+        opacity: 0;
+        animation: fadeUp 0.6s 0.25s forwards;
+      }
+      .hero-name .accent {
+        color: var(--accent);
+      }
+      .hero-typewriter {
+        font-family: var(--mono);
+        font-size: clamp(0.95rem, 2vw, 1.2rem);
+        color: var(--muted2);
+        margin-bottom: 1.8rem;
+        min-height: 1.8em;
+        opacity: 0;
+        animation: fadeUp 0.6s 0.4s forwards;
+      }
+      .cursor {
+        display: inline-block;
+        width: 2px;
+        height: 1em;
+        background: var(--accent);
+        margin-left: 2px;
+        animation: blink 1s infinite;
+        vertical-align: text-top;
+      }
+      @keyframes blink {
+        0%,
+        100% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0;
+        }
+      }
+      .hero-desc {
+        font-size: 1rem;
+        color: var(--muted2);
+        max-width: 540px;
+        margin: 0 auto 2.5rem;
+        line-height: 1.8;
+        opacity: 0;
+        animation: fadeUp 0.6s 0.55s forwards;
+      }
+      .hero-ctas {
+        display: flex;
+        gap: 1rem;
+        justify-content: center;
+        flex-wrap: wrap;
+        opacity: 0;
+        animation: fadeUp 0.6s 0.7s forwards;
+      }
+      .btn-primary {
+        padding: 0.7rem 1.8rem;
+        background: var(--accent);
+        color: var(--bg);
+        font-weight: 600;
+        font-size: 0.88rem;
+        border-radius: 8px;
+        transition:
+          transform 0.2s,
+          box-shadow 0.2s;
+      }
+      .btn-primary:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 28px rgba(0, 212, 200, 0.35);
+        color: var(--bg);
+      }
+      .btn-outline {
+        padding: 0.7rem 1.8rem;
+        border: 1px solid var(--border2);
+        color: var(--text);
+        font-size: 0.88rem;
+        border-radius: 8px;
+        transition:
+          border-color 0.2s,
+          background 0.2s,
+          transform 0.2s;
+      }
+      .btn-outline:hover {
+        border-color: var(--accent);
+        background: rgba(0, 212, 200, 0.06);
+        color: var(--accent);
+        transform: translateY(-2px);
+      }
+      .hero-scroll {
+        position: absolute;
+        bottom: 2.5rem;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.4rem;
+        font-family: var(--mono);
+        font-size: 0.65rem;
+        color: var(--muted);
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        animation: scrollBob 2s ease-in-out infinite;
+      }
+      .hero-scroll i {
+        font-size: 0.75rem;
+        color: var(--accent);
+      }
+      @keyframes scrollBob {
+        0%,
+        100% {
+          transform: translateX(-50%) translateY(0);
+        }
+        50% {
+          transform: translateX(-50%) translateY(6px);
+        }
+      }
+
+      /* SHARED */
+      section {
+        padding: 6rem 2rem;
+      }
+      .container {
+        max-width: 1060px;
+        margin: 0 auto;
+      }
+      .section-label {
+        font-family: var(--mono);
+        font-size: 0.72rem;
+        font-weight: 500;
+        color: var(--accent);
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        margin-bottom: 0.75rem;
+      }
+      .section-title {
+        font-size: clamp(1.7rem, 3.5vw, 2.4rem);
+        font-weight: 700;
+        letter-spacing: -0.02em;
+        margin-bottom: 1rem;
+        line-height: 1.2;
+      }
+      .section-divider {
+        width: 42px;
+        height: 3px;
+        background: var(--accent);
+        border-radius: 2px;
+        margin-bottom: 2.5rem;
+      }
+      .reveal {
+        opacity: 0;
+        transform: translateY(28px);
+        transition:
+          opacity 0.65s ease,
+          transform 0.65s ease;
+      }
+      .reveal.visible {
+        opacity: 1;
+        transform: none;
+      }
+
+      /* EXPERIENCE */
+      #experience {
+        background: var(--bg2);
+      }
+      .exp-card {
+        background: var(--bg3);
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        padding: 1.8rem 2rem;
+        position: relative;
+        overflow: hidden;
+      }
+      .exp-card::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        width: 3px;
+        background: var(--accent);
+      }
+      .exp-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+        margin-bottom: 1.1rem;
+      }
+      .exp-company {
+        font-size: 1.1rem;
+        font-weight: 600;
+        margin-bottom: 0.2rem;
+      }
+      .exp-role {
+        font-family: var(--mono);
+        font-size: 0.8rem;
+        color: var(--accent);
+      }
+      .exp-period {
+        font-family: var(--mono);
+        font-size: 0.75rem;
+        color: var(--muted);
+        background: var(--bg4);
+        border: 1px solid var(--border);
+        padding: 0.3rem 0.85rem;
+        border-radius: 999px;
+        white-space: nowrap;
+      }
+      .exp-address {
+        font-size: 0.82rem;
+        color: var(--muted2);
+        margin-bottom: 1.2rem;
+        display: flex;
+        align-items: center;
+        gap: 0.4rem;
+      }
+      .exp-list {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 0.6rem;
+      }
+      .exp-list li {
+        font-size: 0.875rem;
+        color: var(--muted2);
+        line-height: 1.7;
+        padding-left: 1.2rem;
+        position: relative;
+      }
+      .exp-list li::before {
+        content: "▹";
+        position: absolute;
+        left: 0;
+        color: var(--accent);
+        font-size: 0.8rem;
+        top: 0.1rem;
+      }
+      .exp-placeholder {
+        font-family: var(--mono);
+        font-size: 0.78rem;
+        color: var(--muted);
+        border: 1px dashed var(--border2);
+        border-radius: 8px;
+        padding: 0.7rem 1rem;
+        margin-top: 1rem;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+      .exp-placeholder i {
+        color: var(--accent2);
+      }
+
+      /* PROJECTS */
+      #projects {
+        background: var(--bg);
+      }
+      .projects-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 1.4rem;
+      }
+      .project-card {
+        background: var(--bg3);
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        padding: 1.6rem;
+        display: flex;
+        flex-direction: column;
+        transition:
+          border-color 0.25s,
+          transform 0.25s,
+          box-shadow 0.25s;
+        position: relative;
+        overflow: hidden;
+      }
+      .project-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 2px;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          var(--accent),
+          transparent
+        );
+        opacity: 0;
+        transition: opacity 0.3s;
+      }
+      .project-card:hover {
+        border-color: var(--border2);
+        transform: translateY(-4px);
+        box-shadow: var(--glow);
+      }
+      .project-card:hover::before {
+        opacity: 1;
+      }
+      .project-meta {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        margin-bottom: 1rem;
+      }
+      .project-type {
+        font-family: var(--mono);
+        font-size: 0.68rem;
+        font-weight: 500;
+        color: var(--accent);
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        background: rgba(0, 212, 200, 0.08);
+        border: 1px solid var(--border);
+        padding: 0.2rem 0.65rem;
+        border-radius: 999px;
+      }
+      .project-type.work {
+        color: var(--accent2);
+        background: rgba(245, 158, 11, 0.08);
+        border-color: rgba(245, 158, 11, 0.2);
+      }
+      .project-period {
+        font-family: var(--mono);
+        font-size: 0.68rem;
+        color: var(--muted);
+      }
+      .project-title {
+        font-size: 1.05rem;
+        font-weight: 600;
+        margin-bottom: 0.65rem;
+        line-height: 1.35;
+      }
+      .project-desc {
+        font-size: 0.875rem;
+        color: var(--muted2);
+        line-height: 1.75;
+        flex: 1;
+        margin-bottom: 1.2rem;
+      }
+      .project-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.4rem;
+        margin-bottom: 1rem;
+      }
+      .tag {
+        font-family: var(--mono);
+        font-size: 0.67rem;
+        color: var(--muted2);
+        background: var(--bg4);
+        border: 1px solid rgba(255, 255, 255, 0.06);
+        padding: 0.18rem 0.6rem;
+        border-radius: 5px;
+      }
+      .project-link {
+        font-family: var(--mono);
+        font-size: 0.75rem;
+        color: var(--accent);
+        display: inline-flex;
+        align-items: center;
+        gap: 0.35rem;
+        margin-top: auto;
+      }
+      .project-link i {
+        font-size: 0.65rem;
+        transition: transform 0.2s;
+      }
+      .project-link:hover {
+        color: #fff;
+      }
+      .project-link:hover i {
+        transform: translateX(3px);
+      }
+
+      /* SKILLS */
+      #skills {
+        background: var(--bg2);
+      }
+      .skills-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+        gap: 1.6rem;
+      }
+      .skill-group {
+        background: var(--bg3);
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        padding: 1.5rem;
+      }
+      .skill-group-title {
+        font-family: var(--mono);
+        font-size: 0.72rem;
+        font-weight: 500;
+        color: var(--accent);
+        text-transform: uppercase;
+        letter-spacing: 0.14em;
+        margin-bottom: 1rem;
+        padding-bottom: 0.75rem;
+        border-bottom: 1px solid var(--border);
+      }
+      .skill-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.45rem;
+      }
+      .skill-pill {
+        font-family: var(--mono);
+        font-size: 0.72rem;
+        color: var(--text);
+        background: var(--bg4);
+        border: 1px solid rgba(255, 255, 255, 0.07);
+        padding: 0.28rem 0.75rem;
+        border-radius: 6px;
+        transition:
+          border-color 0.2s,
+          color 0.2s,
+          background 0.2s;
+      }
+      .skill-pill:hover {
+        border-color: var(--border2);
+        color: var(--accent);
+        background: rgba(0, 212, 200, 0.06);
+      }
+
+      /* ABOUT */
+      #about {
+        background: var(--bg);
+      }
+      .about-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 4rem;
+        align-items: start;
+      }
+      .about-text p {
+        font-size: 0.95rem;
+        color: var(--muted2);
+        line-height: 1.85;
+        margin-bottom: 1.2rem;
+      }
+      .about-text strong {
+        color: var(--text);
+        font-weight: 600;
+      }
+      .about-text .hl {
+        color: var(--accent);
+        font-weight: 500;
+      }
+      .about-socials {
+        display: flex;
+        gap: 1rem;
+        margin-top: 1.8rem;
+        flex-wrap: wrap;
+      }
+      .social-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-family: var(--mono);
+        font-size: 0.78rem;
+        color: var(--muted2);
+        border: 1px solid var(--border);
+        padding: 0.5rem 1.1rem;
+        border-radius: 8px;
+        transition:
+          border-color 0.2s,
+          color 0.2s,
+          background 0.2s;
+      }
+      .social-btn:hover {
+        border-color: var(--accent);
+        color: var(--accent);
+        background: rgba(0, 212, 200, 0.06);
+      }
+      .about-stats {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+        margin-bottom: 1rem;
+      }
+      .stat-card {
+        background: var(--bg2);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 1.4rem 1.2rem;
+        text-align: center;
+      }
+      .stat-number {
+        font-family: var(--mono);
+        font-size: 2rem;
+        font-weight: 700;
+        color: var(--accent);
+        line-height: 1;
+        margin-bottom: 0.3rem;
+      }
+      .stat-label {
+        font-size: 0.75rem;
+        color: var(--muted2);
+        line-height: 1.4;
+      }
+      .about-info {
+        background: var(--bg2);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        overflow: hidden;
+      }
+      .info-row {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        padding: 0.85rem 1.2rem;
+        border-bottom: 1px solid var(--border);
+        font-size: 0.85rem;
+      }
+      .info-row:last-child {
+        border-bottom: none;
+      }
+      .info-row i {
+        width: 16px;
+        text-align: center;
+        color: var(--accent);
+        font-size: 0.85rem;
+        flex-shrink: 0;
+      }
+      .info-label {
+        color: var(--muted);
+        width: 72px;
+        font-size: 0.78rem;
+        flex-shrink: 0;
+      }
+      .info-value {
+        color: var(--text);
+        font-size: 0.85rem;
+      }
+
+      /* CONTACT */
+      #contact {
+        background: var(--bg2);
+      }
+      .contact-inner {
+        max-width: 640px;
+        margin: 0 auto;
+        text-align: center;
+      }
+      .contact-desc {
+        font-size: 1rem;
+        color: var(--muted2);
+        line-height: 1.8;
+        margin-bottom: 2.5rem;
+      }
+      .contact-form {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        margin-bottom: 2rem;
+      }
+      .contact-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+      }
+      .contact-form input,
+      .contact-form textarea {
+        width: 100%;
+        background: var(--bg3);
+        border: 1px solid var(--border);
+        border-radius: 10px;
+        padding: 0.85rem 1.1rem;
+        color: var(--text);
+        font-family: var(--font);
+        font-size: 0.9rem;
+        transition:
+          border-color 0.2s,
+          box-shadow 0.2s;
+        outline: none;
+      }
+      .contact-form input::placeholder,
+      .contact-form textarea::placeholder {
+        color: var(--muted);
+      }
+      .contact-form input:focus,
+      .contact-form textarea:focus {
+        border-color: var(--accent);
+        box-shadow: 0 0 0 3px rgba(0, 212, 200, 0.1);
+      }
+      .contact-form textarea {
+        min-height: 130px;
+        resize: vertical;
+      }
+      .btn-submit {
+        padding: 0.85rem;
+        background: var(--accent);
+        color: var(--bg);
+        font-weight: 600;
+        font-size: 0.9rem;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+        font-family: var(--font);
+        transition:
+          transform 0.2s,
+          box-shadow 0.2s;
+        width: 100%;
+      }
+      .btn-submit:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 28px rgba(0, 212, 200, 0.3);
+      }
+      .form-success {
+        display: none;
+        font-family: var(--mono);
+        font-size: 0.85rem;
+        color: var(--accent);
+        border: 1px solid var(--border2);
+        background: rgba(0, 212, 200, 0.06);
+        border-radius: 10px;
+        padding: 1.2rem;
+        margin-bottom: 1rem;
+      }
+      .contact-or {
+        font-family: var(--mono);
+        font-size: 0.72rem;
+        color: var(--muted);
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        margin-bottom: 1.5rem;
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+      }
+      .contact-or::before,
+      .contact-or::after {
+        content: "";
+        flex: 1;
+        height: 1px;
+        background: var(--border);
+      }
+      .contact-links {
+        display: flex;
+        gap: 0.8rem;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+      .contact-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-family: var(--mono);
+        font-size: 0.78rem;
+        color: var(--muted2);
+        border: 1px solid var(--border);
+        padding: 0.6rem 1.2rem;
+        border-radius: 8px;
+        transition: all 0.2s;
+      }
+      .contact-link:hover {
+        border-color: var(--accent);
+        color: var(--accent);
+        background: rgba(0, 212, 200, 0.06);
+      }
+
+      footer {
+        text-align: center;
+        padding: 2rem;
+        border-top: 1px solid var(--border);
+        font-family: var(--mono);
+        font-size: 0.72rem;
+        color: var(--muted);
+      }
+      footer span {
+        color: var(--accent);
+      }
+
+      @keyframes fadeUp {
+        from {
+          opacity: 0;
+          transform: translateY(22px);
+        }
+        to {
+          opacity: 1;
+          transform: none;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .nav-links,
+        .nav-cv {
+          display: none;
+        }
+        .nav-hamburger {
+          display: flex;
+        }
+        .about-grid {
+          grid-template-columns: 1fr;
+          gap: 2.5rem;
+        }
+        .contact-row {
+          grid-template-columns: 1fr;
+        }
+        .projects-grid {
+          grid-template-columns: 1fr;
+        }
+        .skills-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+        section {
+          padding: 4rem 1.5rem;
+        }
+        .exp-header {
+          flex-direction: column;
+        }
+      }
+      @media (max-width: 480px) {
+        .skills-grid {
+          grid-template-columns: 1fr;
+        }
+        #nav {
+          padding: 0 1.25rem;
+        }
+      }
+    </style>
   </head>
-  <body class="is-preload">
-    <!-- ====== SIDEBAR ====== -->
-    <div id="header">
-      <div class="top">
-        <!-- Logo / Name -->
-        <div id="logo">
-          <span class="image avatar48"
-            ><img src="images/avatar.jpg" alt="Phạm Thanh Lâm"
-          /></span>
-          <h1 id="title">Phạm Thanh Lâm</h1>
-          <p>Network Engineer<br />UIT · Ho Chi Minh City</p>
+  <body>
+    <!-- NAV -->
+    <!--
+    FIX CV DOWNLOAD:
+    Đổi tên file PDF của bạn thành "cv.pdf" (viết thường, không dấu cách)
+    rồi đặt vào CÙNG THƯ MỤC với file index.html này.
+    Cấu trúc thư mục đúng:
+      📁 your-folder/
+        ├── index.html        ← file này
+        ├── cv.pdf            ← file CV của bạn (đã đổi tên)
+        └── assets/
+  -->
+    <nav id="nav">
+      <div class="nav-logo">ptl<span>.</span></div>
+      <ul class="nav-links">
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <a href="cv.pdf" target="_blank" class="nav-cv">Download CV</a>
+      <button class="nav-hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+
+    <div class="nav-mobile" id="mobileMenu">
+      <a href="#experience">Experience</a>
+      <a href="#projects">Projects</a>
+      <a href="#skills">Skills</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+      <a href="cv.pdf" target="_blank" style="color: var(--accent)"
+        >Download CV →</a
+      >
+    </div>
+
+    <!-- HERO -->
+    <section id="hero">
+      <div class="dot-bg"></div>
+      <div class="hero-glow"></div>
+      <div class="hero-inner">
+        <div class="hero-badge">
+          <i class="fa-solid fa-circle-dot" style="font-size: 0.65rem"></i>
+          Open to opportunities · Ho Chi Minh City
+        </div>
+        <!-- FIX: Đổi "Network & Security Engineer" → "Network & Communications Engineer" -->
+        <h1 class="hero-name">Phạm Thanh <span class="accent">Lâm</span></h1>
+        <div class="hero-typewriter">
+          <span id="typewriter"></span><span class="cursor"></span>
+        </div>
+        <p class="hero-desc">
+          Graduate of UIT specializing in Computer Networks &amp; Data
+          Communications. Building resilient infrastructure with a focus on
+          network security and automation.
+        </p>
+        <div class="hero-ctas">
+          <a href="#projects" class="btn-primary">View My Work</a>
+          <a href="#contact" class="btn-outline">Get in Touch</a>
+        </div>
+      </div>
+      <div class="hero-scroll">
+        scroll<br /><i class="fa-solid fa-chevron-down"></i>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section id="experience">
+      <div class="container">
+        <div class="reveal" style="margin-bottom: 2.5rem">
+          <div class="section-label">Work History</div>
+          <h2 class="section-title">Experience</h2>
+          <div class="section-divider"></div>
         </div>
 
-        <!-- Nav -->
-        <nav id="nav">
-          <ul>
+        <div class="exp-card reveal">
+          <div class="exp-header">
+            <div>
+              <div class="exp-company">FSI — Công ty Cổ phần Công nghệ FSI</div>
+              <div class="exp-role">Network & Security Engineer Intern</div>
+            </div>
+            <span class="exp-period">Mar 2026 – Jun 2026</span>
+          </div>
+          <div class="exp-address">
+            <i
+              class="fa-solid fa-location-dot"
+              style="color: var(--accent); font-size: 0.8rem"
+            ></i>
+            26/22 Đường số 03, Cư Xá Đô Thành, Khu phố 10, Phường Bàn Cờ, TP. Hồ
+            Chí Minh
+          </div>
+          <ul class="exp-list">
+            <!--
+            TODO: Sau khi thực tập xong, thay các dòng dưới đây
+            bằng những gì bạn đã thực sự làm tại FSI.
+            Ví dụ:
+            <li>Configured and maintained Cisco Catalyst switches in production environment</li>
+            <li>Deployed and monitored firewall rules on OPNsense for enterprise perimeter security</li>
+            <li>Assisted in troubleshooting Layer 2/3 network incidents and documented resolution steps</li>
+          -->
             <li>
-              <a href="#top" id="top-link">
-                <span class="icon solid fa-home">Intro</span></a
-              >
+              Working on network infrastructure and security systems in a
+              production environment.
             </li>
             <li>
-              <a href="#portfolio" id="portfolio-link"
-                ><span class="icon solid fa-th">Projects</span></a
-              >
+              Gaining hands-on experience with enterprise-grade networking
+              equipment and security solutions.
             </li>
             <li>
-              <a href="#skills" id="skills-link">
-                <span class="icon solid fa-code">Skills</span></a
-              >
-            </li>
-            <li>
-              <a href="#about" id="about-link">
-                <span class="icon solid fa-user">About Me</span></a
-              >
-            </li>
-            <li>
-              <a href="#contact" id="contact-link">
-                <span class="icon solid fa-envelope">Contact</span></a
-              >
+              Collaborating with senior engineers on real-world deployment and
+              troubleshooting tasks.
             </li>
           </ul>
-        </nav>
+          <div class="exp-placeholder">
+            <i class="fa-solid fa-circle-info"></i>
+            Full responsibilities to be updated upon completion — Jun 2026
+          </div>
+        </div>
       </div>
+    </section>
 
-      <!-- Social links — ĐÃ ĐIỀN ĐÚNG URL -->
-      <div class="bottom">
-        <ul class="icons">
-          <li>
-            <a
-              href="https://www.linkedin.com/in/thanhlam-uit"
-              target="_blank"
-              class="icon brands fa-linkedin"
-            >
-              <span class="label">LinkedIn</span>
-            </a>
-          </li>
-          <li>
+    <!-- PROJECTS -->
+    <section id="projects">
+      <div class="container">
+        <div class="reveal" style="margin-bottom: 3rem">
+          <div class="section-label">Selected Work</div>
+          <h2 class="section-title">Projects &amp; Research</h2>
+          <div class="section-divider"></div>
+        </div>
+        <div class="projects-grid">
+          <div class="project-card reveal">
+            <div class="project-meta">
+              <span class="project-type">Thesis</span>
+              <span class="project-period">Jan 2026 · Ongoing</span>
+            </div>
+            <h3 class="project-title">HA Firewall &amp; SIEM System</h3>
+            <p class="project-desc">
+              Researching High Availability OPNsense (CARP/pfsync) with WAF
+              (HAProxy). Integrating Wazuh SIEM with a custom Python module for
+              automated security log analysis. Simulating LAN/WAN/DMZ attack
+              scenarios in VMware to stress-test failover behavior.
+            </p>
+            <div class="project-tags">
+              <span class="tag">OPNsense</span
+              ><span class="tag">CARP/pfsync</span
+              ><span class="tag">HAProxy</span><span class="tag">Wazuh</span
+              ><span class="tag">VMware</span><span class="tag">Python</span>
+            </div>
+          </div>
+
+          <div class="project-card reveal">
+            <div class="project-meta">
+              <span class="project-type">Academic</span>
+              <span class="project-period">Oct – Dec 2025</span>
+            </div>
+            <h3 class="project-title">SDN Server Load Balancer</h3>
+            <p class="project-desc">
+              Built a full SDN load balancer using Python, Mininet, and POX
+              Controller (OpenFlow). Implemented ARP Spoofing, bidirectional
+              NAT, Round Robin &amp; Random algorithms, Health Check, and
+              automatic Failover with a real-time traffic dashboard.
+            </p>
+            <div class="project-tags">
+              <span class="tag">Python</span><span class="tag">Mininet</span
+              ><span class="tag">POX</span><span class="tag">OpenFlow</span
+              ><span class="tag">SDN</span><span class="tag">Matplotlib</span>
+            </div>
+            <!-- FIX: Cập nhật GitHub username mới -->
             <a
               href="https://github.com/ThanhLam-NetEng"
               target="_blank"
-              class="icon brands fa-github"
+              class="project-link"
             >
-              <span class="label">GitHub</span>
+              View on GitHub <i class="fa-solid fa-arrow-right"></i>
             </a>
-          </li>
-          <li>
-            <a
-              href="mailto:phamthanhlam.work@gmail.com"
-              class="icon solid fa-envelope"
-            >
-              <span class="label">Email</span>
-            </a>
-          </li>
-        </ul>
-      </div>
-    </div>
+          </div>
 
-    <!-- ====== MAIN CONTENT ====== -->
-    <div id="main">
-      <!-- HERO -->
-      <section id="top" class="one dark cover">
-        <div class="container">
-          <header>
-            <h2 class="alt">
-              Hi, I'm <strong>Phạm Thanh Lâm</strong>.<br />
-              Network &amp; Security Engineer Intern.
-            </h2>
-            <p>
-              Final-year student at UIT specializing in network
-              infrastructure,<br />
-              firewall security, SDN, and open-source monitoring systems.
+          <div class="project-card reveal">
+            <div class="project-meta">
+              <span class="project-type">Academic</span>
+              <span class="project-period">Sep – Nov 2024</span>
+            </div>
+            <h3 class="project-title">Network Monitoring with LibreNMS</h3>
+            <p class="project-desc">
+              Deployed a centralized NMS on Linux/Docker using LibreNMS.
+              Configured SNMP v2c/v3 to collect bandwidth, CPU, and RAM metrics.
+              Set up Email/Telegram alerting and optimized the incident response
+              workflow.
             </p>
-          </header>
-          <footer>
-            <a href="#portfolio" class="button scrolly">View My Work</a>
-          </footer>
+            <div class="project-tags">
+              <span class="tag">LibreNMS</span><span class="tag">Docker</span
+              ><span class="tag">SNMP v3</span><span class="tag">Linux</span
+              ><span class="tag">Alerting</span>
+            </div>
+          </div>
+
+          <div class="project-card reveal">
+            <div class="project-meta">
+              <span class="project-type work">FSI</span>
+              <span class="project-period">2026</span>
+            </div>
+            <h3 class="project-title">Cisco Infrastructure Deployment</h3>
+            <p class="project-desc">
+              Performed hands-on IOS upgrades (Install Mode) and StackWise
+              configuration on Cisco Catalyst 9200L switches in a live
+              production environment. First direct operational experience with
+              enterprise-grade switching hardware.
+            </p>
+            <div class="project-tags">
+              <span class="tag">Cisco IOS</span
+              ><span class="tag">Catalyst 9200L</span
+              ><span class="tag">StackWise</span
+              ><span class="tag">Install Mode</span>
+            </div>
+          </div>
+
+          <div class="project-card reveal">
+            <div class="project-meta">
+              <span class="project-type work">FSI</span>
+              <span class="project-period">2026</span>
+            </div>
+            <h3 class="project-title">SD-WAN — Peplink SpeedFusion</h3>
+            <p class="project-desc">
+              Configured Peplink SpeedFusion Bandwidth Bonding and Hot Failover
+              routing for multi-branch enterprise networks. Reduced single-link
+              dependency and improved WAN resilience across geographically
+              distributed sites.
+            </p>
+            <div class="project-tags">
+              <span class="tag">Peplink</span
+              ><span class="tag">SpeedFusion</span
+              ><span class="tag">SD-WAN</span
+              ><span class="tag">Hot Failover</span>
+            </div>
+          </div>
+
+          <div class="project-card reveal">
+            <div class="project-meta">
+              <span class="project-type work">FSI</span>
+              <span class="project-period">2026</span>
+            </div>
+            <h3 class="project-title">
+              Data Center Ops &amp; C2 Threat Mitigation
+            </h3>
+            <p class="project-desc">
+              Physical infrastructure verification and fiber optic
+              troubleshooting at Viettel IDC. Deployed F-DDH BOX to actively
+              monitor and block Command &amp; Control (C2) server communications
+              across the enterprise perimeter.
+            </p>
+            <div class="project-tags">
+              <span class="tag">Data Center</span
+              ><span class="tag">Fiber Optic</span
+              ><span class="tag">F-DDH BOX</span
+              ><span class="tag">C2 Blocking</span
+              ><span class="tag">Viettel IDC</span>
+            </div>
+          </div>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <!-- PROJECTS -->
-      <section id="portfolio" class="two">
-        <div class="container">
-          <header>
-            <h2>Projects</h2>
-          </header>
-          <p>
-            A mix of academic research and real-world internship work — covering
-            network security, SDN, system monitoring, and enterprise
-            infrastructure operations.
-          </p>
+    <!-- SKILLS -->
+    <section id="skills">
+      <div class="container">
+        <div class="reveal" style="margin-bottom: 2.5rem">
+          <div class="section-label">Technical Stack</div>
+          <h2 class="section-title">Skills</h2>
+          <div class="section-divider"></div>
+        </div>
+        <div class="skills-grid">
+          <div class="skill-group reveal">
+            <div class="skill-group-title">Networking &amp; Architecture</div>
+            <div class="skill-list">
+              <span class="skill-pill">TCP/IP</span
+              ><span class="skill-pill">Routing &amp; Switching</span
+              ><span class="skill-pill">Network Design</span
+              ><span class="skill-pill">High Availability</span
+              ><span class="skill-pill">CARP / pfsync</span
+              ><span class="skill-pill">SDN / OpenFlow</span
+              ><span class="skill-pill">Ryu Controller</span
+              ><span class="skill-pill">SD-WAN</span
+              ><span class="skill-pill">Cisco IOS</span
+              ><span class="skill-pill">StackWise</span>
+            </div>
+          </div>
+          <div class="skill-group reveal">
+            <div class="skill-group-title">Security &amp; Monitoring</div>
+            <div class="skill-list">
+              <span class="skill-pill">OPNsense</span
+              ><span class="skill-pill">pfSense</span
+              ><span class="skill-pill">HAProxy (WAF)</span
+              ><span class="skill-pill">Suricata IDS/IPS</span
+              ><span class="skill-pill">Wazuh SIEM</span
+              ><span class="skill-pill">LibreNMS</span
+              ><span class="skill-pill">SNMP v2c/v3</span
+              ><span class="skill-pill">Unbound DNS</span>
+            </div>
+          </div>
+          <div class="skill-group reveal">
+            <div class="skill-group-title">Systems &amp; Infrastructure</div>
+            <div class="skill-list">
+              <span class="skill-pill">Linux (Ubuntu/CentOS)</span
+              ><span class="skill-pill">Windows Server</span
+              ><span class="skill-pill">VMware</span
+              ><span class="skill-pill">Nested Virtualization</span
+              ><span class="skill-pill">Docker</span
+              ><span class="skill-pill">LAN/WAN/DMZ</span>
+            </div>
+          </div>
+          <div class="skill-group reveal">
+            <div class="skill-group-title">Programming &amp; DevOps</div>
+            <div class="skill-list">
+              <span class="skill-pill">Python</span
+              ><span class="skill-pill">Security Automation</span
+              ><span class="skill-pill">ML (basics)</span
+              ><span class="skill-pill">Shell Scripting</span
+              ><span class="skill-pill">Git</span
+              ><span class="skill-pill">DevOps</span
+              ><span class="skill-pill">Mininet</span
+              ><span class="skill-pill">Matplotlib</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-          <div class="row">
-            <!-- COL 1: Academic projects from thesis + CV -->
-            <div class="col-4 col-12-mobile">
-              <!-- Project 1: KLTN -->
-              <article class="item">
-                <a href="#" class="image fit">
-                  <img src="images/pic02.jpg" alt="HA Firewall and SIEM" />
-                </a>
-                <header>
-                  <h3>HA Firewall &amp; SIEM (Thesis)</h3>
-                  <p style="font-size: 0.8em; padding: 0 10px">
-                    Deploying High Availability OPNsense (CARP/pfsync) with WAF
-                    (HAProxy) and a SIEM system (Wazuh + Python) for automated
-                    log analysis. Simulating LAN/WAN/DMZ attack scenarios on
-                    VMware. <em>— Jan 2026 · Ongoing</em>
-                  </p>
-                </header>
-              </article>
-
-              <!-- Project 2: SDN Load Balancer -->
-              <article class="item">
-                <a
-                  href="https://github.com/ThanhLam-NetEng"
-                  target="_blank"
-                  class="image fit"
+    <!-- ABOUT -->
+    <section id="about">
+      <div class="container">
+        <div class="about-grid">
+          <div class="about-text reveal">
+            <div class="section-label">Background</div>
+            <h2 class="section-title">About Me</h2>
+            <div class="section-divider"></div>
+            <!-- FIX: Đổi chuyên ngành đúng → "Computer Networks & Data Communications" -->
+            <p>
+              I'm a graduate of the
+              <strong
+                >University of Information Technology (UIT – VNU-HCM)</strong
+              >, majoring in
+              <strong>Computer Networks &amp; Data Communications</strong>. My
+              focus is on <span class="hl">network security</span>,
+              <span class="hl">system infrastructure</span>, and
+              <span class="hl">network automation</span>.
+            </p>
+            <p>
+              I've worked in real production environments — configuring Cisco
+              enterprise hardware, deploying SD-WAN solutions, operating fiber
+              infrastructure at a data center, and implementing active threat
+              mitigation systems at FSI.
+            </p>
+            <p>
+              My thesis focused on High Availability firewall architecture
+              combined with a SIEM system for automated security log analysis.
+              Over the next 2–3 years, I aim to specialize in
+              <strong>Network Automation</strong> and
+              <strong>Cloud Networking</strong>.
+            </p>
+            <div class="about-socials">
+              <a
+                href="https://www.linkedin.com/in/thanhlam-uit"
+                target="_blank"
+                class="social-btn"
+                ><i class="fa-brands fa-linkedin"></i> LinkedIn</a
+              >
+              <!-- FIX: GitHub username mới -->
+              <a
+                href="https://github.com/ThanhLam-NetEng"
+                target="_blank"
+                class="social-btn"
+                ><i class="fa-brands fa-github"></i> GitHub</a
+              >
+              <a href="mailto:phamthanhlam.work@gmail.com" class="social-btn"
+                ><i class="fa-solid fa-envelope"></i> Email</a
+              >
+            </div>
+          </div>
+          <div class="reveal" style="transition-delay: 0.15s">
+            <div class="about-stats">
+              <div class="stat-card">
+                <div class="stat-number">3</div>
+                <div class="stat-label">Academic Projects</div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-number">3+</div>
+                <div class="stat-label">Work Deployments</div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-number">7.72</div>
+                <div class="stat-label">GPA (out of 10)</div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-number">2026</div>
+                <div class="stat-label">Graduation Year</div>
+              </div>
+            </div>
+            <div class="about-info">
+              <div class="info-row">
+                <i class="fa-solid fa-graduation-cap"></i
+                ><span class="info-label">School</span
+                ><span class="info-value">UIT – VNU-HCM</span>
+              </div>
+              <div class="info-row">
+                <i class="fa-solid fa-book"></i
+                ><span class="info-label">Major</span
+                ><span class="info-value"
+                  >Computer Networks &amp; Data Communications</span
                 >
-                  <img src="images/pic03.jpg" alt="SDN Load Balancing" />
-                </a>
-                <header>
-                  <h3>SDN Server Load Balancing</h3>
-                  <p style="font-size: 0.8em; padding: 0 10px">
-                    Built a full SDN load balancer using Python, Mininet, and
-                    POX Controller (OpenFlow). Implemented ARP Spoofing,
-                    bidirectional NAT, Round Robin / Random algorithms, Health
-                    Check &amp; automatic Failover, and a real-time traffic
-                    dashboard with Matplotlib. <em>— Oct–Dec 2025</em>
-                  </p>
-                </header>
-              </article>
-            </div>
-
-            <!-- COL 2: Academic + Internship -->
-            <div class="col-4 col-12-mobile">
-              <!-- Project 3: LibreNMS -->
-              <article class="item">
-                <a href="#" class="image fit">
-                  <img
-                    src="images/pic04.jpg"
-                    alt="LibreNMS Network Monitoring"
-                  />
-                </a>
-                <header>
-                  <h3>Network Monitoring — LibreNMS</h3>
-                  <p style="font-size: 0.8em; padding: 0 10px">
-                    Deployed a centralized NMS on Linux/Docker using LibreNMS.
-                    Configured SNMP v2c/v3 to collect bandwidth, CPU, and RAM
-                    metrics. Set up Email/Telegram alerting and optimized the
-                    incident response workflow.
-                    <em>— Sep–Nov 2024</em>
-                  </p>
-                </header>
-              </article>
-
-              <!-- Project 4: Cisco Internship -->
-              <article class="item">
-                <a href="#" class="image fit">
-                  <img src="images/pic05.jpg" alt="Cisco Catalyst Switches" />
-                </a>
-                <header>
-                  <h3>Cisco Infrastructure — Internship</h3>
-                  <p style="font-size: 0.8em; padding: 0 10px">
-                    Hands-on IOS upgrades (Install Mode) and StackWise
-                    configuration for Catalyst 9200L switches in a production
-                    environment. Gained direct experience with enterprise-grade
-                    hardware operations.
-                  </p>
-                </header>
-              </article>
-            </div>
-
-            <!-- COL 3: Internship work -->
-            <div class="col-4 col-12-mobile">
-              <!-- Project 5: SD-WAN -->
-              <article class="item">
-                <a href="#" class="image fit">
-                  <img src="images/pic06.jpg" alt="Peplink SD-WAN" />
-                </a>
-                <header>
-                  <h3>SD-WAN Solutions — Internship</h3>
-                  <p style="font-size: 0.8em; padding: 0 10px">
-                    Configured Peplink SpeedFusion Bandwidth Bonding and Hot
-                    Failover routing for multi-branch network stability. Reduced
-                    single-link dependency and improved WAN resilience.
-                  </p>
-                </header>
-              </article>
-
-              <!-- Project 6: C2 / Data Center -->
-              <article class="item">
-                <a href="#" class="image fit">
-                  <img
-                    src="images/pic07.jpg"
-                    alt="Data Center and Threat Mitigation"
-                  />
-                </a>
-                <header>
-                  <h3>Data Center &amp; Threat Mitigation</h3>
-                  <p style="font-size: 0.8em; padding: 0 10px">
-                    Physical infrastructure verification and fiber optic
-                    troubleshooting at Viettel IDC. Deployed F-DDH BOX to
-                    actively monitor and block Command &amp; Control (C2) server
-                    communications.
-                  </p>
-                </header>
-              </article>
-            </div>
-          </div>
-          <!-- /.row -->
-        </div>
-      </section>
-
-      <!-- ====== SKILLS (MỚI THÊM) ====== -->
-      <!--
-        Phần này không có trong template gốc.
-        Đây là section quan trọng nhất với nhà tuyển dụng kỹ thuật.
-        Dùng chính class CSS của template để giữ style đồng nhất.
-      -->
-      <section id="skills" class="three">
-        <div class="container">
-          <header>
-            <h2>Technical Skills</h2>
-          </header>
-
-          <div class="row">
-            <div class="col-6 col-12-mobile">
-              <h3
-                style="
-                  text-align: left;
-                  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-                  padding-bottom: 0.5em;
-                "
-              >
-                Networking &amp; Architecture
-              </h3>
-              <ul style="text-align: left; line-height: 2">
-                <li>TCP/IP, Routing &amp; Switching, Network Design</li>
-                <li>
-                  High Availability — CARP, pfsync (Active-Passive /
-                  Active-Active)
-                </li>
-                <li>SDN — OpenFlow, Ryu, POX Controller</li>
-                <li>SD-WAN — Peplink SpeedFusion, Bandwidth Bonding</li>
-                <li>Cisco IOS — Catalyst 9200L, StackWise</li>
-              </ul>
-            </div>
-
-            <div class="col-6 col-12-mobile">
-              <h3
-                style="
-                  text-align: left;
-                  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-                  padding-bottom: 0.5em;
-                "
-              >
-                Security &amp; Monitoring
-              </h3>
-              <ul style="text-align: left; line-height: 2">
-                <li>Firewall — OPNsense / pfSense</li>
-                <li>WAF — HAProxy</li>
-                <li>IDS/IPS — Suricata</li>
-                <li>SIEM — Wazuh (log analysis, alerting)</li>
-                <li>Network Monitoring — LibreNMS, SNMP v2c/v3</li>
-              </ul>
-            </div>
-
-            <div class="col-6 col-12-mobile" style="margin-top: 1.5em">
-              <h3
-                style="
-                  text-align: left;
-                  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-                  padding-bottom: 0.5em;
-                "
-              >
-                Systems &amp; OS
-              </h3>
-              <ul style="text-align: left; line-height: 2">
-                <li>Linux Administration — Ubuntu, CentOS</li>
-                <li>Windows Server</li>
-                <li>VMware / Nested Virtualization</li>
-                <li>Docker (basics)</li>
-              </ul>
-            </div>
-
-            <div class="col-6 col-12-mobile" style="margin-top: 1.5em">
-              <h3
-                style="
-                  text-align: left;
-                  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-                  padding-bottom: 0.5em;
-                "
-              >
-                Programming &amp; DevOps
-              </h3>
-              <ul style="text-align: left; line-height: 2">
-                <li>Python — Security Automation, ML basics</li>
-                <li>Shell Scripting</li>
-                <li>Git</li>
-                <li>DevOps &amp; Programmable Networks (coursework)</li>
-              </ul>
+              </div>
+              <div class="info-row">
+                <i class="fa-solid fa-location-dot"></i
+                ><span class="info-label">Location</span
+                ><span class="info-value">Dĩ An, Bình Dương · HCM City</span>
+              </div>
+              <div class="info-row">
+                <i class="fa-solid fa-phone"></i
+                ><span class="info-label">Phone</span
+                ><span class="info-value">0868 745 540</span>
+              </div>
+              <div class="info-row">
+                <i class="fa-solid fa-language"></i
+                ><span class="info-label">Languages</span
+                ><span class="info-value"
+                  >Vietnamese · English (technical)</span
+                >
+              </div>
             </div>
           </div>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <!-- ABOUT -->
-      <section id="about" class="two">
-        <div class="container">
-          <header>
-            <h2>About Me</h2>
-          </header>
-          <a href="#" class="image featured"
-            ><img src="images/pic08.jpg" alt="Phạm Thanh Lâm"
-          /></a>
-          <p>
-            I am a final-year student at the University of Information
-            Technology (UIT – VNU-HCM), majoring in Computer Networks & Data
-            Communications (GPA: 7.72/10). My focus is on network security,
-            system infrastructure, and network automation.
-          </p>
-          <p>
-            Outside the classroom, I have been involved in real internship
-            environments — configuring Cisco Catalyst switches, deploying SD-WAN
-            solutions on Peplink devices, operating fiber infrastructure at a
-            data center, and implementing threat mitigation systems. These
-            experiences have sharpened my ability to move quickly between
-            theoretical knowledge and practical, enterprise-grade deployment.
-          </p>
-          <p>
-            My current thesis focuses on a High Availability firewall
-            architecture integrated with a SIEM system for automated log
-            analysis, using simulated attack scenarios to evaluate system
-            resilience. It also applies AI techniques at the feature engineering
-            level to extract insights from log data. Over the next 2–3 years, I
-            aim to further develop my expertise in
-            <strong>Network Automation</strong> and
-            <strong>Cloud Networking</strong>.
-          </p>
-        </div>
-      </section>
-
-      <!-- CONTACT -->
-      <section id="contact" class="four">
-        <div class="container">
-          <header>
-            <h2>Let's Connect</h2>
-          </header>
-          <p>
-            Interested in network infrastructure, security, or just want to talk
-            tech? Feel free to reach out via email or connect with me on
-            LinkedIn.
+    <!-- CONTACT -->
+    <section id="contact">
+      <div class="container">
+        <div class="contact-inner">
+          <div class="reveal">
+            <div class="section-label">Get in Touch</div>
+            <h2 class="section-title">Let's Connect</h2>
+            <div class="section-divider" style="margin: 0 auto 2rem"></div>
+          </div>
+          <p class="contact-desc reveal">
+            Interested in networking, security, or infrastructure? Have an
+            opportunity? I'm always open to new challenges.
           </p>
 
           <!--
-            ============================================================
-            HƯỚNG DẪN: Form này cần Formspree để hoạt động.
-            Làm theo 3 bước sau:
-              1. Vào https://formspree.io và đăng ký miễn phí
-              2. Tạo 1 form mới, bạn sẽ nhận được 1 ID dạng: xyzabcde
-              3. Thay "YOUR_FORMSPREE_ID" bên dưới bằng ID đó
-            Ví dụ: action="https://formspree.io/f/xyzabcde"
-            Nếu chưa setup Formspree, form sẽ không gửi được.
-            ============================================================
-          -->
-          <form method="post" action="https://formspree.io/f/YOUR_FORMSPREE_ID">
-            <div class="row">
-              <div class="col-6 col-12-mobile">
-                <input
-                  type="text"
-                  name="name"
-                  placeholder="Your Name"
-                  required
-                />
-              </div>
-              <div class="col-6 col-12-mobile">
-                <input
-                  type="email"
-                  name="email"
-                  placeholder="Your Email"
-                  required
-                />
-              </div>
-              <div class="col-12">
-                <textarea
-                  name="message"
-                  placeholder="Your Message"
-                  rows="6"
-                  required
-                ></textarea>
-              </div>
-              <div class="col-12">
-                <input type="submit" value="Send Message" />
-              </div>
+        ══════════════════════════════════════════════
+        SETUP FORMSPREE — 3 bước, mất khoảng 3 phút:
+
+        Bước 1: Vào https://formspree.io → Sign up miễn phí
+        Bước 2: Nhấn "+ New Form" → đặt tên bất kỳ → Create
+        Bước 3: Copy endpoint URL (dạng https://formspree.io/f/xxxxxxxx)
+                Thay toàn bộ chỗ "https://formspree.io/f/YOUR_ID" bên dưới bằng URL đó
+
+        Sau khi xong, test bằng cách điền form trên web và kiểm tra email của bạn.
+        ══════════════════════════════════════════════
+        -->
+          <div class="form-success" id="formSuccess">
+            <i class="fa-solid fa-circle-check"></i> Message sent! I'll get back
+            to you soon.
+          </div>
+
+          <form
+            class="contact-form reveal"
+            id="contactForm"
+            action="https://formspree.io/f/YOUR_ID"
+            method="POST"
+          >
+            <div class="contact-row">
+              <input type="text" name="name" placeholder="Your name" required />
+              <input
+                type="email"
+                name="email"
+                placeholder="Your email"
+                required
+              />
             </div>
+            <textarea
+              name="message"
+              placeholder="Your message..."
+              required
+            ></textarea>
+            <button type="submit" class="btn-submit" id="submitBtn">
+              Send Message
+            </button>
           </form>
 
-          <!-- Direct contact links — luôn hiển thị kèm form -->
-          <p style="margin-top: 2em">
-            Or reach me directly at:
-            <a href="mailto:phamthanhlam.work@gmail.com"
-              >phamthanhlam.work@gmail.com</a
+          <div class="contact-or reveal">or reach me directly</div>
+          <div class="contact-links reveal">
+            <a href="mailto:phamthanhlam.work@gmail.com" class="contact-link"
+              ><i class="fa-solid fa-envelope"></i>
+              phamthanhlam.work@gmail.com</a
             >
-            &nbsp;·&nbsp;
-            <a href="https://www.linkedin.com/in/thanhlam-uit" target="_blank"
-              >LinkedIn</a
+            <a
+              href="https://www.linkedin.com/in/thanhlam-uit"
+              target="_blank"
+              class="contact-link"
+              ><i class="fa-brands fa-linkedin"></i> LinkedIn</a
             >
-            &nbsp;·&nbsp;
-            <a href="https://github.com/ThanhLam-NetEng" target="_blank"
-              >GitHub</a
+            <!-- FIX: GitHub username mới -->
+            <a
+              href="https://github.com/ThanhLam-NetEng"
+              target="_blank"
+              class="contact-link"
+              ><i class="fa-brands fa-github"></i> GitHub</a
             >
-          </p>
+          </div>
         </div>
-      </section>
-    </div>
-    <!-- /#main -->
+      </div>
+    </section>
 
-    <!-- FOOTER -->
-    <div id="footer">
-      <ul class="copyright">
-        <li>&copy; Phạm Thanh Lâm. All rights reserved.</li>
-        <li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
-      </ul>
-    </div>
+    <footer>
+      © 2026 Phạm Thanh Lâm · Built with <span>♥</span> · Ho Chi Minh City
+    </footer>
 
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/js/jquery.scrolly.min.js"></script>
-    <script src="assets/js/jquery.scrollex.min.js"></script>
-    <script src="assets/js/browser.min.js"></script>
-    <script src="assets/js/breakpoints.min.js"></script>
-    <script src="assets/js/util.js"></script>
-    <script src="assets/js/main.js"></script>
+    <script>
+      // Nav scroll
+      const nav = document.getElementById("nav");
+      window.addEventListener("scroll", () => {
+        nav.classList.toggle("scrolled", window.scrollY > 40);
+      });
+
+      // Hamburger
+      const hamburger = document.getElementById("hamburger");
+      const mobileMenu = document.getElementById("mobileMenu");
+      hamburger.addEventListener("click", () => {
+        hamburger.classList.toggle("open");
+        mobileMenu.classList.toggle("open");
+      });
+      mobileMenu.querySelectorAll("a").forEach((a) =>
+        a.addEventListener("click", () => {
+          hamburger.classList.remove("open");
+          mobileMenu.classList.remove("open");
+        }),
+      );
+
+      // Typewriter — bỏ "Intern" khỏi danh sách
+      const roles = [
+        "Network & Communications Engineer",
+        "Security Enthusiast",
+        "SDN Developer",
+        "Open-source Builder",
+        "Network Automation Learner",
+      ];
+      let rIdx = 0,
+        cIdx = 0,
+        deleting = false;
+      const tw = document.getElementById("typewriter");
+      function type() {
+        const current = roles[rIdx];
+        if (!deleting) {
+          tw.textContent = current.slice(0, ++cIdx);
+          if (cIdx === current.length) {
+            deleting = true;
+            setTimeout(type, 1800);
+            return;
+          }
+        } else {
+          tw.textContent = current.slice(0, --cIdx);
+          if (cIdx === 0) {
+            deleting = false;
+            rIdx = (rIdx + 1) % roles.length;
+            setTimeout(type, 350);
+            return;
+          }
+        }
+        setTimeout(type, deleting ? 45 : 85);
+      }
+      setTimeout(type, 900);
+
+      // Formspree AJAX — hiện thông báo thành công thay vì redirect
+      const form = document.getElementById("contactForm");
+      const successMsg = document.getElementById("formSuccess");
+      const submitBtn = document.getElementById("submitBtn");
+      form.addEventListener("submit", async (e) => {
+        e.preventDefault();
+        submitBtn.textContent = "Sending...";
+        submitBtn.disabled = true;
+        try {
+          const res = await fetch(form.action, {
+            method: "POST",
+            body: new FormData(form),
+            headers: { Accept: "application/json" },
+          });
+          if (res.ok) {
+            form.reset();
+            form.style.display = "none";
+            successMsg.style.display = "block";
+          } else {
+            submitBtn.textContent = "Failed — try email directly";
+            submitBtn.disabled = false;
+          }
+        } catch {
+          submitBtn.textContent = "Failed — try email directly";
+          submitBtn.disabled = false;
+        }
+      });
+
+      // Scroll reveal
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((e) => {
+            if (e.isIntersecting) {
+              e.target.classList.add("visible");
+              observer.unobserve(e.target);
+            }
+          });
+        },
+        { threshold: 0.1 },
+      );
+      document.querySelectorAll(".reveal").forEach((el, i) => {
+        if (!el.style.transitionDelay)
+          el.style.transitionDelay = `${(i % 4) * 0.08}s`;
+        observer.observe(el);
+      });
+    </script>
   </body>
 </html>
