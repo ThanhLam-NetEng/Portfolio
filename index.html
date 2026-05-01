@@ -1089,10 +1089,9 @@
               <strong>Tây Ninh Innovation Center</strong> exhibition.
             </li>
             <li>
-              Supported enterprise network infrastructure operations for
-              internal users — LAN connectivity troubleshooting, endpoint
-              network configuration, shared resource access, and device
-              onboarding.
+              Supported enterprise network infrastructure operations for internal
+              users — LAN connectivity troubleshooting, endpoint network
+              configuration, shared resource access, and device onboarding.
             </li>
             <li>
               Assisted Cisco network initiatives including
@@ -1103,10 +1102,10 @@
               customer demos and enterprise advisory.
             </li>
             <li>
-              Conducted security research on VPN evasion techniques (<strong
-                >Tailscale, Cloudflare WARP, WireGuard on AWS EC2</strong
-              >) to assess NGFW visibility limitations and document security
-              control gaps.
+              Conducted security research on VPN evasion techniques
+              (<strong>Tailscale, Cloudflare WARP, WireGuard on AWS EC2</strong>)
+              to assess NGFW visibility limitations and document security control
+              gaps.
             </li>
           </ul>
         </div>
@@ -1132,15 +1131,13 @@
               HA Firewall &amp; AI-driven Security Monitoring
             </h3>
             <p class="project-desc">
-              Built
-              <strong>Active-Passive OPNsense cluster</strong> (CARP/pfsync)
+              Built <strong>Active-Passive OPNsense cluster</strong> (CARP/pfsync)
               with HAProxy SSL offloading and ModSecurity WAF (OWASP CRS).
               <strong>2.8s failover</strong> (&lt;5s target), zero-session-drop,
-              0.71% sync overhead. WAF validation:
-              <strong>12,796 alerts</strong>, DR 100% / FPR 0%. Wazuh SIEM
-              pipeline + Random Forest / LR trained on custom attack dataset
-              (DVWA + Kali): detection avg <strong>1.80s</strong>, RF AUC
-              <strong>1.000</strong>.
+              0.71% sync overhead. WAF validation: <strong>12,796 alerts</strong>,
+              DR 100% / FPR 0%. Wazuh SIEM pipeline + Random Forest / LR trained
+              on custom attack dataset (DVWA + Kali): detection avg
+              <strong>1.80s</strong>, RF AUC <strong>1.000</strong>.
             </p>
             <div class="project-tags">
               <span class="tag">OPNsense</span
@@ -1215,22 +1212,29 @@
               on Cisco dCloud CML (2× C8000v). Enforced
               <strong>IPsec AES-256-GCM</strong> across both transports (MPLS +
               biz-internet) — patient data never transmitted in plaintext even
-              during failover. Implemented
-              <strong>least-privilege AAR policy</strong>: pinned critical
-              medical traffic (Oracle, MS-SQL) exclusively to MPLS; verified via
-              vManage Events Log —
+              during failover. Implemented <strong>least-privilege AAR policy</strong>:
+              pinned critical medical traffic (Oracle, MS-SQL) exclusively to MPLS;
+              verified via vManage Events Log —
               <strong>~3 min convergence, zero manual intervention</strong>.
             </p>
             <div class="project-tags">
               <span class="tag">Cisco CML</span
               ><span class="tag">Catalyst SD-WAN 20.18</span
-              ><span class="tag">vManage</span><span class="tag">C8000v</span
+              ><span class="tag">vManage</span
+              ><span class="tag">C8000v</span
               ><span class="tag">AAR Policy</span
               ><span class="tag">IPsec AES-256-GCM</span
               ><span class="tag">BFD</span
               ><span class="tag">Hub-and-Spoke</span>
             </div>
+            <a
+              href="https://github.com/ThanhLam-NetEng/cisco-sdwan-hospital-lab"
+              target="_blank"
+              class="project-link"
+              >View on GitHub <i class="fa-solid fa-arrow-right"></i
+            ></a>
           </div>
+
         </div>
       </div>
     </section>
@@ -1294,8 +1298,7 @@
               AI Shield Firewall — LLM Traffic Inspection Proxy
             </h3>
             <p class="project-desc">
-              Built a
-              <strong>5-layer bilingual (EN+VI) LLM security proxy</strong>
+              Built a <strong>5-layer bilingual (EN+VI) LLM security proxy</strong>
               on AWS (FastAPI, Docker) enforcing DLP at enterprise AI API
               perimeters. Pipeline: Regex → Presidio NLP +
               <strong>Vietnamese PII recognizers</strong> (CCCD, tax code,
@@ -1305,13 +1308,21 @@
               IAM Role + DynamoDB audit logging.
             </p>
             <div class="project-tags">
-              <span class="tag">Python</span><span class="tag">FastAPI</span
-              ><span class="tag">AWS EC2</span><span class="tag">Docker</span
+              <span class="tag">Python</span
+              ><span class="tag">FastAPI</span
+              ><span class="tag">AWS EC2</span
+              ><span class="tag">Docker</span
               ><span class="tag">Presidio NLP</span
               ><span class="tag">Prompt Injection</span
               ><span class="tag">IAM Role</span
               ><span class="tag">DynamoDB</span>
             </div>
+            <a
+              href="https://github.com/ThanhLam-NetEng/ai-shield-fw"
+              target="_blank"
+              class="project-link"
+              >View on GitHub <i class="fa-solid fa-arrow-right"></i
+            ></a>
           </div>
 
           <div class="project-card reveal">
@@ -1323,21 +1334,28 @@
               AutoCTI — Autonomous Cyber Threat Intelligence Agent
             </h3>
             <p class="project-desc">
-              Built a
-              <strong>24/7 automated SOC threat-intelligence pipeline</strong>
-              on AWS Free Tier (~$0/month):
-              <strong>LangGraph ReAct Agent</strong> + Gemini 2.5 Flash + Tavily
-              real-time search for autonomous threat triage and Telegram
-              alerting. IAM Role credentials, DynamoDB conversation memory —
-              <strong>~80% RAM reduction</strong> over prior Playwright-based
-              architecture.
+              Built a <strong>24/7 automated SOC threat-intelligence pipeline</strong>
+              on AWS Free Tier (~$0/month): <strong>LangGraph ReAct Agent</strong>
+              + Gemini 2.5 Flash + Tavily real-time search for autonomous threat
+              triage and Telegram alerting. IAM Role credentials, DynamoDB
+              conversation memory — <strong>~80% RAM reduction</strong> over
+              prior Playwright-based architecture.
             </p>
             <div class="project-tags">
-              <span class="tag">AWS</span><span class="tag">SQS</span
-              ><span class="tag">LangGraph</span><span class="tag">Python</span
-              ><span class="tag">Docker</span><span class="tag">Gemini AI</span
+              <span class="tag">AWS</span
+              ><span class="tag">SQS</span
+              ><span class="tag">LangGraph</span
+              ><span class="tag">Python</span
+              ><span class="tag">Docker</span
+              ><span class="tag">Gemini AI</span
               ><span class="tag">Telegram Bot API</span>
             </div>
+            <a
+              href="https://github.com/ThanhLam-NetEng/AutoCTI"
+              target="_blank"
+              class="project-link"
+              >View on GitHub <i class="fa-solid fa-arrow-right"></i
+            ></a>
           </div>
         </div>
       </div>
