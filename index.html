@@ -1081,25 +1081,32 @@
           </div>
           <ul class="exp-list">
             <li>
-              Configured and tested <strong>F-DDH BOX</strong> security
-              appliance end-to-end — static IP setup, admin interface, C2
-              traffic blocking (ICMP/TCP), and log monitoring via email alerts.
-              Authored the internal configuration guide. Deployed and demoed the
-              product on-site at <strong>Viettel Đắk Lắk</strong> and the
+              Validated and deployed <strong>F-DDH BOX</strong> security
+              appliance end-to-end — lab setup, C2 traffic blocking (ICMP/TCP),
+              log analysis, and alert verification; authored the internal
+              configuration guide and demoed the product on-site at
+              <strong>Viettel Đắk Lắk</strong> and the
               <strong>Tây Ninh Innovation Center</strong> exhibition.
             </li>
             <li>
-              Performed <strong>Cisco Catalyst 9200L IOS upgrade</strong> (to
-              v17.12) and StackWise dual-switch stacking in production; analyzed
-              Cisco RMA email workflows and independently drafted a warranty
-              initiation request that was approved and processed by mentor.
+              Supported enterprise network infrastructure operations for
+              internal users — LAN connectivity troubleshooting, endpoint
+              network configuration, shared resource access, and device
+              onboarding.
             </li>
             <li>
-              Studied <strong>Peplink BPL-2500EC SD-WAN</strong> architecture
-              and real-world deployment for the White Palace venue project;
-              attended SpeedFusion / Link Load Balancing webinar. Diagnosed and
-              supported repair of a Layer 3 Cisco switch outage caused by a
-              <strong>4-core fiber cut</strong> at White Palace Bình Tân.
+              Assisted Cisco network initiatives including
+              <strong>Catalyst 9200L IOS upgrade</strong> (to v17.12) and
+              StackWise dual-switch stacking in production; evaluated
+              <strong>Peplink BPL-2500EC SD-WAN</strong> for the White Palace
+              venue project; produced technical and presales documentation for
+              customer demos and enterprise advisory.
+            </li>
+            <li>
+              Conducted security research on VPN evasion techniques (<strong
+                >Tailscale, Cloudflare WARP, WireGuard on AWS EC2</strong
+              >) to assess NGFW visibility limitations and document security
+              control gaps.
             </li>
           </ul>
         </div>
@@ -1119,7 +1126,7 @@
           <div class="project-card reveal">
             <div class="project-meta">
               <span class="project-type">Thesis</span>
-              <span class="project-period">Jan 2026 · Ongoing</span>
+              <span class="project-period">Jan – May 2026</span>
             </div>
             <h3 class="project-title">
               HA Firewall &amp; AI-driven Security Monitoring
@@ -1127,11 +1134,13 @@
             <p class="project-desc">
               Built
               <strong>Active-Passive OPNsense cluster</strong> (CARP/pfsync)
-              with HAProxy SSL offloading and ModSecurity WAF (OWASP CRS) for
-              defense-in-depth. Deployed Wazuh SIEM pipeline; generated attack
-              dataset via DVWA + Kali Linux; trained
-              <strong>Random Forest classifier</strong> targeting FP rate
-              reduction from &gt;30% → &lt;15%.
+              with HAProxy SSL offloading and ModSecurity WAF (OWASP CRS).
+              <strong>2.8s failover</strong> (&lt;5s target), zero-session-drop,
+              0.71% sync overhead. WAF validation:
+              <strong>12,796 alerts</strong>, DR 100% / FPR 0%. Wazuh SIEM
+              pipeline + Random Forest / LR trained on custom attack dataset
+              (DVWA + Kali): detection avg <strong>1.80s</strong>, RF AUC
+              <strong>1.000</strong>.
             </p>
             <div class="project-tags">
               <span class="tag">OPNsense</span
@@ -1197,63 +1206,29 @@
 
           <div class="project-card reveal">
             <div class="project-meta">
-              <span class="project-type work">FSI</span>
-              <span class="project-period">2026</span>
+              <span class="project-type">Academic</span>
+              <span class="project-period">Apr 2026</span>
             </div>
-            <h3 class="project-title">Cisco Infrastructure Deployment</h3>
+            <h3 class="project-title">Cisco SD-WAN Hospital Network</h3>
             <p class="project-desc">
-              IOS upgrades (Install Mode) and
-              <strong>StackWise</strong> configuration on Cisco Catalyst 9200L
-              switches in live production environment.
+              Architected a 3-site <strong>Hub-and-Spoke SD-WAN overlay</strong>
+              on Cisco dCloud CML (2× C8000v). Enforced
+              <strong>IPsec AES-256-GCM</strong> across both transports (MPLS +
+              biz-internet) — patient data never transmitted in plaintext even
+              during failover. Implemented
+              <strong>least-privilege AAR policy</strong>: pinned critical
+              medical traffic (Oracle, MS-SQL) exclusively to MPLS; verified via
+              vManage Events Log —
+              <strong>~3 min convergence, zero manual intervention</strong>.
             </p>
             <div class="project-tags">
-              <span class="tag">Cisco IOS</span
-              ><span class="tag">Catalyst 9200L</span
-              ><span class="tag">StackWise</span
-              ><span class="tag">Install Mode</span>
-            </div>
-          </div>
-
-          <div class="project-card reveal">
-            <div class="project-meta">
-              <span class="project-type work">FSI</span>
-              <span class="project-period">2026</span>
-            </div>
-            <h3 class="project-title">SD-WAN — Peplink SpeedFusion</h3>
-            <p class="project-desc">
-              Configured
-              <strong>Peplink SpeedFusion Bandwidth Bonding</strong> and Hot
-              Failover routing for multi-branch enterprise networks to improve
-              WAN resilience.
-            </p>
-            <div class="project-tags">
-              <span class="tag">Peplink</span
-              ><span class="tag">SpeedFusion</span
-              ><span class="tag">SD-WAN</span
-              ><span class="tag">Hot Failover</span>
-            </div>
-          </div>
-
-          <div class="project-card reveal">
-            <div class="project-meta">
-              <span class="project-type work">FSI</span>
-              <span class="project-period">2026</span>
-            </div>
-            <h3 class="project-title">
-              Data Center Ops &amp; C2 Threat Mitigation
-            </h3>
-            <p class="project-desc">
-              Physical infrastructure verification and fiber optic
-              troubleshooting at Viettel IDC. Deployed
-              <strong>F-DDH BOX</strong> to monitor and block C2 server
-              communications.
-            </p>
-            <div class="project-tags">
-              <span class="tag">Data Center</span
-              ><span class="tag">Fiber Optic</span
-              ><span class="tag">F-DDH BOX</span
-              ><span class="tag">C2 Blocking</span
-              ><span class="tag">Viettel IDC</span>
+              <span class="tag">Cisco CML</span
+              ><span class="tag">Catalyst SD-WAN 20.18</span
+              ><span class="tag">vManage</span><span class="tag">C8000v</span
+              ><span class="tag">AAR Policy</span
+              ><span class="tag">IPsec AES-256-GCM</span
+              ><span class="tag">BFD</span
+              ><span class="tag">Hub-and-Spoke</span>
             </div>
           </div>
         </div>
@@ -1308,6 +1283,61 @@
               class="project-link"
               >View on GitHub <i class="fa-solid fa-arrow-right"></i
             ></a>
+          </div>
+
+          <div class="project-card reveal">
+            <div class="project-meta">
+              <span class="project-type personal">Personal</span>
+              <span class="project-period">2025 – 2026</span>
+            </div>
+            <h3 class="project-title">
+              AI Shield Firewall — LLM Traffic Inspection Proxy
+            </h3>
+            <p class="project-desc">
+              Built a
+              <strong>5-layer bilingual (EN+VI) LLM security proxy</strong>
+              on AWS (FastAPI, Docker) enforcing DLP at enterprise AI API
+              perimeters. Pipeline: Regex → Presidio NLP +
+              <strong>Vietnamese PII recognizers</strong> (CCCD, tax code,
+              license plate) → Prompt Injection detection → per-org Policy
+              Engine → Output Inspection.
+              <strong>25/25 unit tests passed</strong>, &lt;15ms proxy overhead,
+              IAM Role + DynamoDB audit logging.
+            </p>
+            <div class="project-tags">
+              <span class="tag">Python</span><span class="tag">FastAPI</span
+              ><span class="tag">AWS EC2</span><span class="tag">Docker</span
+              ><span class="tag">Presidio NLP</span
+              ><span class="tag">Prompt Injection</span
+              ><span class="tag">IAM Role</span
+              ><span class="tag">DynamoDB</span>
+            </div>
+          </div>
+
+          <div class="project-card reveal">
+            <div class="project-meta">
+              <span class="project-type personal">Personal</span>
+              <span class="project-period">2025 – 2026</span>
+            </div>
+            <h3 class="project-title">
+              AutoCTI — Autonomous Cyber Threat Intelligence Agent
+            </h3>
+            <p class="project-desc">
+              Built a
+              <strong>24/7 automated SOC threat-intelligence pipeline</strong>
+              on AWS Free Tier (~$0/month):
+              <strong>LangGraph ReAct Agent</strong> + Gemini 2.5 Flash + Tavily
+              real-time search for autonomous threat triage and Telegram
+              alerting. IAM Role credentials, DynamoDB conversation memory —
+              <strong>~80% RAM reduction</strong> over prior Playwright-based
+              architecture.
+            </p>
+            <div class="project-tags">
+              <span class="tag">AWS</span><span class="tag">SQS</span
+              ><span class="tag">LangGraph</span><span class="tag">Python</span
+              ><span class="tag">Docker</span><span class="tag">Gemini AI</span
+              ><span class="tag">Telegram Bot API</span>
+            </div>
           </div>
         </div>
       </div>
@@ -1417,6 +1447,7 @@
               <span class="skill-pill">SD-WAN</span>
               <span class="skill-pill">Cisco IOS</span>
               <span class="skill-pill">StackWise</span>
+              <span class="skill-pill">IPv6</span>
             </div>
           </div>
 
@@ -1433,6 +1464,8 @@
               <span class="skill-pill">SNMP v2c/v3</span>
               <span class="skill-pill">WireGuard</span>
               <span class="skill-pill">AdGuard Home</span>
+              <span class="skill-pill">Nmap</span>
+              <span class="skill-pill">Zabbix</span>
             </div>
           </div>
 
@@ -1459,6 +1492,7 @@
               <span class="skill-pill">Mininet</span>
               <span class="skill-pill">Matplotlib</span>
               <span class="skill-pill">scikit-learn</span>
+              <span class="skill-pill">Wireshark</span>
             </div>
           </div>
         </div>
@@ -1518,7 +1552,7 @@
           <div class="reveal" style="transition-delay: 0.15s">
             <div class="about-stats">
               <div class="stat-card">
-                <div class="stat-number">3</div>
+                <div class="stat-number">4+</div>
                 <div class="stat-label">Academic Projects</div>
               </div>
               <div class="stat-card">
@@ -1666,11 +1700,11 @@
 
       /* Typewriter — thêm/bỏ role ở đây */
       const roles = [
-        "Network Engineer",
-        "Security Enthusiast",
-        "SDN Developer",
+        "Network & Security Engineer",
+        "Firewall & SIEM Builder",
+        "AI Security Researcher",
         "Cloud & Privacy Builder",
-        "Network Automation Learner",
+        "Open to Opportunities · 2026",
       ];
       let ri = 0,
         ci = 0,
