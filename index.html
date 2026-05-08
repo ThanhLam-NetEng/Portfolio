@@ -645,6 +645,14 @@
       .project-link:hover i {
         transform: translateX(3px);
       }
+      .cert-badge-img {
+        width: 64px;
+        height: 64px;
+        object-fit: contain;
+        border-radius: 8px;
+        margin-bottom: 0.85rem;
+        flex-shrink: 0;
+      }
 
       /* SKILLS */
       #skills {
@@ -1089,9 +1097,10 @@
               <strong>Tây Ninh Innovation Center</strong> exhibition.
             </li>
             <li>
-              Supported enterprise network infrastructure operations for internal
-              users — LAN connectivity troubleshooting, endpoint network
-              configuration, shared resource access, and device onboarding.
+              Supported enterprise network infrastructure operations for
+              internal users — LAN connectivity troubleshooting, endpoint
+              network configuration, shared resource access, and device
+              onboarding.
             </li>
             <li>
               Assisted Cisco network initiatives including
@@ -1102,10 +1111,10 @@
               customer demos and enterprise advisory.
             </li>
             <li>
-              Conducted security research on VPN evasion techniques
-              (<strong>Tailscale, Cloudflare WARP, WireGuard on AWS EC2</strong>)
-              to assess NGFW visibility limitations and document security control
-              gaps.
+              Conducted security research on VPN evasion techniques (<strong
+                >Tailscale, Cloudflare WARP, WireGuard on AWS EC2</strong
+              >) to assess NGFW visibility limitations and document security
+              control gaps.
             </li>
           </ul>
         </div>
@@ -1131,13 +1140,15 @@
               HA Firewall &amp; AI-driven Security Monitoring
             </h3>
             <p class="project-desc">
-              Built <strong>Active-Passive OPNsense cluster</strong> (CARP/pfsync)
+              Built
+              <strong>Active-Passive OPNsense cluster</strong> (CARP/pfsync)
               with HAProxy SSL offloading and ModSecurity WAF (OWASP CRS).
               <strong>2.8s failover</strong> (&lt;5s target), zero-session-drop,
-              0.71% sync overhead. WAF validation: <strong>12,796 alerts</strong>,
-              DR 100% / FPR 0%. Wazuh SIEM pipeline + Random Forest / LR trained
-              on custom attack dataset (DVWA + Kali): detection avg
-              <strong>1.80s</strong>, RF AUC <strong>1.000</strong>.
+              0.71% sync overhead. WAF validation:
+              <strong>12,796 alerts</strong>, DR 100% / FPR 0%. Wazuh SIEM
+              pipeline + Random Forest / LR trained on custom attack dataset
+              (DVWA + Kali): detection avg <strong>1.80s</strong>, RF AUC
+              <strong>1.000</strong>.
             </p>
             <div class="project-tags">
               <span class="tag">OPNsense</span
@@ -1212,16 +1223,16 @@
               on Cisco dCloud CML (2× C8000v). Enforced
               <strong>IPsec AES-256-GCM</strong> across both transports (MPLS +
               biz-internet) — patient data never transmitted in plaintext even
-              during failover. Implemented <strong>least-privilege AAR policy</strong>:
-              pinned critical medical traffic (Oracle, MS-SQL) exclusively to MPLS;
-              verified via vManage Events Log —
+              during failover. Implemented
+              <strong>least-privilege AAR policy</strong>: pinned critical
+              medical traffic (Oracle, MS-SQL) exclusively to MPLS; verified via
+              vManage Events Log —
               <strong>~3 min convergence, zero manual intervention</strong>.
             </p>
             <div class="project-tags">
               <span class="tag">Cisco CML</span
               ><span class="tag">Catalyst SD-WAN 20.18</span
-              ><span class="tag">vManage</span
-              ><span class="tag">C8000v</span
+              ><span class="tag">vManage</span><span class="tag">C8000v</span
               ><span class="tag">AAR Policy</span
               ><span class="tag">IPsec AES-256-GCM</span
               ><span class="tag">BFD</span
@@ -1234,7 +1245,6 @@
               >View on GitHub <i class="fa-solid fa-arrow-right"></i
             ></a>
           </div>
-
         </div>
       </div>
     </section>
@@ -1298,7 +1308,8 @@
               AI Shield Firewall — LLM Traffic Inspection Proxy
             </h3>
             <p class="project-desc">
-              Built a <strong>5-layer bilingual (EN+VI) LLM security proxy</strong>
+              Built a
+              <strong>5-layer bilingual (EN+VI) LLM security proxy</strong>
               on AWS (FastAPI, Docker) enforcing DLP at enterprise AI API
               perimeters. Pipeline: Regex → Presidio NLP +
               <strong>Vietnamese PII recognizers</strong> (CCCD, tax code,
@@ -1308,10 +1319,8 @@
               IAM Role + DynamoDB audit logging.
             </p>
             <div class="project-tags">
-              <span class="tag">Python</span
-              ><span class="tag">FastAPI</span
-              ><span class="tag">AWS EC2</span
-              ><span class="tag">Docker</span
+              <span class="tag">Python</span><span class="tag">FastAPI</span
+              ><span class="tag">AWS EC2</span><span class="tag">Docker</span
               ><span class="tag">Presidio NLP</span
               ><span class="tag">Prompt Injection</span
               ><span class="tag">IAM Role</span
@@ -1334,20 +1343,19 @@
               AutoCTI — Autonomous Cyber Threat Intelligence Agent
             </h3>
             <p class="project-desc">
-              Built a <strong>24/7 automated SOC threat-intelligence pipeline</strong>
-              on AWS Free Tier (~$0/month): <strong>LangGraph ReAct Agent</strong>
-              + Gemini 2.5 Flash + Tavily real-time search for autonomous threat
-              triage and Telegram alerting. IAM Role credentials, DynamoDB
-              conversation memory — <strong>~80% RAM reduction</strong> over
-              prior Playwright-based architecture.
+              Built a
+              <strong>24/7 automated SOC threat-intelligence pipeline</strong>
+              on AWS Free Tier (~$0/month):
+              <strong>LangGraph ReAct Agent</strong> + Gemini 2.5 Flash + Tavily
+              real-time search for autonomous threat triage and Telegram
+              alerting. IAM Role credentials, DynamoDB conversation memory —
+              <strong>~80% RAM reduction</strong> over prior Playwright-based
+              architecture.
             </p>
             <div class="project-tags">
-              <span class="tag">AWS</span
-              ><span class="tag">SQS</span
-              ><span class="tag">LangGraph</span
-              ><span class="tag">Python</span
-              ><span class="tag">Docker</span
-              ><span class="tag">Gemini AI</span
+              <span class="tag">AWS</span><span class="tag">SQS</span
+              ><span class="tag">LangGraph</span><span class="tag">Python</span
+              ><span class="tag">Docker</span><span class="tag">Gemini AI</span
               ><span class="tag">Telegram Bot API</span>
             </div>
             <a
@@ -1373,9 +1381,14 @@
         <div class="projects-grid">
           <div class="project-card reveal">
             <div class="project-meta">
-              <span class="project-type cert">Cisco NetAcad</span
-              ><span class="project-period">In progress</span>
+              <span class="project-type cert">Cisco NetAcad</span>
+              <span class="project-period">May 2026</span>
             </div>
+            <img
+              src="networking-basics.png"
+              alt="Networking Basics Badge"
+              class="cert-badge-img"
+            />
             <h3 class="project-title">Networking Basics</h3>
             <p class="project-desc">
               Network types, protocols, IP addressing, and basic switching —
@@ -1386,13 +1399,25 @@
               ><span class="tag">IP Addressing</span
               ><span class="tag">Switching</span>
             </div>
+            <a
+              href="https://www.credly.com/badges/dc21c31f-6e67-491d-b1a4-95f09e6195a3/public_url"
+              target="_blank"
+              class="project-link"
+            >
+              View on Credly <i class="fa-solid fa-arrow-right"></i>
+            </a>
           </div>
 
           <div class="project-card reveal">
             <div class="project-meta">
-              <span class="project-type cert">Cisco NetAcad</span
-              ><span class="project-period">In progress</span>
+              <span class="project-type cert">Cisco NetAcad</span>
+              <span class="project-period">May 2026</span>
             </div>
+            <img
+              src="networking-devices-and-initial-configuration.png"
+              alt="Networking Devices and Initial Configuration Badge"
+              class="cert-badge-img"
+            />
             <h3 class="project-title">
               Networking Devices and Initial Configuration
             </h3>
@@ -1404,6 +1429,13 @@
               <span class="tag">Cisco IOS</span><span class="tag">VLAN</span
               ><span class="tag">STP</span>
             </div>
+            <a
+              href="https://www.credly.com/badges/37e3e425-f4f6-408a-b053-b8c94ce936a6/public_url"
+              target="_blank"
+              class="project-link"
+            >
+              View on Credly <i class="fa-solid fa-arrow-right"></i>
+            </a>
           </div>
 
           <div class="project-card reveal">
