@@ -1090,26 +1090,31 @@
           <ul class="exp-list">
             <li>
               Deployed and validated <strong>F-DDH BOX</strong> security
-              appliance across lab and production environments — traffic
-              simulation, alert verification, firmware coordination, and
-              presales support.
+              appliance end-to-end — lab setup, C2 traffic blocking (ICMP/TCP),
+              log analysis, and alert verification; authored the internal
+              configuration guide and demoed the product on-site at
+              <strong>Viettel Đắk Lắk</strong> and the
+              <strong>Tây Ninh Innovation Center</strong> exhibition.
             </li>
             <li>
-              Researched VPN evasion techniques
-              (<strong>Tailscale, Cloudflare WARP, WireGuard</strong>) to assess
-              NGFW detection gaps; produced comparative analysis for enterprise
+              Conducted security research on VPN evasion techniques (<strong
+                >Tailscale, Cloudflare WARP, WireGuard on AWS EC2</strong
+              >) to assess NGFW visibility limitations and document security
+              control gaps; produced comparative analysis for enterprise
               security advisory.
             </li>
             <li>
-              Supported Cisco network initiatives: switch upgrade research,
-              StackWise stacking, and SD-WAN evaluation on
-              <strong>Cisco dCloud</strong>; assisted with on-site
-              infrastructure deployment and fiber troubleshooting.
+              Assisted Cisco network initiatives including
+              <strong>Catalyst 9200L IOS upgrade</strong> (to v17.12) and
+              StackWise dual-switch stacking; evaluated
+              <strong>Peplink BPL-2500EC SD-WAN</strong> for the White Palace
+              venue project; produced technical and presales documentation for
+              customer demos.
             </li>
             <li>
-              Deployed internal attendance web app on local server — NAT port
-              forwarding, custom domain setup, functional testing, and basic
-              security assessment.
+              Deployed internal attendance web application on a local server —
+              <strong>NAT port forwarding</strong>, custom domain setup,
+              functional testing, and basic security assessment.
             </li>
           </ul>
         </div>
@@ -1135,13 +1140,16 @@
               HA Firewall &amp; AI-driven Security Monitoring
             </h3>
             <p class="project-desc">
-              Built <strong>Active-Passive OPNsense cluster</strong> (CARP/pfsync)
+              Built
+              <strong>Active-Passive OPNsense cluster</strong> (CARP/pfsync)
               with HAProxy SSL offloading and ModSecurity WAF (OWASP CRS).
               <strong>2.8s failover</strong> (&lt;5s target), zero-session-drop,
-              0.71% sync overhead. WAF validation: <strong>12,796 alerts</strong>,
-              DR 100% / FPR 0%. Wazuh SIEM pipeline + Random Forest / LR trained
-              on custom attack dataset (DVWA + Kali): detection avg
-              <strong>1.80s</strong>, RF AUC <strong>1.000</strong>.
+              0.71% sync overhead. WAF validation:
+              <strong>12,796 alerts</strong>, DR 100% / FPR 0%. Wazuh SIEM
+              pipeline + Random Forest / LR trained on custom attack dataset
+              (DVWA + Kali): detection avg <strong>1.80s</strong>, RF AUC
+              <strong>1.000</strong> (lab) · LR AUC <strong>0.981</strong>. AR
+              end-to-end: block → unblock <strong>644s</strong>.
             </p>
             <div class="project-tags">
               <span class="tag">OPNsense</span
@@ -1216,16 +1224,16 @@
               on Cisco dCloud CML (2× C8000v). Enforced
               <strong>IPsec AES-256-GCM</strong> across both transports (MPLS +
               biz-internet) — patient data never transmitted in plaintext even
-              during failover. Implemented <strong>least-privilege AAR policy</strong>:
-              pinned critical medical traffic (Oracle, MS-SQL) exclusively to MPLS;
-              verified via vManage Events Log —
+              during failover. Implemented
+              <strong>least-privilege AAR policy</strong>: pinned critical
+              medical traffic (Oracle, MS-SQL) exclusively to MPLS; verified via
+              vManage Events Log —
               <strong>~3 min convergence, zero manual intervention</strong>.
             </p>
             <div class="project-tags">
               <span class="tag">Cisco CML</span
               ><span class="tag">Catalyst SD-WAN 20.18</span
-              ><span class="tag">vManage</span
-              ><span class="tag">C8000v</span
+              ><span class="tag">vManage</span><span class="tag">C8000v</span
               ><span class="tag">AAR Policy</span
               ><span class="tag">IPsec AES-256-GCM</span
               ><span class="tag">BFD</span
@@ -1238,7 +1246,6 @@
               >View on GitHub <i class="fa-solid fa-arrow-right"></i
             ></a>
           </div>
-
         </div>
       </div>
     </section>
@@ -1302,7 +1309,8 @@
               AI Shield Firewall — LLM Traffic Inspection Proxy
             </h3>
             <p class="project-desc">
-              Built a <strong>5-layer bilingual (EN+VI) LLM security proxy</strong>
+              Built a
+              <strong>5-layer bilingual (EN+VI) LLM security proxy</strong>
               on AWS (FastAPI, Docker) enforcing DLP at enterprise AI API
               perimeters. Pipeline: Regex → Presidio NLP +
               <strong>Vietnamese PII recognizers</strong> (CCCD, tax code,
@@ -1312,10 +1320,8 @@
               IAM Role + DynamoDB audit logging.
             </p>
             <div class="project-tags">
-              <span class="tag">Python</span
-              ><span class="tag">FastAPI</span
-              ><span class="tag">AWS EC2</span
-              ><span class="tag">Docker</span
+              <span class="tag">Python</span><span class="tag">FastAPI</span
+              ><span class="tag">AWS EC2</span><span class="tag">Docker</span
               ><span class="tag">Presidio NLP</span
               ><span class="tag">Prompt Injection</span
               ><span class="tag">IAM Role</span
@@ -1334,24 +1340,61 @@
               <span class="project-type personal">Personal</span>
               <span class="project-period">2025 – 2026</span>
             </div>
+            <h3 class="project-title">TNT Bot — Telegram AI Companion</h3>
+            <p class="project-desc">
+              Personal AI chatbot on Telegram built entirely on
+              <strong>Google Cloud Free Tier</strong> (Cloud Functions Gen2,
+              Python 3.12). Powered by <strong>Gemini 2.5 Flash</strong> with
+              persistent chat history (200 messages),
+              <strong>context summarization</strong> (compresses older turns
+              when &gt;150 messages), and long-term memory with Vietnamese
+              pronoun normalization. Features <strong>Google Cloud TTS</strong>
+              (vi-VN-Neural2-A) voice replies, proactive messaging after 4h
+              silence, custom timed reminders, morning digest with live weather
+              (wttr.in), and weekly Firestore → Cloud Storage backup. Webhook
+              secret validation + single-user whitelist.
+            </p>
+            <div class="project-tags">
+              <span class="tag">Python</span
+              ><span class="tag">Cloud Functions</span
+              ><span class="tag">Gemini 2.5 Flash</span
+              ><span class="tag">Firestore</span
+              ><span class="tag">Google Cloud TTS</span
+              ><span class="tag">Cloud Scheduler</span
+              ><span class="tag">Telegram Bot API</span
+              ><span class="tag">GCS</span>
+            </div>
+            <a
+              href="https://youtu.be/QtNU9-8xPZo?si=ydzWkFhIk7S6oovl"
+              target="_blank"
+              class="project-link"
+              ><i class="fa-brands fa-youtube"></i> Watch Demo
+              <i class="fa-solid fa-arrow-right"></i
+            ></a>
+          </div>
+
+          <div class="project-card reveal">
+            <div class="project-meta">
+              <span class="project-type personal">Personal</span>
+              <span class="project-period">2025 – 2026</span>
+            </div>
             <h3 class="project-title">
               AutoCTI — Autonomous Cyber Threat Intelligence Agent
             </h3>
             <p class="project-desc">
-              Built a <strong>24/7 automated SOC threat-intelligence pipeline</strong>
-              on AWS Free Tier (~$0/month): <strong>LangGraph ReAct Agent</strong>
-              + Gemini 2.5 Flash + Tavily real-time search for autonomous threat
-              triage and Telegram alerting. IAM Role credentials, DynamoDB
-              conversation memory — <strong>~80% RAM reduction</strong> over
-              prior Playwright-based architecture.
+              Built a
+              <strong>24/7 automated SOC threat-intelligence pipeline</strong>
+              on AWS Free Tier (~$0/month):
+              <strong>LangGraph ReAct Agent</strong> + Gemini 2.5 Flash + Tavily
+              real-time search for autonomous threat triage and Telegram
+              alerting. IAM Role credentials, DynamoDB conversation memory —
+              <strong>~80% RAM reduction</strong> over prior Playwright-based
+              architecture.
             </p>
             <div class="project-tags">
-              <span class="tag">AWS</span
-              ><span class="tag">SQS</span
-              ><span class="tag">LangGraph</span
-              ><span class="tag">Python</span
-              ><span class="tag">Docker</span
-              ><span class="tag">Gemini AI</span
+              <span class="tag">AWS</span><span class="tag">SQS</span
+              ><span class="tag">LangGraph</span><span class="tag">Python</span
+              ><span class="tag">Docker</span><span class="tag">Gemini AI</span
               ><span class="tag">Telegram Bot API</span>
             </div>
             <a
@@ -1378,9 +1421,13 @@
           <div class="project-card reveal">
             <div class="project-meta">
               <span class="project-type cert">Cisco NetAcad</span>
-              <span class="project-period">May 2026</span>
+              <span class="project-period">2026</span>
             </div>
-            <img src="networking-basics.png" alt="Networking Basics Badge" class="cert-badge-img" />
+            <img
+              src="networking-basics.png"
+              alt="Networking Basics Badge"
+              class="cert-badge-img"
+            />
             <h3 class="project-title">Networking Basics</h3>
             <p class="project-desc">
               Network types, protocols, IP addressing, and basic switching —
@@ -1391,7 +1438,11 @@
               ><span class="tag">IP Addressing</span
               ><span class="tag">Switching</span>
             </div>
-            <a href="https://www.credly.com/badges/dc21c31f-6e67-491d-b1a4-95f09e6195a3/public_url" target="_blank" class="project-link">
+            <a
+              href="https://www.credly.com/badges/dc21c31f-6e67-491d-b1a4-95f09e6195a3/public_url"
+              target="_blank"
+              class="project-link"
+            >
               View on Credly <i class="fa-solid fa-arrow-right"></i>
             </a>
           </div>
@@ -1399,9 +1450,13 @@
           <div class="project-card reveal">
             <div class="project-meta">
               <span class="project-type cert">Cisco NetAcad</span>
-              <span class="project-period">May 2026</span>
+              <span class="project-period">2026</span>
             </div>
-            <img src="networking-devices-and-initial-configuration.png" alt="Networking Devices and Initial Configuration Badge" class="cert-badge-img" />
+            <img
+              src="networking-devices-and-initial-configuration.png"
+              alt="Networking Devices and Initial Configuration Badge"
+              class="cert-badge-img"
+            />
             <h3 class="project-title">
               Networking Devices and Initial Configuration
             </h3>
@@ -1413,7 +1468,11 @@
               <span class="tag">Cisco IOS</span><span class="tag">VLAN</span
               ><span class="tag">STP</span>
             </div>
-            <a href="https://www.credly.com/badges/37e3e425-f4f6-408a-b053-b8c94ce936a6/public_url" target="_blank" class="project-link">
+            <a
+              href="https://www.credly.com/badges/37e3e425-f4f6-408a-b053-b8c94ce936a6/public_url"
+              target="_blank"
+              class="project-link"
+            >
               View on Credly <i class="fa-solid fa-arrow-right"></i>
             </a>
           </div>
@@ -1421,9 +1480,13 @@
           <div class="project-card reveal">
             <div class="project-meta">
               <span class="project-type cert">Cisco NetAcad</span>
-              <span class="project-period">May 2026</span>
+              <span class="project-period">2026</span>
             </div>
-            <img src="linux-unhatched.png" alt="Linux Unhatched Badge" class="cert-badge-img" />
+            <img
+              src="linux-unhatched.png"
+              alt="Linux Unhatched Badge"
+              class="cert-badge-img"
+            />
             <h3 class="project-title">Linux Unhatched</h3>
             <p class="project-desc">
               Introduction to Linux CLI fundamentals — file system navigation,
@@ -1435,7 +1498,11 @@
               ><span class="tag">Permissions</span
               ><span class="tag">Shell</span>
             </div>
-            <a href="https://www.credly.com/badges/7932c302-7cfd-404d-bb4e-e7b7ec0149e5/public_url" target="_blank" class="project-link">
+            <a
+              href="https://www.credly.com/badges/7932c302-7cfd-404d-bb4e-e7b7ec0149e5/public_url"
+              target="_blank"
+              class="project-link"
+            >
               View on Credly <i class="fa-solid fa-arrow-right"></i>
             </a>
           </div>
@@ -1473,7 +1540,6 @@
             <div class="skill-group-title">Security &amp; Monitoring</div>
             <div class="skill-list">
               <span class="skill-pill">OPNsense</span>
-              <span class="skill-pill">pfSense</span>
               <span class="skill-pill">HAProxy (WAF)</span>
               <span class="skill-pill">ModSecurity</span>
               <span class="skill-pill">Suricata IDS/IPS</span>
@@ -1536,10 +1602,10 @@
               <span class="hl">network automation</span>.
             </p>
             <p>
-              I've worked in real production environments — configuring Cisco
-              enterprise hardware, deploying SD-WAN solutions, operating fiber
-              infrastructure at a data center, and implementing active threat
-              mitigation systems at FSI.
+              I've worked in real production environments — deploying and
+              validating security appliances, configuring Cisco enterprise
+              hardware, evaluating SD-WAN solutions, and conducting security
+              research at FSI.
             </p>
             <p>
               My thesis focused on High Availability firewall architecture
