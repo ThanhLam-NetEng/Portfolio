@@ -1057,6 +1057,7 @@
           <a
             class="nav-cv cv-link"
             href="cv-en.pdf"
+            download="cv-en.pdf"
             target="_blank"
             rel="noopener noreferrer"
             data-i18n="nav.cv"
@@ -1099,7 +1100,7 @@
       <a href="#certifications">Certifications</a>
       <a href="#about">About</a>
       <a href="#contact">Contact</a>
-      <a class="cv-link" href="cv-en.pdf" target="_blank" rel="noopener noreferrer"
+      <a class="cv-link" href="cv-en.pdf" download="cv-en.pdf" target="_blank" rel="noopener noreferrer"
         >Download CV →</a
       >
     </div>
@@ -1796,6 +1797,7 @@
                 ><a
                   class="card-link cv-link"
                   href="cv-en.pdf"
+                  download="cv-en.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
                   >Download PDF <i class="fa-solid fa-arrow-right"></i></a
@@ -1995,11 +1997,40 @@
           else el.textContent = values[idx];
         });
       }
+      function getStoredLanguage() {
+        try {
+          return localStorage.getItem("portfolioLang");
+        } catch (error) {
+          return null;
+        }
+      }
+      function storeLanguage(lang) {
+        try {
+          localStorage.setItem("portfolioLang", lang);
+        } catch (error) {
+          return;
+        }
+      }
+      function setWorkCard(card, updates = {}) {
+        if (!card) return;
+        if (updates.badge) setTextIn(card, ".badge", updates.badge);
+        if (updates.period) setTextIn(card, ".period", updates.period);
+        if (updates.title) setTextIn(card, ".work-title", updates.title);
+        if (updates.desc) setTextIn(card, ".work-desc", updates.desc);
+        if (updates.link) setTextIn(card, ".card-link", updates.link, true);
+      }
+      function setTextIn(parent, selector, value, html = false) {
+        const el = parent.querySelector(selector);
+        if (!el) return;
+        if (html) el.innerHTML = value;
+        else el.textContent = value;
+      }
       function applyLanguage(lang) {
-        const t = translations[lang] || translations.en;
+        lang = translations[lang] ? lang : "en";
+        const t = translations[lang];
         document.documentElement.lang = lang;
         document.title = t.title;
-        localStorage.setItem("portfolioLang", lang);
+        storeLanguage(lang);
         document.querySelectorAll("[data-lang-switch]").forEach((btn) => {
           const active = btn.dataset.langSwitch === lang;
           btn.classList.toggle("active", active);
@@ -2010,6 +2041,7 @@
         setText(".nav-cv", t.cv);
         document.querySelectorAll(".cv-link").forEach((link) => {
           link.setAttribute("href", t.cvFile);
+          link.setAttribute("download", t.cvFile);
         });
         setText(".card-link.cv-link", t.downloadPdf, true);
         setText(".eyebrow", t.eyebrow);
@@ -2025,16 +2057,28 @@
         setText("#work .section-title", t.workTitle);
         setText("#work .section-desc", t.workDesc);
         const cards = document.querySelectorAll("#work .work-card");
-        if (cards[0]) {
-          cards[0].querySelector(".badge").textContent = t.thesisBadge;
-          cards[0].querySelector(".period").textContent = t.thesisPeriod;
-          cards[0].querySelector(".work-title").textContent = t.thesisTitle;
-          cards[0].querySelector(".work-desc").textContent = t.thesisDesc;
-          cards[0].querySelector(".card-link").innerHTML = t.thesisLink;
-        }
-        if (cards[1]) { cards[1].querySelector(".badge").textContent = t.sdwanBadge; cards[1].querySelector(".work-desc").textContent = t.sdwanDesc; cards[1].querySelector(".card-link").innerHTML = t.github; }
-        if (cards[2]) { cards[2].querySelector(".badge").textContent = t.aiBadge; cards[2].querySelector(".work-desc").textContent = t.aiDesc; cards[2].querySelector(".card-link").innerHTML = t.github; }
-        if (cards[3]) { cards[3].querySelector(".badge").textContent = t.aiBadge; cards[3].querySelector(".work-desc").textContent = t.vpnDesc; cards[3].querySelector(".card-link").innerHTML = t.github; }
+        setWorkCard(cards[0], {
+          badge: t.thesisBadge,
+          period: t.thesisPeriod,
+          title: t.thesisTitle,
+          desc: t.thesisDesc,
+          link: t.thesisLink,
+        });
+        setWorkCard(cards[1], {
+          badge: t.sdwanBadge,
+          desc: t.sdwanDesc,
+          link: t.github,
+        });
+        setWorkCard(cards[2], {
+          badge: t.aiBadge,
+          desc: t.aiDesc,
+          link: t.github,
+        });
+        setWorkCard(cards[3], {
+          badge: t.aiBadge,
+          desc: t.vpnDesc,
+          link: t.github,
+        });
         setText("#more-work .section-label", t.moreLabel);
         setText("#more-work .section-title", t.moreTitle);
         setText("#more-work .section-desc", t.moreDesc);
@@ -2064,7 +2108,7 @@
         setText("footer", t.footer, true);
       }
       document.querySelectorAll("[data-lang-switch]").forEach((btn) => btn.addEventListener("click", () => applyLanguage(btn.dataset.langSwitch)));
-      applyLanguage(localStorage.getItem("portfolioLang") || "en");
+      applyLanguage(getStoredLanguage() || "en");
 
       const nav = document.getElementById("nav");
       const navToggle = document.getElementById("navToggle");
