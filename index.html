@@ -135,6 +135,44 @@
       }
       .nav-links a:hover { color: var(--text); }
       .nav-actions { display: flex; align-items: center; gap: 0.7rem; }
+      .lang-switch {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.18rem;
+        padding: 0.25rem;
+        border: 1px solid var(--border);
+        border-radius: 999px;
+        background: rgba(16, 29, 49, 0.62);
+      }
+      .lang-btn {
+        min-height: 32px;
+        padding: 0.35rem 0.58rem;
+        border: 0;
+        border-radius: 999px;
+        color: var(--muted);
+        background: transparent;
+        font-family: var(--mono);
+        font-size: 0.72rem;
+        font-weight: 600;
+        cursor: pointer;
+      }
+      .lang-btn.active {
+        color: #06131d;
+        background: var(--accent);
+      }
+      .mobile-lang-switch {
+        display: flex;
+        gap: 0.45rem;
+        padding: 0.35rem 0.35rem 0.7rem;
+        border-bottom: 1px solid var(--border);
+        margin-bottom: 0.35rem;
+      }
+      .mobile-lang-switch .lang-btn {
+        flex: 1;
+        border: 1px solid var(--border);
+        background: rgba(16, 29, 49, 0.72);
+      }
+      .mobile-lang-switch .lang-btn.active { background: var(--accent); color: #06131d; }
       .btn, .nav-cv {
         display: inline-flex;
         align-items: center;
@@ -587,7 +625,11 @@
           <li><a href="#contact">Contact</a></li>
         </ul>
         <div class="nav-actions">
-          <a class="nav-cv" href="cv.pdf" target="_blank" rel="noopener noreferrer">Download CV</a>
+          <div class="lang-switch" aria-label="Language switcher">
+            <button class="lang-btn active" type="button" data-lang-switch="en" aria-pressed="true">EN</button>
+            <button class="lang-btn" type="button" data-lang-switch="vi" aria-pressed="false">VI</button>
+          </div>
+          <a class="nav-cv" href="cv.pdf" target="_blank" rel="noopener noreferrer" data-i18n="nav.cv">Download CV</a>
         </div>
         <button class="nav-toggle" id="navToggle" type="button" aria-label="Open menu" aria-expanded="false">
           <i class="fa-solid fa-bars"></i>
@@ -595,6 +637,10 @@
       </div>
     </nav>
     <div class="mobile-menu" id="mobileMenu" aria-label="Mobile navigation">
+      <div class="mobile-lang-switch" aria-label="Language switcher">
+        <button class="lang-btn active" type="button" data-lang-switch="en" aria-pressed="true">EN</button>
+        <button class="lang-btn" type="button" data-lang-switch="vi" aria-pressed="false">VI</button>
+      </div>
       <a href="#work">Featured Work</a>
       <a href="#experience">Experience</a>
       <a href="#focus">Technical Focus</a>
@@ -665,10 +711,10 @@
           <div class="section-head reveal">
             <div>
               <div class="section-label">Featured Work</div>
-              <h2 class="section-title">Project summaries that point to deeper GitHub proof.</h2>
+              <h2 class="section-title">Project summaries with direct links to technical details.</h2>
             </div>
             <p class="section-desc">
-              The website stays concise; GitHub README pages carry diagrams, screenshots, commands, and validation notes.
+              Each project links to GitHub details: diagrams, screenshots, commands, and validation notes.
             </p>
           </div>
 
@@ -681,7 +727,7 @@
                 <span class="chip metric">2.8s failover</span><span class="chip metric">0.71% sync overhead</span><span class="chip metric">12,796 WAF alerts</span><span class="chip metric">RF AUC 1.000</span>
               </div>
               <div class="chips"><span class="chip">OPNsense</span><span class="chip">CARP/pfsync</span><span class="chip">HAProxy</span><span class="chip">ModSecurity</span><span class="chip">Wazuh</span><span class="chip">Python</span></div>
-              <div class="card-links"><a class="card-link muted-link" href="https://github.com/ThanhLam-NetEng" target="_blank" rel="noopener noreferrer">GitHub proof <i class="fa-solid fa-arrow-right"></i></a></div>
+              <div class="card-links"><a class="card-link" href="https://github.com/ThanhLam-NetEng/kltn-firewall-ha-waf-siem.git" target="_blank" rel="noopener noreferrer">View thesis repository <i class="fa-solid fa-arrow-right"></i></a></div>
             </article>
 
             <article class="work-card reveal">
@@ -861,6 +907,187 @@
     <footer>© 2026 Phạm Thanh Lâm · Built for <span>network/security engineering</span> · Ho Chi Minh City</footer>
 
     <script>
+      const translations = {
+        en: {
+          title: "Phạm Thanh Lâm — Network & Security Engineer",
+          nav: ["Work", "Experience", "Focus", "Certs", "About", "Contact"],
+          mobile: ["Featured Work", "Experience", "Technical Focus", "Certifications", "About", "Contact", "Download CV →"],
+          cv: "Download CV",
+          eyebrow: "Open to Network/Security roles · 2026",
+          heroTitle: "Network & Security Engineer for practical infrastructure systems.",
+          heroLead: "I design and validate <strong>HA firewall</strong>, <strong>SD-WAN</strong>, <strong>SIEM</strong>, and <strong>cloud security</strong> labs with a focus on measurable results, documentation, and operations.",
+          heroCta: "View featured work <i class="fa-solid fa-arrow-right"></i>",
+          trust: ["UIT Network Graduate", "FSI Network/Security Intern", "HCM City · Bình Dương"],
+          terminal: ["show --validated-results", "HA firewall failover", "OPNsense Active-Passive cluster validated in thesis lab.", "WAF alerts analyzed", "ModSecurity + OWASP CRS validation with payload-level review.", "Network/security labs", "SD-WAN, SIEM, VPN/DNS security, AI security proxy."],
+          proof: ["Firewall architecture, SSL offloading, ModSecurity, SIEM pipeline.", "Cisco dCloud/CML, vManage, C8000v, AAR policy, IPsec.", "AWS/GCP labs, WireGuard, DNS sinkhole, API security.", "Python, FastAPI, Docker, shell scripts, monitoring workflows."],
+          workLabel: "Featured Work",
+          workTitle: "Project summaries with direct links to technical details.",
+          workDesc: "Each project links to GitHub details: diagrams, screenshots, commands, and validation notes.",
+          thesisBadge: "Thesis",
+          thesisPeriod: "Jan – May 2026",
+          thesisTitle: "HA Firewall & AI-driven Security Monitoring",
+          thesisDesc: "Graduation thesis combining OPNsense HA firewall, WAF, Wazuh SIEM, and ML-based security log analysis in a controlled lab.",
+          thesisLink: "View thesis repository <i class="fa-solid fa-arrow-right"></i>",
+          sdwanBadge: "Academic",
+          sdwanDesc: "3-site Hub-and-Spoke SD-WAN overlay with encrypted dual transport and least-privilege traffic steering for critical medical systems.",
+          github: "View GitHub <i class="fa-solid fa-arrow-right"></i>",
+          aiBadge: "Personal",
+          aiDesc: "Bilingual LLM security proxy enforcing DLP and prompt-injection controls at the API perimeter for enterprise-style AI workflows.",
+          vpnDesc: "Privacy-first VPN gateway chaining WireGuard, AdGuard Home, and Unbound to reduce telemetry and avoid third-party DNS tracking.",
+          moreLabel: "More Projects",
+          moreTitle: "Additional labs and automation work.",
+          moreDesc: "Kept shorter here so the page scans quickly. Each item links out when public proof is available.",
+          expLabel: "Experience",
+          expTitle: "Practical exposure in network and security operations.",
+          expDesc: "Internship work focused on security appliance validation, Cisco network tasks, SD-WAN evaluation, and on-site support.",
+          expRole: "Network & Security Engineer Intern",
+          focusLabel: "Technical Focus",
+          focusTitle: "Skill groups mapped to the roles I am targeting.",
+          focusDesc: "A cleaner alternative to a long wall of skill pills: focused, readable, and aligned to network/security hiring signals.",
+          certLabel: "Certifications",
+          certTitle: "Verified learning path.",
+          certDesc: "Cisco NetAcad and Linux credentials supporting the networking/security foundation.",
+          aboutLabel: "Background",
+          aboutTitle: "UIT network graduate building security-focused infrastructure labs.",
+          aboutP: ["I majored in <strong>Computer Networks & Data Communications</strong> at the University of Information Technology (UIT – VNU-HCM). My work focuses on network security, system infrastructure, and practical automation.", "I have worked with production-adjacent tasks at FSI, including security appliance validation, Cisco hardware support, SD-WAN evaluation, VPN visibility research, and local service deployment.", "My near-term direction is to grow into Network/Security Engineering, then deepen into network automation and cloud networking."],
+          contactLabel: "Contact",
+          contactTitle: "Let’s connect.",
+          contactDesc: "Open to Network Engineer, Security Engineer, IT Helpdesk with networking/security focus, and infrastructure support opportunities around HCM City / Bình Dương.",
+          emailMe: "<i class="fa-solid fa-envelope"></i> Email me",
+          form: ["Your name", "Your email", "Your message...", "Send message"],
+          footer: "© 2026 Phạm Thanh Lâm · Built for <span>network/security engineering</span> · Ho Chi Minh City"
+        },
+        vi: {
+          title: "Phạm Thanh Lâm — Network & Security Engineer",
+          nav: ["Dự án", "Kinh nghiệm", "Trọng tâm", "Chứng chỉ", "Giới thiệu", "Liên hệ"],
+          mobile: ["Dự án nổi bật", "Kinh nghiệm", "Trọng tâm kỹ thuật", "Chứng chỉ", "Giới thiệu", "Liên hệ", "Tải CV →"],
+          cv: "Tải CV",
+          eyebrow: "Tìm cơ hội Network/Security · 2026",
+          heroTitle: "Network & Security Engineer xây dựng hạ tầng thực tế, có kiểm chứng.",
+          heroLead: "Tôi thiết kế và kiểm chứng các lab <strong>HA firewall</strong>, <strong>SD-WAN</strong>, <strong>SIEM</strong> và <strong>cloud security</strong>, tập trung vào kết quả đo được, tài liệu rõ ràng và khả năng vận hành.",
+          heroCta: "Xem dự án nổi bật <i class="fa-solid fa-arrow-right"></i>",
+          trust: ["Sinh viên Mạng máy tính UIT", "Thực tập Network/Security tại FSI", "TP.HCM · Bình Dương"],
+          terminal: ["show --validated-results", "Failover HA firewall", "Cụm OPNsense Active-Passive được kiểm chứng trong lab khóa luận.", "WAF alerts đã phân tích", "Kiểm chứng ModSecurity + OWASP CRS ở mức payload.", "Lab network/security", "SD-WAN, SIEM, VPN/DNS security, AI security proxy."],
+          proof: ["Kiến trúc firewall, SSL offloading, ModSecurity, SIEM pipeline.", "Cisco dCloud/CML, vManage, C8000v, AAR policy, IPsec.", "AWS/GCP labs, WireGuard, DNS sinkhole, API security.", "Python, FastAPI, Docker, shell scripts, monitoring workflows."],
+          workLabel: "Dự án nổi bật",
+          workTitle: "Tóm tắt dự án, dẫn thẳng tới chi tiết kỹ thuật.",
+          workDesc: "Mỗi dự án có link GitHub chứa diagram, screenshot, command và ghi chú kiểm chứng.",
+          thesisBadge: "Khóa luận",
+          thesisPeriod: "01 – 05/2026",
+          thesisTitle: "HA Firewall & AI-driven Security Monitoring",
+          thesisDesc: "Khóa luận kết hợp OPNsense HA firewall, WAF, Wazuh SIEM và phân tích log bảo mật bằng ML trong môi trường lab có kiểm chứng.",
+          thesisLink: "Xem repo khóa luận <i class="fa-solid fa-arrow-right"></i>",
+          sdwanBadge: "Học thuật",
+          sdwanDesc: "Mô hình SD-WAN Hub-and-Spoke 3 site, dual transport mã hóa và điều hướng traffic theo least-privilege cho hệ thống y tế quan trọng.",
+          github: "Xem GitHub <i class="fa-solid fa-arrow-right"></i>",
+          aiBadge: "Cá nhân",
+          aiDesc: "Proxy bảo mật LLM song ngữ, kiểm soát DLP và prompt injection ở API perimeter cho workflow AI kiểu doanh nghiệp.",
+          vpnDesc: "VPN gateway ưu tiên privacy, kết hợp WireGuard, AdGuard Home và Unbound để giảm telemetry và tránh DNS tracking bên thứ ba.",
+          moreLabel: "Dự án khác",
+          moreTitle: "Các lab và dự án automation bổ sung.",
+          moreDesc: "Phần này được giữ ngắn để trang dễ đọc. Dự án nào public sẽ có link bằng chứng bên ngoài.",
+          expLabel: "Kinh nghiệm",
+          expTitle: "Kinh nghiệm thực tế trong vận hành mạng và bảo mật.",
+          expDesc: "Thực tập tập trung vào kiểm chứng thiết bị bảo mật, tác vụ Cisco network, đánh giá SD-WAN và hỗ trợ triển khai thực địa.",
+          expRole: "Network & Security Engineer Intern",
+          focusLabel: "Trọng tâm kỹ thuật",
+          focusTitle: "Nhóm kỹ năng bám sát vị trí tôi đang hướng tới.",
+          focusDesc: "Trình bày gọn hơn một danh sách skill dài: rõ trọng tâm, dễ đọc và đúng tín hiệu tuyển dụng Network/Security.",
+          certLabel: "Chứng chỉ",
+          certTitle: "Lộ trình học tập có xác thực.",
+          certDesc: "Chứng chỉ Cisco NetAcad và Linux hỗ trợ nền tảng mạng/bảo mật.",
+          aboutLabel: "Giới thiệu",
+          aboutTitle: "Sinh viên UIT ngành mạng, tập trung xây dựng lab hạ tầng bảo mật.",
+          aboutP: ["Tôi học ngành <strong>Mạng máy tính và Truyền thông dữ liệu</strong> tại Trường Đại học Công nghệ Thông tin (UIT – ĐHQG-HCM). Hướng làm việc chính là network security, system infrastructure và automation thực tế.", "Tại FSI, tôi đã tham gia các việc gần với production như kiểm chứng thiết bị bảo mật, hỗ trợ phần cứng Cisco, đánh giá SD-WAN, nghiên cứu VPN visibility và triển khai dịch vụ nội bộ.", "Định hướng gần là phát triển theo Network/Security Engineering, sau đó đào sâu network automation và cloud networking."],
+          contactLabel: "Liên hệ",
+          contactTitle: "Kết nối với tôi.",
+          contactDesc: "Sẵn sàng cho các cơ hội Network Engineer, Security Engineer, IT Helpdesk thiên về mạng/bảo mật và hỗ trợ hạ tầng quanh TP.HCM / Bình Dương.",
+          emailMe: "<i class="fa-solid fa-envelope"></i> Gửi email",
+          form: ["Tên của bạn", "Email của bạn", "Nội dung...", "Gửi tin nhắn"],
+          footer: "© 2026 Phạm Thanh Lâm · Portfolio cho <span>network/security engineering</span> · TP. Hồ Chí Minh"
+        }
+      };
+
+      function setText(selector, value, html = false) {
+        const el = document.querySelector(selector);
+        if (!el) return;
+        if (html) el.innerHTML = value;
+        else el.textContent = value;
+      }
+      function setAll(selector, values, html = false) {
+        document.querySelectorAll(selector).forEach((el, idx) => {
+          if (values[idx] === undefined) return;
+          if (html) el.innerHTML = values[idx];
+          else el.textContent = values[idx];
+        });
+      }
+      function applyLanguage(lang) {
+        const t = translations[lang] || translations.en;
+        document.documentElement.lang = lang;
+        document.title = t.title;
+        localStorage.setItem("portfolioLang", lang);
+        document.querySelectorAll("[data-lang-switch]").forEach((btn) => {
+          const active = btn.dataset.langSwitch === lang;
+          btn.classList.toggle("active", active);
+          btn.setAttribute("aria-pressed", String(active));
+        });
+        setAll(".nav-links a", t.nav);
+        setAll(".mobile-menu > a", t.mobile);
+        setText(".nav-cv", t.cv);
+        setText(".eyebrow", t.eyebrow);
+        setText(".hero h1", t.heroTitle);
+        setText(".hero-lead", t.heroLead, true);
+        setText(".hero-actions .btn-primary", t.heroCta, true);
+        setAll(".trust-pill", t.trust, true);
+        setText(".console-line", `<span class="prompt">$</span> ${t.terminal[0]}`, true);
+        setAll(".console-metric .metric-copy b", [t.terminal[1], t.terminal[3], t.terminal[5]]);
+        setAll(".console-metric .metric-copy span", [t.terminal[2], t.terminal[4], t.terminal[6]]);
+        setAll(".proof-label", t.proof);
+        setText("#work .section-label", t.workLabel);
+        setText("#work .section-title", t.workTitle);
+        setText("#work .section-desc", t.workDesc);
+        const cards = document.querySelectorAll("#work .work-card");
+        if (cards[0]) {
+          cards[0].querySelector(".badge").textContent = t.thesisBadge;
+          cards[0].querySelector(".period").textContent = t.thesisPeriod;
+          cards[0].querySelector(".work-title").textContent = t.thesisTitle;
+          cards[0].querySelector(".work-desc").textContent = t.thesisDesc;
+          cards[0].querySelector(".card-link").innerHTML = t.thesisLink;
+        }
+        if (cards[1]) { cards[1].querySelector(".badge").textContent = t.sdwanBadge; cards[1].querySelector(".work-desc").textContent = t.sdwanDesc; cards[1].querySelector(".card-link").innerHTML = t.github; }
+        if (cards[2]) { cards[2].querySelector(".badge").textContent = t.aiBadge; cards[2].querySelector(".work-desc").textContent = t.aiDesc; cards[2].querySelector(".card-link").innerHTML = t.github; }
+        if (cards[3]) { cards[3].querySelector(".badge").textContent = t.aiBadge; cards[3].querySelector(".work-desc").textContent = t.vpnDesc; cards[3].querySelector(".card-link").innerHTML = t.github; }
+        setText("#more-work .section-label", t.moreLabel);
+        setText("#more-work .section-title", t.moreTitle);
+        setText("#more-work .section-desc", t.moreDesc);
+        document.querySelectorAll("#more-work .card-link").forEach((link) => { if (!link.textContent.includes("Watch") && !link.textContent.includes("demo")) link.innerHTML = t.github; });
+        setText("#experience .section-label", t.expLabel);
+        setText("#experience .section-title", t.expTitle);
+        setText("#experience .section-desc", t.expDesc);
+        setText("#experience .role", t.expRole);
+        setText("#focus .section-label", t.focusLabel);
+        setText("#focus .section-title", t.focusTitle);
+        setText("#focus .section-desc", t.focusDesc);
+        setText("#certifications .section-label", t.certLabel);
+        setText("#certifications .section-title", t.certTitle);
+        setText("#certifications .section-desc", t.certDesc);
+        setText("#about .section-label", t.aboutLabel);
+        setText("#about .section-title", t.aboutTitle);
+        setAll("#about .about-copy p", t.aboutP, true);
+        setText("#contact .section-label", t.contactLabel);
+        setText("#contact .section-title", t.contactTitle);
+        setText("#contact .contact-desc", t.contactDesc);
+        setText("#contact .direct-links .btn-primary", t.emailMe, true);
+        const inputs = document.querySelectorAll("#contactForm input, #contactForm textarea");
+        if (inputs[0]) inputs[0].placeholder = t.form[0];
+        if (inputs[1]) inputs[1].placeholder = t.form[1];
+        if (inputs[2]) inputs[2].placeholder = t.form[2];
+        setText("#submitBtn", t.form[3]);
+        setText("footer", t.footer, true);
+      }
+      document.querySelectorAll("[data-lang-switch]").forEach((btn) => btn.addEventListener("click", () => applyLanguage(btn.dataset.langSwitch)));
+      applyLanguage(localStorage.getItem("portfolioLang") || "en");
+
       const nav = document.getElementById("nav");
       const navToggle = document.getElementById("navToggle");
       const mobileMenu = document.getElementById("mobileMenu");
