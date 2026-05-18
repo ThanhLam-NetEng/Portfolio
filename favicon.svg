@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
+  <rect width="128" height="128" rx="28" fill="#07101d"/>
+  <rect x="12" y="12" width="104" height="104" rx="22" fill="#101d31" stroke="#2dd4bf" stroke-width="6"/>
+  <text x="64" y="75" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="34" font-weight="700" fill="#2dd4bf">PTL</text>
+  <circle cx="32" cy="96" r="5" fill="#f59e0b"/><circle cx="64" cy="96" r="5" fill="#2dd4bf"/><circle cx="96" cy="96" r="5" fill="#a78bfa"/>
+</svg>

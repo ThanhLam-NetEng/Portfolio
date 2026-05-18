@@ -8,7 +8,10 @@
       content="Phạm Thanh Lâm — Network & Security Engineer focused on HA firewall, SIEM, SD-WAN, cloud security, and infrastructure automation."
     />
     <meta name="author" content="Phạm Thanh Lâm" />
-    <meta property="og:title" content="Phạm Thanh Lâm — Network & Security Engineer" />
+    <meta
+      property="og:title"
+      content="Phạm Thanh Lâm — Network & Security Engineer"
+    />
     <meta
       property="og:description"
       content="Portfolio of a UIT network graduate building HA firewall, SIEM, SD-WAN, and cloud security labs with measurable results."
@@ -42,21 +45,42 @@
         --border: rgba(148, 163, 184, 0.16);
         --border-strong: rgba(45, 212, 191, 0.34);
         --shadow: 0 20px 70px rgba(0, 0, 0, 0.24);
-        --font: "Sora", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-        --mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+        --font:
+          "Sora", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+          sans-serif;
+        --mono:
+          "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
         --container: 1120px;
       }
 
-      *, *::before, *::after { box-sizing: border-box; }
-      * { margin: 0; padding: 0; }
-      html { scroll-behavior: smooth; scroll-padding-top: 86px; }
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      html {
+        scroll-behavior: smooth;
+        scroll-padding-top: 86px;
+      }
       body {
         min-height: 100vh;
         font-family: var(--font);
         color: var(--text);
         background:
-          radial-gradient(circle at 18% 0%, rgba(45, 212, 191, 0.08), transparent 34rem),
-          radial-gradient(circle at 86% 8%, rgba(167, 139, 250, 0.07), transparent 28rem),
+          radial-gradient(
+            circle at 18% 0%,
+            rgba(45, 212, 191, 0.08),
+            transparent 34rem
+          ),
+          radial-gradient(
+            circle at 86% 8%,
+            rgba(167, 139, 250, 0.07),
+            transparent 28rem
+          ),
           var(--bg);
         line-height: 1.7;
         overflow-x: hidden;
@@ -67,18 +91,31 @@
         inset: 0;
         pointer-events: none;
         z-index: -1;
-        background-image: linear-gradient(rgba(148, 163, 184, 0.04) 1px, transparent 1px),
+        background-image:
+          linear-gradient(rgba(148, 163, 184, 0.04) 1px, transparent 1px),
           linear-gradient(90deg, rgba(148, 163, 184, 0.04) 1px, transparent 1px);
         background-size: 44px 44px;
         mask-image: linear-gradient(to bottom, black 0%, transparent 72%);
       }
-      a { color: inherit; text-decoration: none; }
-      a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible {
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+      a:focus-visible,
+      button:focus-visible,
+      input:focus-visible,
+      textarea:focus-visible {
         outline: 2px solid var(--accent);
         outline-offset: 4px;
       }
-      ::selection { background: rgba(45, 212, 191, 0.28); color: #fff; }
-      .container { width: min(100% - 2rem, var(--container)); margin-inline: auto; }
+      ::selection {
+        background: rgba(45, 212, 191, 0.28);
+        color: #fff;
+      }
+      .container {
+        width: min(100% - 2rem, var(--container));
+        margin-inline: auto;
+      }
 
       /* Navigation */
       .site-nav {
@@ -89,7 +126,10 @@
         display: flex;
         align-items: center;
         border-bottom: 1px solid transparent;
-        transition: background 0.25s ease, border-color 0.25s ease, backdrop-filter 0.25s ease;
+        transition:
+          background 0.25s ease,
+          border-color 0.25s ease,
+          backdrop-filter 0.25s ease;
       }
       .site-nav.scrolled {
         background: rgba(7, 16, 29, 0.86);
@@ -124,7 +164,12 @@
         color: var(--accent);
         background: rgba(45, 212, 191, 0.07);
       }
-      .nav-links { display: flex; align-items: center; gap: 1.1rem; list-style: none; }
+      .nav-links {
+        display: flex;
+        align-items: center;
+        gap: 1.1rem;
+        list-style: none;
+      }
       .nav-links a {
         font-family: var(--mono);
         font-size: 0.72rem;
@@ -133,9 +178,16 @@
         text-transform: uppercase;
         transition: color 0.2s ease;
       }
-      .nav-links a:hover { color: var(--text); }
-      .nav-actions { display: flex; align-items: center; gap: 0.7rem; }
-      .btn, .nav-cv {
+      .nav-links a:hover {
+        color: var(--text);
+      }
+      .nav-actions {
+        display: flex;
+        align-items: center;
+        gap: 0.7rem;
+      }
+      .btn,
+      .nav-cv {
         display: inline-flex;
         align-items: center;
         justify-content: center;
@@ -149,16 +201,28 @@
         font-weight: 500;
         color: var(--text);
         background: rgba(16, 29, 49, 0.62);
-        transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease, color 0.2s ease;
+        transition:
+          transform 0.2s ease,
+          border-color 0.2s ease,
+          background 0.2s ease,
+          color 0.2s ease;
       }
-      .btn:hover, .nav-cv:hover { transform: translateY(-2px); border-color: var(--border-strong); color: var(--accent); }
+      .btn:hover,
+      .nav-cv:hover {
+        transform: translateY(-2px);
+        border-color: var(--border-strong);
+        color: var(--accent);
+      }
       .btn-primary {
         color: #06131d;
         background: var(--accent);
         border-color: var(--accent);
         font-weight: 600;
       }
-      .btn-primary:hover { color: #06131d; box-shadow: 0 12px 34px rgba(45, 212, 191, 0.18); }
+      .btn-primary:hover {
+        color: #06131d;
+        box-shadow: 0 12px 34px rgba(45, 212, 191, 0.18);
+      }
       .nav-toggle {
         display: none;
         width: 42px;
@@ -183,7 +247,10 @@
         backdrop-filter: blur(16px);
         box-shadow: var(--shadow);
       }
-      .mobile-menu.open { display: grid; gap: 0.35rem; }
+      .mobile-menu.open {
+        display: grid;
+        gap: 0.35rem;
+      }
       .mobile-menu a {
         padding: 0.8rem 0.9rem;
         border-radius: 12px;
@@ -191,7 +258,10 @@
         font-family: var(--mono);
         font-size: 0.82rem;
       }
-      .mobile-menu a:hover { color: var(--text); background: rgba(148, 163, 184, 0.08); }
+      .mobile-menu a:hover {
+        color: var(--text);
+        background: rgba(148, 163, 184, 0.08);
+      }
 
       /* Hero */
       .hero {
@@ -221,7 +291,9 @@
         font-size: 0.76rem;
         margin-bottom: 1.3rem;
       }
-      .eyebrow i { font-size: 0.58rem; }
+      .eyebrow i {
+        font-size: 0.58rem;
+      }
       .hero h1 {
         max-width: 780px;
         font-size: clamp(2.55rem, 6vw, 5.25rem);
@@ -229,7 +301,9 @@
         letter-spacing: -0.06em;
         margin-bottom: 1.2rem;
       }
-      .hero h1 span { color: var(--accent); }
+      .hero h1 span {
+        color: var(--accent);
+      }
       .hero-lead {
         max-width: 690px;
         color: var(--muted);
@@ -237,9 +311,22 @@
         line-height: 1.85;
         margin-bottom: 1.7rem;
       }
-      .hero-lead strong { color: var(--text); font-weight: 600; }
-      .hero-actions { display: flex; flex-wrap: wrap; gap: 0.8rem; margin-bottom: 1.65rem; }
-      .hero-trust { display: flex; flex-wrap: wrap; gap: 0.55rem; list-style: none; }
+      .hero-lead strong {
+        color: var(--text);
+        font-weight: 600;
+      }
+      .hero-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.8rem;
+        margin-bottom: 1.65rem;
+      }
+      .hero-trust {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.55rem;
+        list-style: none;
+      }
       .trust-pill {
         display: inline-flex;
         align-items: center;
@@ -252,11 +339,17 @@
         font-family: var(--mono);
         font-size: 0.72rem;
       }
-      .trust-pill i { color: var(--accent); }
+      .trust-pill i {
+        color: var(--accent);
+      }
       .terminal-card {
         border: 1px solid var(--border);
         border-radius: 24px;
-        background: linear-gradient(180deg, rgba(16, 29, 49, 0.92), rgba(11, 21, 38, 0.92));
+        background: linear-gradient(
+          180deg,
+          rgba(16, 29, 49, 0.92),
+          rgba(11, 21, 38, 0.92)
+        );
         box-shadow: var(--shadow);
         overflow: hidden;
       }
@@ -268,13 +361,39 @@
         border-bottom: 1px solid var(--border);
         background: rgba(7, 16, 29, 0.56);
       }
-      .dots { display: flex; gap: 0.42rem; }
-      .dots span { width: 10px; height: 10px; border-radius: 50%; background: var(--muted-2); opacity: 0.52; }
-      .terminal-label { font-family: var(--mono); font-size: 0.72rem; color: var(--muted-2); }
-      .terminal-body { padding: 1.25rem; }
-      .console-line { font-family: var(--mono); font-size: 0.8rem; color: var(--muted); margin-bottom: 0.6rem; }
-      .console-line .prompt { color: var(--accent); }
-      .console-grid { display: grid; gap: 0.75rem; margin-top: 1rem; }
+      .dots {
+        display: flex;
+        gap: 0.42rem;
+      }
+      .dots span {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: var(--muted-2);
+        opacity: 0.52;
+      }
+      .terminal-label {
+        font-family: var(--mono);
+        font-size: 0.72rem;
+        color: var(--muted-2);
+      }
+      .terminal-body {
+        padding: 1.25rem;
+      }
+      .console-line {
+        font-family: var(--mono);
+        font-size: 0.8rem;
+        color: var(--muted);
+        margin-bottom: 0.6rem;
+      }
+      .console-line .prompt {
+        color: var(--accent);
+      }
+      .console-grid {
+        display: grid;
+        gap: 0.75rem;
+        margin-top: 1rem;
+      }
       .console-metric {
         display: grid;
         grid-template-columns: auto 1fr;
@@ -293,11 +412,22 @@
         font-weight: 600;
         letter-spacing: -0.04em;
       }
-      .metric-copy b { display: block; color: var(--text); font-size: 0.86rem; margin-bottom: 0.1rem; }
-      .metric-copy span { color: var(--muted); font-size: 0.78rem; line-height: 1.55; }
+      .metric-copy b {
+        display: block;
+        color: var(--text);
+        font-size: 0.86rem;
+        margin-bottom: 0.1rem;
+      }
+      .metric-copy span {
+        color: var(--muted);
+        font-size: 0.78rem;
+        line-height: 1.55;
+      }
 
       /* Shared sections */
-      section { padding: 5.6rem 0; }
+      section {
+        padding: 5.6rem 0;
+      }
       .section-head {
         display: grid;
         grid-template-columns: minmax(0, 0.8fr) minmax(260px, 0.52fr);
@@ -319,8 +449,15 @@
         line-height: 1.12;
         letter-spacing: -0.045em;
       }
-      .section-desc { color: var(--muted); font-size: 0.95rem; line-height: 1.85; }
-      .section-soft { background: rgba(11, 21, 38, 0.72); border-block: 1px solid var(--border); }
+      .section-desc {
+        color: var(--muted);
+        font-size: 0.95rem;
+        line-height: 1.85;
+      }
+      .section-soft {
+        background: rgba(11, 21, 38, 0.72);
+        border-block: 1px solid var(--border);
+      }
 
       /* Proof strip */
       .proof-strip {
@@ -337,13 +474,33 @@
         background: rgba(16, 29, 49, 0.82);
         box-shadow: var(--shadow);
       }
-      .proof-item { padding: 1.25rem; border-right: 1px solid var(--border); }
-      .proof-item:last-child { border-right: 0; }
-      .proof-value { font-family: var(--mono); color: var(--accent); font-size: 1.34rem; font-weight: 600; letter-spacing: -0.04em; }
-      .proof-label { color: var(--muted); font-size: 0.78rem; margin-top: 0.2rem; line-height: 1.5; }
+      .proof-item {
+        padding: 1.25rem;
+        border-right: 1px solid var(--border);
+      }
+      .proof-item:last-child {
+        border-right: 0;
+      }
+      .proof-value {
+        font-family: var(--mono);
+        color: var(--accent);
+        font-size: 1.34rem;
+        font-weight: 600;
+        letter-spacing: -0.04em;
+      }
+      .proof-label {
+        color: var(--muted);
+        font-size: 0.78rem;
+        margin-top: 0.2rem;
+        line-height: 1.5;
+      }
 
       /* Work cards */
-      .work-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.1rem; }
+      .work-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 1.1rem;
+      }
       .work-card {
         position: relative;
         display: flex;
@@ -352,22 +509,45 @@
         padding: 1.35rem;
         border: 1px solid var(--border);
         border-radius: 22px;
-        background: linear-gradient(180deg, rgba(16, 29, 49, 0.94), rgba(13, 24, 42, 0.94));
+        background: linear-gradient(
+          180deg,
+          rgba(16, 29, 49, 0.94),
+          rgba(13, 24, 42, 0.94)
+        );
         overflow: hidden;
-        transition: transform 0.22s ease, border-color 0.22s ease, background 0.22s ease;
+        transition:
+          transform 0.22s ease,
+          border-color 0.22s ease,
+          background 0.22s ease;
       }
       .work-card::before {
         content: "";
         position: absolute;
         inset: 0 0 auto 0;
         height: 3px;
-        background: linear-gradient(90deg, transparent, var(--accent), transparent);
+        background: linear-gradient(
+          90deg,
+          transparent,
+          var(--accent),
+          transparent
+        );
         opacity: 0;
         transition: opacity 0.22s ease;
       }
-      .work-card:hover { transform: translateY(-4px); border-color: var(--border-strong); }
-      .work-card:hover::before { opacity: 1; }
-      .work-meta { display: flex; justify-content: space-between; gap: 0.75rem; align-items: flex-start; margin-bottom: 0.95rem; }
+      .work-card:hover {
+        transform: translateY(-4px);
+        border-color: var(--border-strong);
+      }
+      .work-card:hover::before {
+        opacity: 1;
+      }
+      .work-meta {
+        display: flex;
+        justify-content: space-between;
+        gap: 0.75rem;
+        align-items: flex-start;
+        margin-bottom: 0.95rem;
+      }
       .badge {
         display: inline-flex;
         align-items: center;
@@ -383,13 +563,45 @@
         text-transform: uppercase;
         letter-spacing: 0.12em;
       }
-      .badge.personal { color: #34d399; border-color: rgba(52, 211, 153, 0.3); background: rgba(52, 211, 153, 0.07); }
-      .badge.academic { color: var(--accent-3); border-color: rgba(167, 139, 250, 0.32); background: rgba(167, 139, 250, 0.07); }
-      .badge.cert { color: var(--accent-2); border-color: rgba(245, 158, 11, 0.32); background: rgba(245, 158, 11, 0.07); }
-      .period { color: var(--muted-2); font-family: var(--mono); font-size: 0.72rem; white-space: nowrap; }
-      .work-title { font-size: 1.1rem; line-height: 1.35; margin-bottom: 0.55rem; letter-spacing: -0.02em; }
-      .work-desc { color: var(--muted); font-size: 0.9rem; line-height: 1.72; margin-bottom: 1rem; }
-      .chips { display: flex; flex-wrap: wrap; gap: 0.45rem; margin-bottom: 1rem; }
+      .badge.personal {
+        color: #34d399;
+        border-color: rgba(52, 211, 153, 0.3);
+        background: rgba(52, 211, 153, 0.07);
+      }
+      .badge.academic {
+        color: var(--accent-3);
+        border-color: rgba(167, 139, 250, 0.32);
+        background: rgba(167, 139, 250, 0.07);
+      }
+      .badge.cert {
+        color: var(--accent-2);
+        border-color: rgba(245, 158, 11, 0.32);
+        background: rgba(245, 158, 11, 0.07);
+      }
+      .period {
+        color: var(--muted-2);
+        font-family: var(--mono);
+        font-size: 0.72rem;
+        white-space: nowrap;
+      }
+      .work-title {
+        font-size: 1.1rem;
+        line-height: 1.35;
+        margin-bottom: 0.55rem;
+        letter-spacing: -0.02em;
+      }
+      .work-desc {
+        color: var(--muted);
+        font-size: 0.9rem;
+        line-height: 1.72;
+        margin-bottom: 1rem;
+      }
+      .chips {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.45rem;
+        margin-bottom: 1rem;
+      }
       .chip {
         display: inline-flex;
         align-items: center;
@@ -402,8 +614,18 @@
         font-family: var(--mono);
         font-size: 0.68rem;
       }
-      .chip.metric { color: var(--text); border-color: rgba(45, 212, 191, 0.2); background: rgba(45, 212, 191, 0.06); }
-      .card-links { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: auto; padding-top: 0.3rem; }
+      .chip.metric {
+        color: var(--text);
+        border-color: rgba(45, 212, 191, 0.2);
+        background: rgba(45, 212, 191, 0.06);
+      }
+      .card-links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.6rem;
+        margin-top: auto;
+        padding-top: 0.3rem;
+      }
       .card-link {
         display: inline-flex;
         align-items: center;
@@ -411,10 +633,17 @@
         color: var(--accent);
         font-family: var(--mono);
         font-size: 0.74rem;
-        transition: color 0.2s ease, transform 0.2s ease;
+        transition:
+          color 0.2s ease,
+          transform 0.2s ease;
       }
-      .card-link:hover { color: var(--text); transform: translateX(2px); }
-      .muted-link { color: var(--muted); }
+      .card-link:hover {
+        color: var(--text);
+        transform: translateX(2px);
+      }
+      .muted-link {
+        color: var(--muted);
+      }
 
       /* Experience */
       .experience-card {
@@ -423,17 +652,58 @@
         padding: 1.5rem;
         background: rgba(16, 29, 49, 0.78);
       }
-      .experience-top { display: flex; justify-content: space-between; gap: 1rem; align-items: flex-start; margin-bottom: 0.65rem; }
-      .company { font-size: 1.12rem; letter-spacing: -0.02em; }
-      .role { color: var(--accent); font-family: var(--mono); font-size: 0.82rem; margin-top: 0.18rem; }
-      .address { color: var(--muted-2); font-size: 0.82rem; margin-bottom: 1rem; }
-      .bullet-list { list-style: none; display: grid; gap: 0.62rem; }
-      .bullet-list li { position: relative; padding-left: 1.15rem; color: var(--muted); font-size: 0.9rem; line-height: 1.75; }
-      .bullet-list li::before { content: "▹"; position: absolute; left: 0; top: 0; color: var(--accent); }
-      .bullet-list strong { color: var(--text); font-weight: 500; }
+      .experience-top {
+        display: flex;
+        justify-content: space-between;
+        gap: 1rem;
+        align-items: flex-start;
+        margin-bottom: 0.65rem;
+      }
+      .company {
+        font-size: 1.12rem;
+        letter-spacing: -0.02em;
+      }
+      .role {
+        color: var(--accent);
+        font-family: var(--mono);
+        font-size: 0.82rem;
+        margin-top: 0.18rem;
+      }
+      .address {
+        color: var(--muted-2);
+        font-size: 0.82rem;
+        margin-bottom: 1rem;
+      }
+      .bullet-list {
+        list-style: none;
+        display: grid;
+        gap: 0.62rem;
+      }
+      .bullet-list li {
+        position: relative;
+        padding-left: 1.15rem;
+        color: var(--muted);
+        font-size: 0.9rem;
+        line-height: 1.75;
+      }
+      .bullet-list li::before {
+        content: "▹";
+        position: absolute;
+        left: 0;
+        top: 0;
+        color: var(--accent);
+      }
+      .bullet-list strong {
+        color: var(--text);
+        font-weight: 500;
+      }
 
       /* Focus */
-      .focus-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1rem; }
+      .focus-grid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 1rem;
+      }
       .focus-card {
         border: 1px solid var(--border);
         border-radius: 22px;
@@ -451,11 +721,22 @@
         color: var(--accent);
         background: rgba(45, 212, 191, 0.07);
       }
-      .focus-title { font-size: 0.98rem; margin-bottom: 0.5rem; }
-      .focus-copy { color: var(--muted); font-size: 0.84rem; line-height: 1.75; }
+      .focus-title {
+        font-size: 0.98rem;
+        margin-bottom: 0.5rem;
+      }
+      .focus-copy {
+        color: var(--muted);
+        font-size: 0.84rem;
+        line-height: 1.75;
+      }
 
       /* Certs/About/Contact */
-      .cert-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1rem; }
+      .cert-grid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 1rem;
+      }
       .cert-card {
         border: 1px solid var(--border);
         border-radius: 20px;
@@ -463,12 +744,38 @@
         background: rgba(16, 29, 49, 0.78);
         min-height: 100%;
       }
-      .cert-card img { width: 56px; height: 56px; object-fit: contain; margin-bottom: 0.9rem; }
-      .cert-card h3 { font-size: 0.95rem; line-height: 1.35; margin-bottom: 0.35rem; }
-      .cert-card p { color: var(--muted); font-size: 0.78rem; line-height: 1.65; margin-bottom: 0.85rem; }
-      .about-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(320px, 0.72fr); gap: 2.4rem; align-items: start; }
-      .about-copy p { color: var(--muted); font-size: 0.95rem; line-height: 1.9; margin-bottom: 1rem; }
-      .about-copy strong { color: var(--text); }
+      .cert-card img {
+        width: 56px;
+        height: 56px;
+        object-fit: contain;
+        margin-bottom: 0.9rem;
+      }
+      .cert-card h3 {
+        font-size: 0.95rem;
+        line-height: 1.35;
+        margin-bottom: 0.35rem;
+      }
+      .cert-card p {
+        color: var(--muted);
+        font-size: 0.78rem;
+        line-height: 1.65;
+        margin-bottom: 0.85rem;
+      }
+      .about-grid {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(320px, 0.72fr);
+        gap: 2.4rem;
+        align-items: start;
+      }
+      .about-copy p {
+        color: var(--muted);
+        font-size: 0.95rem;
+        line-height: 1.9;
+        margin-bottom: 1rem;
+      }
+      .about-copy strong {
+        color: var(--text);
+      }
       .info-panel {
         border: 1px solid var(--border);
         border-radius: 22px;
@@ -484,10 +791,21 @@
         border-bottom: 1px solid var(--border);
         font-size: 0.84rem;
       }
-      .info-row:last-child { border-bottom: 0; }
-      .info-row i { color: var(--accent); text-align: center; }
-      .info-label { color: var(--muted-2); font-family: var(--mono); font-size: 0.72rem; }
-      .info-value { color: var(--muted); }
+      .info-row:last-child {
+        border-bottom: 0;
+      }
+      .info-row i {
+        color: var(--accent);
+        text-align: center;
+      }
+      .info-label {
+        color: var(--muted-2);
+        font-family: var(--mono);
+        font-size: 0.72rem;
+      }
+      .info-value {
+        color: var(--muted);
+      }
       .contact-card {
         max-width: 760px;
         margin-inline: auto;
@@ -495,14 +813,34 @@
         border: 1px solid var(--border);
         border-radius: 28px;
         padding: 2rem;
-        background: linear-gradient(180deg, rgba(16, 29, 49, 0.9), rgba(11, 21, 38, 0.9));
+        background: linear-gradient(
+          180deg,
+          rgba(16, 29, 49, 0.9),
+          rgba(11, 21, 38, 0.9)
+        );
         box-shadow: var(--shadow);
       }
-      .contact-card .section-title { margin-bottom: 0.8rem; }
-      .contact-desc { color: var(--muted); max-width: 580px; margin: 0 auto 1.35rem; }
-      .contact-form { display: grid; gap: 0.8rem; margin-top: 1.3rem; text-align: left; }
-      .contact-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0.8rem; }
-      .contact-form input, .contact-form textarea {
+      .contact-card .section-title {
+        margin-bottom: 0.8rem;
+      }
+      .contact-desc {
+        color: var(--muted);
+        max-width: 580px;
+        margin: 0 auto 1.35rem;
+      }
+      .contact-form {
+        display: grid;
+        gap: 0.8rem;
+        margin-top: 1.3rem;
+        text-align: left;
+      }
+      .contact-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0.8rem;
+      }
+      .contact-form input,
+      .contact-form textarea {
         width: 100%;
         border: 1px solid var(--border);
         border-radius: 14px;
@@ -512,8 +850,14 @@
         font-family: var(--font);
         font-size: 0.9rem;
       }
-      .contact-form textarea { min-height: 130px; resize: vertical; }
-      .contact-form input::placeholder, .contact-form textarea::placeholder { color: var(--muted-2); }
+      .contact-form textarea {
+        min-height: 130px;
+        resize: vertical;
+      }
+      .contact-form input::placeholder,
+      .contact-form textarea::placeholder {
+        color: var(--muted-2);
+      }
       .form-success {
         display: none;
         margin-top: 1rem;
@@ -525,7 +869,13 @@
         font-family: var(--mono);
         font-size: 0.82rem;
       }
-      .direct-links { display: flex; justify-content: center; flex-wrap: wrap; gap: 0.75rem; margin-top: 1rem; }
+      .direct-links {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+        margin-top: 1rem;
+      }
 
       footer {
         padding: 2rem 1rem;
@@ -535,39 +885,97 @@
         font-family: var(--mono);
         font-size: 0.75rem;
       }
-      footer span { color: var(--accent); }
+      footer span {
+        color: var(--accent);
+      }
 
-      .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; }
-      .reveal.visible { opacity: 1; transform: none; }
+      .reveal {
+        opacity: 0;
+        transform: translateY(24px);
+        transition:
+          opacity 0.6s ease,
+          transform 0.6s ease;
+      }
+      .reveal.visible {
+        opacity: 1;
+        transform: none;
+      }
 
       @media (max-width: 980px) {
-        .nav-links, .nav-actions { display: none; }
-        .nav-toggle { display: inline-grid; place-items: center; }
-        .hero-grid, .section-head, .about-grid { grid-template-columns: 1fr; }
-        .hero { padding-top: 7.5rem; }
-        .terminal-card { max-width: 560px; }
-        .proof-grid, .focus-grid, .cert-grid { grid-template-columns: repeat(2, 1fr); }
+        .nav-links,
+        .nav-actions {
+          display: none;
+        }
+        .nav-toggle {
+          display: inline-grid;
+          place-items: center;
+        }
+        .hero-grid,
+        .section-head,
+        .about-grid {
+          grid-template-columns: 1fr;
+        }
+        .hero {
+          padding-top: 7.5rem;
+        }
+        .terminal-card {
+          max-width: 560px;
+        }
+        .proof-grid,
+        .focus-grid,
+        .cert-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
       }
       @media (max-width: 720px) {
-        section { padding: 4.2rem 0; }
-        .work-grid, .proof-grid, .focus-grid, .cert-grid { grid-template-columns: 1fr; }
-        .proof-item { border-right: 0; border-bottom: 1px solid var(--border); }
-        .proof-item:last-child { border-bottom: 0; }
-        .experience-top { flex-direction: column; }
-        .contact-row { grid-template-columns: 1fr; }
-        .contact-card { padding: 1.25rem; }
-        .info-row { grid-template-columns: 24px 1fr; }
-        .info-label { display: none; }
+        section {
+          padding: 4.2rem 0;
+        }
+        .work-grid,
+        .proof-grid,
+        .focus-grid,
+        .cert-grid {
+          grid-template-columns: 1fr;
+        }
+        .proof-item {
+          border-right: 0;
+          border-bottom: 1px solid var(--border);
+        }
+        .proof-item:last-child {
+          border-bottom: 0;
+        }
+        .experience-top {
+          flex-direction: column;
+        }
+        .contact-row {
+          grid-template-columns: 1fr;
+        }
+        .contact-card {
+          padding: 1.25rem;
+        }
+        .info-row {
+          grid-template-columns: 24px 1fr;
+        }
+        .info-label {
+          display: none;
+        }
       }
       @media (prefers-reduced-motion: reduce) {
-        html { scroll-behavior: auto; }
-        *, *::before, *::after {
+        html {
+          scroll-behavior: auto;
+        }
+        *,
+        *::before,
+        *::after {
           animation-duration: 0.01ms !important;
           animation-iteration-count: 1 !important;
           scroll-behavior: auto !important;
           transition-duration: 0.01ms !important;
         }
-        .reveal { opacity: 1; transform: none; }
+        .reveal {
+          opacity: 1;
+          transform: none;
+        }
       }
     </style>
   </head>
@@ -587,9 +995,21 @@
           <li><a href="#contact">Contact</a></li>
         </ul>
         <div class="nav-actions">
-          <a class="nav-cv" href="cv.pdf" target="_blank" rel="noopener noreferrer">Download CV</a>
+          <a
+            class="nav-cv"
+            href="cv.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Download CV</a
+          >
         </div>
-        <button class="nav-toggle" id="navToggle" type="button" aria-label="Open menu" aria-expanded="false">
+        <button
+          class="nav-toggle"
+          id="navToggle"
+          type="button"
+          aria-label="Open menu"
+          aria-expanded="false"
+        >
           <i class="fa-solid fa-bars"></i>
         </button>
       </div>
@@ -601,49 +1021,105 @@
       <a href="#certifications">Certifications</a>
       <a href="#about">About</a>
       <a href="#contact">Contact</a>
-      <a href="cv.pdf" target="_blank" rel="noopener noreferrer">Download CV →</a>
+      <a href="cv.pdf" target="_blank" rel="noopener noreferrer"
+        >Download CV →</a
+      >
     </div>
 
     <main>
       <section class="hero" id="hero">
         <div class="container hero-grid">
           <div class="hero-copy reveal">
-            <div class="eyebrow"><i class="fa-solid fa-circle-check"></i> Open to Network/Security roles · 2026</div>
-            <h1>Network &amp; Security Engineer for practical infrastructure systems.</h1>
+            <div class="eyebrow">
+              <i class="fa-solid fa-circle-check"></i> Open to Network/Security
+              roles · 2026
+            </div>
+            <h1>
+              Network &amp; Security Engineer for practical infrastructure
+              systems.
+            </h1>
             <p class="hero-lead">
-              I design and validate <strong>HA firewall</strong>, <strong>SD-WAN</strong>, <strong>SIEM</strong>, and <strong>cloud security</strong> labs with a focus on measurable results, documentation, and operations.
+              I design and validate <strong>HA firewall</strong>,
+              <strong>SD-WAN</strong>, <strong>SIEM</strong>, and
+              <strong>cloud security</strong> labs with a focus on measurable
+              results, documentation, and operations.
             </p>
             <div class="hero-actions">
-              <a class="btn btn-primary" href="#work">View featured work <i class="fa-solid fa-arrow-right"></i></a>
-              <a class="btn" href="https://github.com/ThanhLam-NetEng" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-github"></i> GitHub</a>
-              <a class="btn" href="https://www.linkedin.com/in/thanhlam-uit" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+              <a class="btn btn-primary" href="#work"
+                >View featured work <i class="fa-solid fa-arrow-right"></i
+              ></a>
+              <a
+                class="btn"
+                href="https://github.com/ThanhLam-NetEng"
+                target="_blank"
+                rel="noopener noreferrer"
+                ><i class="fa-brands fa-github"></i> GitHub</a
+              >
+              <a
+                class="btn"
+                href="https://www.linkedin.com/in/thanhlam-uit"
+                target="_blank"
+                rel="noopener noreferrer"
+                ><i class="fa-brands fa-linkedin"></i> LinkedIn</a
+              >
             </div>
             <ul class="hero-trust" aria-label="Highlights">
-              <li class="trust-pill"><i class="fa-solid fa-graduation-cap"></i> UIT Network Graduate</li>
-              <li class="trust-pill"><i class="fa-solid fa-briefcase"></i> FSI Network/Security Intern</li>
-              <li class="trust-pill"><i class="fa-solid fa-location-dot"></i> HCM City · Bình Dương</li>
+              <li class="trust-pill">
+                <i class="fa-solid fa-graduation-cap"></i> UIT Network Graduate
+              </li>
+              <li class="trust-pill">
+                <i class="fa-solid fa-briefcase"></i> FSI Network/Security
+                Intern
+              </li>
+              <li class="trust-pill">
+                <i class="fa-solid fa-location-dot"></i> HCM City · Bình Dương
+              </li>
             </ul>
           </div>
 
-          <aside class="terminal-card reveal" aria-label="Portfolio metrics summary">
+          <aside
+            class="terminal-card reveal"
+            aria-label="Portfolio metrics summary"
+          >
             <div class="terminal-top">
-              <div class="dots" aria-hidden="true"><span></span><span></span><span></span></div>
+              <div class="dots" aria-hidden="true">
+                <span></span><span></span><span></span>
+              </div>
               <div class="terminal-label">portfolio.signal</div>
             </div>
             <div class="terminal-body">
-              <div class="console-line"><span class="prompt">$</span> show --validated-results</div>
+              <div class="console-line">
+                <span class="prompt">$</span> show --validated-results
+              </div>
               <div class="console-grid">
                 <div class="console-metric">
                   <div class="metric-value">2.8s</div>
-                  <div class="metric-copy"><b>HA firewall failover</b><span>OPNsense Active-Passive cluster validated in thesis lab.</span></div>
+                  <div class="metric-copy">
+                    <b>HA firewall failover</b
+                    ><span
+                      >OPNsense Active-Passive cluster validated in thesis
+                      lab.</span
+                    >
+                  </div>
                 </div>
                 <div class="console-metric">
                   <div class="metric-value">12,796</div>
-                  <div class="metric-copy"><b>WAF alerts analyzed</b><span>ModSecurity + OWASP CRS validation with payload-level review.</span></div>
+                  <div class="metric-copy">
+                    <b>WAF alerts analyzed</b
+                    ><span
+                      >ModSecurity + OWASP CRS validation with payload-level
+                      review.</span
+                    >
+                  </div>
                 </div>
                 <div class="console-metric">
                   <div class="metric-value">4+</div>
-                  <div class="metric-copy"><b>Network/security labs</b><span>SD-WAN, SIEM, VPN/DNS security, AI security proxy.</span></div>
+                  <div class="metric-copy">
+                    <b>Network/security labs</b
+                    ><span
+                      >SD-WAN, SIEM, VPN/DNS security, AI security proxy.</span
+                    >
+                  </div>
                 </div>
               </div>
             </div>
@@ -653,10 +1129,30 @@
 
       <div class="proof-strip">
         <div class="container proof-grid reveal">
-          <div class="proof-item"><div class="proof-value">HA + WAF</div><div class="proof-label">Firewall architecture, SSL offloading, ModSecurity, SIEM pipeline.</div></div>
-          <div class="proof-item"><div class="proof-value">SD-WAN</div><div class="proof-label">Cisco dCloud/CML, vManage, C8000v, AAR policy, IPsec.</div></div>
-          <div class="proof-item"><div class="proof-value">Cloud Sec</div><div class="proof-label">AWS/GCP labs, WireGuard, DNS sinkhole, API security.</div></div>
-          <div class="proof-item"><div class="proof-value">Automation</div><div class="proof-label">Python, FastAPI, Docker, shell scripts, monitoring workflows.</div></div>
+          <div class="proof-item">
+            <div class="proof-value">HA + WAF</div>
+            <div class="proof-label">
+              Firewall architecture, SSL offloading, ModSecurity, SIEM pipeline.
+            </div>
+          </div>
+          <div class="proof-item">
+            <div class="proof-value">SD-WAN</div>
+            <div class="proof-label">
+              Cisco dCloud/CML, vManage, C8000v, AAR policy, IPsec.
+            </div>
+          </div>
+          <div class="proof-item">
+            <div class="proof-value">Cloud Sec</div>
+            <div class="proof-label">
+              AWS/GCP labs, WireGuard, DNS sinkhole, API security.
+            </div>
+          </div>
+          <div class="proof-item">
+            <div class="proof-value">Automation</div>
+            <div class="proof-label">
+              Python, FastAPI, Docker, shell scripts, monitoring workflows.
+            </div>
+          </div>
         </div>
       </div>
 
@@ -665,50 +1161,157 @@
           <div class="section-head reveal">
             <div>
               <div class="section-label">Featured Work</div>
-              <h2 class="section-title">Project summaries that point to deeper GitHub proof.</h2>
+              <h2 class="section-title">
+                Project summaries that point to deeper GitHub proof.
+              </h2>
             </div>
             <p class="section-desc">
-              The website stays concise; GitHub README pages carry diagrams, screenshots, commands, and validation notes.
+              The website stays concise; GitHub README pages carry diagrams,
+              screenshots, commands, and validation notes.
             </p>
           </div>
 
           <div class="work-grid">
             <article class="work-card reveal">
-              <div class="work-meta"><span class="badge">Thesis</span><span class="period">Jan – May 2026</span></div>
-              <h3 class="work-title">HA Firewall &amp; AI-driven Security Monitoring</h3>
-              <p class="work-desc">Graduation thesis combining OPNsense HA firewall, WAF, Wazuh SIEM, and ML-based security log analysis in a controlled lab.</p>
-              <div class="chips" aria-label="Project metrics">
-                <span class="chip metric">2.8s failover</span><span class="chip metric">0.71% sync overhead</span><span class="chip metric">12,796 WAF alerts</span><span class="chip metric">RF AUC 1.000</span>
+              <div class="work-meta">
+                <span class="badge">Thesis</span
+                ><span class="period">Jan – May 2026</span>
               </div>
-              <div class="chips"><span class="chip">OPNsense</span><span class="chip">CARP/pfsync</span><span class="chip">HAProxy</span><span class="chip">ModSecurity</span><span class="chip">Wazuh</span><span class="chip">Python</span></div>
-              <div class="card-links"><a class="card-link muted-link" href="https://github.com/ThanhLam-NetEng" target="_blank" rel="noopener noreferrer">GitHub proof <i class="fa-solid fa-arrow-right"></i></a></div>
+              <h3 class="work-title">
+                HA Firewall &amp; AI-driven Security Monitoring
+              </h3>
+              <p class="work-desc">
+                Graduation thesis combining OPNsense HA firewall, WAF, Wazuh
+                SIEM, and ML-based security log analysis in a controlled lab.
+              </p>
+              <div class="chips" aria-label="Project metrics">
+                <span class="chip metric">2.8s failover</span
+                ><span class="chip metric">0.71% sync overhead</span
+                ><span class="chip metric">12,796 WAF alerts</span
+                ><span class="chip metric">RF AUC 1.000</span>
+              </div>
+              <div class="chips">
+                <span class="chip">OPNsense</span
+                ><span class="chip">CARP/pfsync</span
+                ><span class="chip">HAProxy</span
+                ><span class="chip">ModSecurity</span
+                ><span class="chip">Wazuh</span><span class="chip">Python</span>
+              </div>
+              <div class="card-links">
+                <a
+                  class="card-link muted-link"
+                  href="https://github.com/ThanhLam-NetEng"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >GitHub proof <i class="fa-solid fa-arrow-right"></i
+                ></a>
+              </div>
             </article>
 
             <article class="work-card reveal">
-              <div class="work-meta"><span class="badge academic">Academic</span><span class="period">Apr 2026</span></div>
+              <div class="work-meta">
+                <span class="badge academic">Academic</span
+                ><span class="period">Apr 2026</span>
+              </div>
               <h3 class="work-title">Cisco SD-WAN Hospital Network</h3>
-              <p class="work-desc">3-site Hub-and-Spoke SD-WAN overlay with encrypted dual transport and least-privilege traffic steering for critical medical systems.</p>
-              <div class="chips"><span class="chip metric">IPsec AES-256-GCM</span><span class="chip metric">AAR policy</span><span class="chip metric">~3 min convergence</span><span class="chip metric">zero manual intervention</span></div>
-              <div class="chips"><span class="chip">Cisco CML</span><span class="chip">Catalyst SD-WAN</span><span class="chip">vManage</span><span class="chip">C8000v</span><span class="chip">BFD</span></div>
-              <div class="card-links"><a class="card-link" href="https://github.com/ThanhLam-NetEng/cisco-sdwan-hospital-lab" target="_blank" rel="noopener noreferrer">View GitHub <i class="fa-solid fa-arrow-right"></i></a></div>
+              <p class="work-desc">
+                3-site Hub-and-Spoke SD-WAN overlay with encrypted dual
+                transport and least-privilege traffic steering for critical
+                medical systems.
+              </p>
+              <div class="chips">
+                <span class="chip metric">IPsec AES-256-GCM</span
+                ><span class="chip metric">AAR policy</span
+                ><span class="chip metric">~3 min convergence</span
+                ><span class="chip metric">zero manual intervention</span>
+              </div>
+              <div class="chips">
+                <span class="chip">Cisco CML</span
+                ><span class="chip">Catalyst SD-WAN</span
+                ><span class="chip">vManage</span
+                ><span class="chip">C8000v</span><span class="chip">BFD</span>
+              </div>
+              <div class="card-links">
+                <a
+                  class="card-link"
+                  href="https://github.com/ThanhLam-NetEng/cisco-sdwan-hospital-lab"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >View GitHub <i class="fa-solid fa-arrow-right"></i
+                ></a>
+              </div>
             </article>
 
             <article class="work-card reveal">
-              <div class="work-meta"><span class="badge personal">Personal</span><span class="period">2025 – 2026</span></div>
-              <h3 class="work-title">AI Shield Firewall — LLM Traffic Inspection Proxy</h3>
-              <p class="work-desc">Bilingual LLM security proxy enforcing DLP and prompt-injection controls at the API perimeter for enterprise-style AI workflows.</p>
-              <div class="chips"><span class="chip metric">5-layer inspection</span><span class="chip metric">25/25 tests passed</span><span class="chip metric">&lt;15ms overhead</span><span class="chip metric">VI PII recognizers</span></div>
-              <div class="chips"><span class="chip">FastAPI</span><span class="chip">AWS EC2</span><span class="chip">Docker</span><span class="chip">Presidio</span><span class="chip">DynamoDB</span></div>
-              <div class="card-links"><a class="card-link" href="https://github.com/ThanhLam-NetEng/ai-shield-fw" target="_blank" rel="noopener noreferrer">View GitHub <i class="fa-solid fa-arrow-right"></i></a></div>
+              <div class="work-meta">
+                <span class="badge personal">Personal</span
+                ><span class="period">2025 – 2026</span>
+              </div>
+              <h3 class="work-title">
+                AI Shield Firewall — LLM Traffic Inspection Proxy
+              </h3>
+              <p class="work-desc">
+                Bilingual LLM security proxy enforcing DLP and prompt-injection
+                controls at the API perimeter for enterprise-style AI workflows.
+              </p>
+              <div class="chips">
+                <span class="chip metric">5-layer inspection</span
+                ><span class="chip metric">25/25 tests passed</span
+                ><span class="chip metric">&lt;15ms overhead</span
+                ><span class="chip metric">VI PII recognizers</span>
+              </div>
+              <div class="chips">
+                <span class="chip">FastAPI</span
+                ><span class="chip">AWS EC2</span
+                ><span class="chip">Docker</span
+                ><span class="chip">Presidio</span
+                ><span class="chip">DynamoDB</span>
+              </div>
+              <div class="card-links">
+                <a
+                  class="card-link"
+                  href="https://github.com/ThanhLam-NetEng/ai-shield-fw"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >View GitHub <i class="fa-solid fa-arrow-right"></i
+                ></a>
+              </div>
             </article>
 
             <article class="work-card reveal">
-              <div class="work-meta"><span class="badge personal">Personal</span><span class="period">2026</span></div>
-              <h3 class="work-title">Cloud-Native Secure VPN Gateway &amp; DNS Sinkhole</h3>
-              <p class="work-desc">Privacy-first VPN gateway chaining WireGuard, AdGuard Home, and Unbound to reduce telemetry and avoid third-party DNS tracking.</p>
-              <div class="chips"><span class="chip metric">&lt;5ms cached DNS</span><span class="chip metric">~240k block rules</span><span class="chip metric">DNSSEC validation</span><span class="chip metric">&lt;150MB memory</span></div>
-              <div class="chips"><span class="chip">WireGuard</span><span class="chip">AdGuard Home</span><span class="chip">Unbound</span><span class="chip">AWS EC2</span><span class="chip">Ubuntu</span></div>
-              <div class="card-links"><a class="card-link" href="https://github.com/ThanhLam-NetEng/aws-secure-vpn-gateway" target="_blank" rel="noopener noreferrer">View GitHub <i class="fa-solid fa-arrow-right"></i></a></div>
+              <div class="work-meta">
+                <span class="badge personal">Personal</span
+                ><span class="period">2026</span>
+              </div>
+              <h3 class="work-title">
+                Cloud-Native Secure VPN Gateway &amp; DNS Sinkhole
+              </h3>
+              <p class="work-desc">
+                Privacy-first VPN gateway chaining WireGuard, AdGuard Home, and
+                Unbound to reduce telemetry and avoid third-party DNS tracking.
+              </p>
+              <div class="chips">
+                <span class="chip metric">&lt;5ms cached DNS</span
+                ><span class="chip metric">~240k block rules</span
+                ><span class="chip metric">DNSSEC validation</span
+                ><span class="chip metric">&lt;150MB memory</span>
+              </div>
+              <div class="chips">
+                <span class="chip">WireGuard</span
+                ><span class="chip">AdGuard Home</span
+                ><span class="chip">Unbound</span
+                ><span class="chip">AWS EC2</span
+                ><span class="chip">Ubuntu</span>
+              </div>
+              <div class="card-links">
+                <a
+                  class="card-link"
+                  href="https://github.com/ThanhLam-NetEng/aws-secure-vpn-gateway"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >View GitHub <i class="fa-solid fa-arrow-right"></i
+                ></a>
+              </div>
             </article>
           </div>
         </div>
@@ -719,37 +1322,115 @@
           <div class="section-head reveal">
             <div>
               <div class="section-label">More Projects</div>
-              <h2 class="section-title">Additional labs and automation work.</h2>
+              <h2 class="section-title">
+                Additional labs and automation work.
+              </h2>
             </div>
-            <p class="section-desc">Kept shorter here so the page scans quickly. Each item links out when public proof is available.</p>
+            <p class="section-desc">
+              Kept shorter here so the page scans quickly. Each item links out
+              when public proof is available.
+            </p>
           </div>
           <div class="work-grid">
             <article class="work-card reveal">
-              <div class="work-meta"><span class="badge academic">Academic</span><span class="period">2025</span></div>
+              <div class="work-meta">
+                <span class="badge academic">Academic</span
+                ><span class="period">2025</span>
+              </div>
               <h3 class="work-title">SDN Server Load Balancer</h3>
-              <p class="work-desc">L3 load balancer with POX/OpenFlow and Mininet, comparing Round Robin vs Random distribution with health-check rerouting.</p>
-              <div class="chips"><span class="chip metric">3-packet variance</span><span class="chip">POX/OpenFlow</span><span class="chip">Mininet</span><span class="chip">OVS</span><span class="chip">Matplotlib</span></div>
-              <div class="card-links"><a class="card-link" href="https://github.com/ThanhLam-NetEng/Server-Load-Balancing" target="_blank" rel="noopener noreferrer">View GitHub <i class="fa-solid fa-arrow-right"></i></a></div>
+              <p class="work-desc">
+                L3 load balancer with POX/OpenFlow and Mininet, comparing Round
+                Robin vs Random distribution with health-check rerouting.
+              </p>
+              <div class="chips">
+                <span class="chip metric">3-packet variance</span
+                ><span class="chip">POX/OpenFlow</span
+                ><span class="chip">Mininet</span><span class="chip">OVS</span
+                ><span class="chip">Matplotlib</span>
+              </div>
+              <div class="card-links">
+                <a
+                  class="card-link"
+                  href="https://github.com/ThanhLam-NetEng/Server-Load-Balancing"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >View GitHub <i class="fa-solid fa-arrow-right"></i
+                ></a>
+              </div>
             </article>
             <article class="work-card reveal">
-              <div class="work-meta"><span class="badge academic">Academic</span><span class="period">Sep – Nov 2024</span></div>
+              <div class="work-meta">
+                <span class="badge academic">Academic</span
+                ><span class="period">Sep – Nov 2024</span>
+              </div>
               <h3 class="work-title">Network Monitoring with LibreNMS</h3>
-              <p class="work-desc">Centralized NMS on Linux/Docker with SNMP v2c/v3, bandwidth/CPU/RAM collection, and Email/Telegram alerting workflow.</p>
-              <div class="chips"><span class="chip">LibreNMS</span><span class="chip">Docker</span><span class="chip">SNMP v3</span><span class="chip">Linux</span><span class="chip">Alerting</span></div>
+              <p class="work-desc">
+                Centralized NMS on Linux/Docker with SNMP v2c/v3,
+                bandwidth/CPU/RAM collection, and Email/Telegram alerting
+                workflow.
+              </p>
+              <div class="chips">
+                <span class="chip">LibreNMS</span
+                ><span class="chip">Docker</span
+                ><span class="chip">SNMP v3</span><span class="chip">Linux</span
+                ><span class="chip">Alerting</span>
+              </div>
             </article>
             <article class="work-card reveal">
-              <div class="work-meta"><span class="badge personal">Personal</span><span class="period">2025 – 2026</span></div>
-              <h3 class="work-title">AutoCTI — Autonomous Cyber Threat Intelligence Agent</h3>
-              <p class="work-desc">24/7 SOC-style threat intelligence pipeline using LangGraph ReAct Agent, Gemini search, Telegram alerting, IAM Role, and DynamoDB memory.</p>
-              <div class="chips"><span class="chip metric">~80% RAM reduction</span><span class="chip">AWS</span><span class="chip">SQS</span><span class="chip">LangGraph</span><span class="chip">Python</span></div>
-              <div class="card-links"><a class="card-link" href="https://github.com/ThanhLam-NetEng/AutoCTI" target="_blank" rel="noopener noreferrer">View GitHub <i class="fa-solid fa-arrow-right"></i></a></div>
+              <div class="work-meta">
+                <span class="badge personal">Personal</span
+                ><span class="period">2025 – 2026</span>
+              </div>
+              <h3 class="work-title">
+                AutoCTI — Autonomous Cyber Threat Intelligence Agent
+              </h3>
+              <p class="work-desc">
+                24/7 SOC-style threat intelligence pipeline using LangGraph
+                ReAct Agent, Gemini search, Telegram alerting, IAM Role, and
+                DynamoDB memory.
+              </p>
+              <div class="chips">
+                <span class="chip metric">~80% RAM reduction</span
+                ><span class="chip">AWS</span><span class="chip">SQS</span
+                ><span class="chip">LangGraph</span
+                ><span class="chip">Python</span>
+              </div>
+              <div class="card-links">
+                <a
+                  class="card-link"
+                  href="https://github.com/ThanhLam-NetEng/AutoCTI"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >View GitHub <i class="fa-solid fa-arrow-right"></i
+                ></a>
+              </div>
             </article>
             <article class="work-card reveal">
-              <div class="work-meta"><span class="badge personal">Personal</span><span class="period">2025 – 2026</span></div>
+              <div class="work-meta">
+                <span class="badge personal">Personal</span
+                ><span class="period">2025 – 2026</span>
+              </div>
               <h3 class="work-title">TNT Bot — Telegram AI Companion</h3>
-              <p class="work-desc">Personal Telegram AI bot on Google Cloud Free Tier with context summarization, long-term memory, TTS, reminders, and backups.</p>
-              <div class="chips"><span class="chip">Cloud Functions</span><span class="chip">Gemini 2.5 Flash</span><span class="chip">Firestore</span><span class="chip">Cloud Scheduler</span></div>
-              <div class="card-links"><a class="card-link" href="https://youtu.be/QtNU9-8xPZo?si=ydzWkFhIk7S6oovl" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-youtube"></i> Watch demo <i class="fa-solid fa-arrow-right"></i></a></div>
+              <p class="work-desc">
+                Personal Telegram AI bot on Google Cloud Free Tier with context
+                summarization, long-term memory, TTS, reminders, and backups.
+              </p>
+              <div class="chips">
+                <span class="chip">Cloud Functions</span
+                ><span class="chip">Gemini 2.5 Flash</span
+                ><span class="chip">Firestore</span
+                ><span class="chip">Cloud Scheduler</span>
+              </div>
+              <div class="card-links">
+                <a
+                  class="card-link"
+                  href="https://youtu.be/QtNU9-8xPZo?si=ydzWkFhIk7S6oovl"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  ><i class="fa-brands fa-youtube"></i> Watch demo
+                  <i class="fa-solid fa-arrow-right"></i
+                ></a>
+              </div>
             </article>
           </div>
         </div>
@@ -760,9 +1441,14 @@
           <div class="section-head reveal">
             <div>
               <div class="section-label">Experience</div>
-              <h2 class="section-title">Practical exposure in network and security operations.</h2>
+              <h2 class="section-title">
+                Practical exposure in network and security operations.
+              </h2>
             </div>
-            <p class="section-desc">Internship work focused on security appliance validation, Cisco network tasks, SD-WAN evaluation, and on-site support.</p>
+            <p class="section-desc">
+              Internship work focused on security appliance validation, Cisco
+              network tasks, SD-WAN evaluation, and on-site support.
+            </p>
           </div>
           <article class="experience-card reveal">
             <div class="experience-top">
@@ -772,12 +1458,33 @@
               </div>
               <span class="badge cert">Mar 2026 – Jun 2026</span>
             </div>
-            <div class="address"><i class="fa-solid fa-location-dot"></i> 26/22 Đường số 03, Cư Xá Đô Thành, Phường Bàn Cờ, TP. Hồ Chí Minh</div>
+            <div class="address">
+              <i class="fa-solid fa-location-dot"></i> 26/22 Đường số 03, Cư Xá
+              Đô Thành, Phường Bàn Cờ, TP. Hồ Chí Minh
+            </div>
             <ul class="bullet-list">
-              <li>Deployed and validated <strong>F-DDH BOX</strong> security appliance end-to-end: lab setup, traffic simulation, alert verification, configuration guide, and customer-facing demos.</li>
-              <li>Researched VPN evasion techniques including <strong>Tailscale, Cloudflare WARP, and WireGuard on AWS EC2</strong> to assess NGFW visibility limitations.</li>
-              <li>Assisted Cisco network initiatives including <strong>Catalyst 9200L IOS upgrade</strong>, StackWise stacking, Peplink SD-WAN evaluation, and presales documentation.</li>
-              <li>Deployed internal attendance web app on a local server with <strong>NAT port forwarding</strong>, custom domain setup, functional testing, and basic security assessment.</li>
+              <li>
+                Deployed and validated <strong>F-DDH BOX</strong> security
+                appliance end-to-end: lab setup, traffic simulation, alert
+                verification, configuration guide, and customer-facing demos.
+              </li>
+              <li>
+                Researched VPN evasion techniques including
+                <strong
+                  >Tailscale, Cloudflare WARP, and WireGuard on AWS EC2</strong
+                >
+                to assess NGFW visibility limitations.
+              </li>
+              <li>
+                Assisted Cisco network initiatives including
+                <strong>Catalyst 9200L IOS upgrade</strong>, StackWise stacking,
+                Peplink SD-WAN evaluation, and presales documentation.
+              </li>
+              <li>
+                Deployed internal attendance web app on a local server with
+                <strong>NAT port forwarding</strong>, custom domain setup,
+                functional testing, and basic security assessment.
+              </li>
             </ul>
           </article>
         </div>
@@ -788,15 +1495,52 @@
           <div class="section-head reveal">
             <div>
               <div class="section-label">Technical Focus</div>
-              <h2 class="section-title">Skill groups mapped to the roles I am targeting.</h2>
+              <h2 class="section-title">
+                Skill groups mapped to the roles I am targeting.
+              </h2>
             </div>
-            <p class="section-desc">A cleaner alternative to a long wall of skill pills: focused, readable, and aligned to network/security hiring signals.</p>
+            <p class="section-desc">
+              A cleaner alternative to a long wall of skill pills: focused,
+              readable, and aligned to network/security hiring signals.
+            </p>
           </div>
           <div class="focus-grid">
-            <div class="focus-card reveal"><div class="focus-icon"><i class="fa-solid fa-network-wired"></i></div><h3 class="focus-title">Network Architecture</h3><p class="focus-copy">Routing/Switching, SD-WAN, HA, LAN/WAN/DMZ, Cisco IOS, CML, StackWise, IPv6.</p></div>
-            <div class="focus-card reveal"><div class="focus-icon"><i class="fa-solid fa-shield-halved"></i></div><h3 class="focus-title">Security Engineering</h3><p class="focus-copy">OPNsense, WAF, IDS/IPS, Wazuh SIEM, ModSecurity, Suricata, VPN, monitoring.</p></div>
-            <div class="focus-card reveal"><div class="focus-icon"><i class="fa-solid fa-server"></i></div><h3 class="focus-title">Cloud &amp; Infrastructure</h3><p class="focus-copy">AWS, Google Cloud, Docker, Linux, Windows Server, VMware, nested virtualization.</p></div>
-            <div class="focus-card reveal"><div class="focus-icon"><i class="fa-solid fa-code"></i></div><h3 class="focus-title">Automation &amp; Tools</h3><p class="focus-copy">Python, FastAPI, Shell, Git, Wireshark, Mininet, Matplotlib, scikit-learn.</p></div>
+            <div class="focus-card reveal">
+              <div class="focus-icon">
+                <i class="fa-solid fa-network-wired"></i>
+              </div>
+              <h3 class="focus-title">Network Architecture</h3>
+              <p class="focus-copy">
+                Routing/Switching, SD-WAN, HA, LAN/WAN/DMZ, Cisco IOS, CML,
+                StackWise, IPv6.
+              </p>
+            </div>
+            <div class="focus-card reveal">
+              <div class="focus-icon">
+                <i class="fa-solid fa-shield-halved"></i>
+              </div>
+              <h3 class="focus-title">Security Engineering</h3>
+              <p class="focus-copy">
+                OPNsense, WAF, IDS/IPS, Wazuh SIEM, ModSecurity, Suricata, VPN,
+                monitoring.
+              </p>
+            </div>
+            <div class="focus-card reveal">
+              <div class="focus-icon"><i class="fa-solid fa-server"></i></div>
+              <h3 class="focus-title">Cloud &amp; Infrastructure</h3>
+              <p class="focus-copy">
+                AWS, Google Cloud, Docker, Linux, Windows Server, VMware, nested
+                virtualization.
+              </p>
+            </div>
+            <div class="focus-card reveal">
+              <div class="focus-icon"><i class="fa-solid fa-code"></i></div>
+              <h3 class="focus-title">Automation &amp; Tools</h3>
+              <p class="focus-copy">
+                Python, FastAPI, Shell, Git, Wireshark, Mininet, Matplotlib,
+                scikit-learn.
+              </p>
+            </div>
           </div>
         </div>
       </section>
@@ -808,13 +1552,88 @@
               <div class="section-label">Certifications</div>
               <h2 class="section-title">Verified learning path.</h2>
             </div>
-            <p class="section-desc">Cisco NetAcad and Linux credentials supporting the networking/security foundation.</p>
+            <p class="section-desc">
+              Cisco NetAcad and Linux credentials supporting the
+              networking/security foundation.
+            </p>
           </div>
           <div class="cert-grid">
-            <article class="cert-card reveal"><img src="networking-basics.png" alt="Networking Basics badge" onerror="this.style.display='none'" /><h3>Networking Basics</h3><p>Network types, protocols, IP addressing, and basic switching foundations.</p><a class="card-link" href="https://www.credly.com/badges/dc21c31f-6e67-491d-b1a4-95f09e6195a3/public_url" target="_blank" rel="noopener noreferrer">Credly <i class="fa-solid fa-arrow-right"></i></a></article>
-            <article class="cert-card reveal"><img src="networking-devices-and-initial-configuration.png" alt="Networking Devices and Initial Configuration badge" onerror="this.style.display='none'" /><h3>Networking Devices and Initial Configuration</h3><p>Hands-on Cisco router/switch configuration, VLANs, STP, and device hardening.</p><a class="card-link" href="https://www.credly.com/badges/37e3e425-f4f6-408a-b053-b8c94ce936a6/public_url" target="_blank" rel="noopener noreferrer">Credly <i class="fa-solid fa-arrow-right"></i></a></article>
-            <article class="cert-card reveal"><img src="linux-unhatched.png" alt="Linux Unhatched badge" onerror="this.style.display='none'" /><h3>Linux Unhatched</h3><p>Linux CLI fundamentals, file system navigation, permissions, and shell basics.</p><a class="card-link" href="https://www.credly.com/badges/7932c302-7cfd-404d-bb4e-e7b7ec0149e5/public_url" target="_blank" rel="noopener noreferrer">Credly <i class="fa-solid fa-arrow-right"></i></a></article>
-            <article class="cert-card reveal"><img src="linux-essentials.png" alt="Linux Essentials badge" onerror="this.style.display='none'" /><h3>Linux Essentials</h3><p>Linux OS concepts, open-source fundamentals, processes, users/groups, and networking basics.</p><a class="card-link" href="https://www.credly.com/badges/40b398d3-f95f-40c6-a2c8-242a715b76c9/public_url" target="_blank" rel="noopener noreferrer">Credly <i class="fa-solid fa-arrow-right"></i></a></article>
+            <article class="cert-card reveal">
+              <img
+                src="networking-basics.png"
+                alt="Networking Basics badge"
+                onerror="this.style.display = 'none'"
+              />
+              <h3>Networking Basics</h3>
+              <p>
+                Network types, protocols, IP addressing, and basic switching
+                foundations.
+              </p>
+              <a
+                class="card-link"
+                href="https://www.credly.com/badges/dc21c31f-6e67-491d-b1a4-95f09e6195a3/public_url"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Credly <i class="fa-solid fa-arrow-right"></i
+              ></a>
+            </article>
+            <article class="cert-card reveal">
+              <img
+                src="networking-devices-and-initial-configuration.png"
+                alt="Networking Devices and Initial Configuration badge"
+                onerror="this.style.display = 'none'"
+              />
+              <h3>Networking Devices and Initial Configuration</h3>
+              <p>
+                Hands-on Cisco router/switch configuration, VLANs, STP, and
+                device hardening.
+              </p>
+              <a
+                class="card-link"
+                href="https://www.credly.com/badges/37e3e425-f4f6-408a-b053-b8c94ce936a6/public_url"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Credly <i class="fa-solid fa-arrow-right"></i
+              ></a>
+            </article>
+            <article class="cert-card reveal">
+              <img
+                src="linux-unhatched.png"
+                alt="Linux Unhatched badge"
+                onerror="this.style.display = 'none'"
+              />
+              <h3>Linux Unhatched</h3>
+              <p>
+                Linux CLI fundamentals, file system navigation, permissions, and
+                shell basics.
+              </p>
+              <a
+                class="card-link"
+                href="https://www.credly.com/badges/7932c302-7cfd-404d-bb4e-e7b7ec0149e5/public_url"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Credly <i class="fa-solid fa-arrow-right"></i
+              ></a>
+            </article>
+            <article class="cert-card reveal">
+              <img
+                src="linux-essentials.png"
+                alt="Linux Essentials badge"
+                onerror="this.style.display = 'none'"
+              />
+              <h3>Linux Essentials</h3>
+              <p>
+                Linux OS concepts, open-source fundamentals, processes,
+                users/groups, and networking basics.
+              </p>
+              <a
+                class="card-link"
+                href="https://www.credly.com/badges/40b398d3-f95f-40c6-a2c8-242a715b76c9/public_url"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Credly <i class="fa-solid fa-arrow-right"></i
+              ></a>
+            </article>
           </div>
         </div>
       </section>
@@ -823,19 +1642,87 @@
         <div class="container about-grid">
           <div class="about-copy reveal">
             <div class="section-label">Background</div>
-            <h2 class="section-title">UIT network graduate building security-focused infrastructure labs.</h2>
-            <p>I majored in <strong>Computer Networks &amp; Data Communications</strong> at the University of Information Technology (UIT – VNU-HCM). My work focuses on network security, system infrastructure, and practical automation.</p>
-            <p>I have worked with production-adjacent tasks at FSI, including security appliance validation, Cisco hardware support, SD-WAN evaluation, VPN visibility research, and local service deployment.</p>
-            <p>My near-term direction is to grow into Network/Security Engineering, then deepen into network automation and cloud networking.</p>
-            <div class="direct-links"><a class="btn" href="mailto:phamthanhlam.work@gmail.com"><i class="fa-solid fa-envelope"></i> Email</a><a class="btn" href="https://github.com/ThanhLam-NetEng" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-github"></i> GitHub</a><a class="btn" href="https://www.linkedin.com/in/thanhlam-uit" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-linkedin"></i> LinkedIn</a></div>
+            <h2 class="section-title">
+              UIT network graduate building security-focused infrastructure
+              labs.
+            </h2>
+            <p>
+              I majored in
+              <strong>Computer Networks &amp; Data Communications</strong> at
+              the University of Information Technology (UIT – VNU-HCM). My work
+              focuses on network security, system infrastructure, and practical
+              automation.
+            </p>
+            <p>
+              I have worked with production-adjacent tasks at FSI, including
+              security appliance validation, Cisco hardware support, SD-WAN
+              evaluation, VPN visibility research, and local service deployment.
+            </p>
+            <p>
+              My near-term direction is to grow into Network/Security
+              Engineering, then deepen into network automation and cloud
+              networking.
+            </p>
+            <div class="direct-links">
+              <a class="btn" href="mailto:phamthanhlam.work@gmail.com"
+                ><i class="fa-solid fa-envelope"></i> Email</a
+              ><a
+                class="btn"
+                href="https://github.com/ThanhLam-NetEng"
+                target="_blank"
+                rel="noopener noreferrer"
+                ><i class="fa-brands fa-github"></i> GitHub</a
+              ><a
+                class="btn"
+                href="https://www.linkedin.com/in/thanhlam-uit"
+                target="_blank"
+                rel="noopener noreferrer"
+                ><i class="fa-brands fa-linkedin"></i> LinkedIn</a
+              >
+            </div>
           </div>
           <aside class="info-panel reveal" aria-label="Profile details">
-            <div class="info-row"><i class="fa-solid fa-graduation-cap"></i><span class="info-label">School</span><span class="info-value">UIT – VNU-HCM</span></div>
-            <div class="info-row"><i class="fa-solid fa-book"></i><span class="info-label">Major</span><span class="info-value">Computer Networks &amp; Data Communications</span></div>
-            <div class="info-row"><i class="fa-solid fa-location-dot"></i><span class="info-label">Location</span><span class="info-value">Dĩ An, Bình Dương · HCM City</span></div>
-            <div class="info-row"><i class="fa-solid fa-phone"></i><span class="info-label">Phone</span><span class="info-value">0868 745 540</span></div>
-            <div class="info-row"><i class="fa-solid fa-language"></i><span class="info-label">Language</span><span class="info-value">Vietnamese · English technical reading</span></div>
-            <div class="info-row"><i class="fa-solid fa-file-lines"></i><span class="info-label">CV</span><span class="info-value"><a class="card-link" href="cv.pdf" target="_blank" rel="noopener noreferrer">Download PDF <i class="fa-solid fa-arrow-right"></i></a></span></div>
+            <div class="info-row">
+              <i class="fa-solid fa-graduation-cap"></i
+              ><span class="info-label">School</span
+              ><span class="info-value">UIT – VNU-HCM</span>
+            </div>
+            <div class="info-row">
+              <i class="fa-solid fa-book"></i
+              ><span class="info-label">Major</span
+              ><span class="info-value"
+                >Computer Networks &amp; Data Communications</span
+              >
+            </div>
+            <div class="info-row">
+              <i class="fa-solid fa-location-dot"></i
+              ><span class="info-label">Location</span
+              ><span class="info-value">Dĩ An, Bình Dương · HCM City</span>
+            </div>
+            <div class="info-row">
+              <i class="fa-solid fa-phone"></i
+              ><span class="info-label">Phone</span
+              ><span class="info-value">0868 745 540</span>
+            </div>
+            <div class="info-row">
+              <i class="fa-solid fa-language"></i
+              ><span class="info-label">Language</span
+              ><span class="info-value"
+                >Vietnamese · English technical reading</span
+              >
+            </div>
+            <div class="info-row">
+              <i class="fa-solid fa-file-lines"></i
+              ><span class="info-label">CV</span
+              ><span class="info-value"
+                ><a
+                  class="card-link"
+                  href="cv.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >Download PDF <i class="fa-solid fa-arrow-right"></i></a
+              ></span>
+            </div>
           </aside>
         </div>
       </section>
@@ -845,20 +1732,71 @@
           <div class="contact-card reveal">
             <div class="section-label">Contact</div>
             <h2 class="section-title">Let’s connect.</h2>
-            <p class="contact-desc">Open to Network Engineer, Security Engineer, IT Helpdesk with networking/security focus, and infrastructure support opportunities around HCM City / Bình Dương.</p>
-            <div class="direct-links"><a class="btn btn-primary" href="mailto:phamthanhlam.work@gmail.com"><i class="fa-solid fa-envelope"></i> Email me</a><a class="btn" href="https://www.linkedin.com/in/thanhlam-uit" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-linkedin"></i> LinkedIn</a><a class="btn" href="https://github.com/ThanhLam-NetEng" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-github"></i> GitHub</a></div>
-            <div class="form-success" id="formSuccess"><i class="fa-solid fa-circle-check"></i> Message sent. I will get back to you soon.</div>
-            <form class="contact-form" id="contactForm" action="https://formspree.io/f/mqegennk" method="POST">
-              <div class="contact-row"><input type="text" name="name" placeholder="Your name" required /><input type="email" name="email" placeholder="Your email" required /></div>
-              <textarea name="message" placeholder="Your message..." required></textarea>
-              <button class="btn btn-primary" type="submit" id="submitBtn">Send message</button>
+            <p class="contact-desc">
+              Open to Network Engineer, Security Engineer, IT Helpdesk with
+              networking/security focus, and infrastructure support
+              opportunities around HCM City / Bình Dương.
+            </p>
+            <div class="direct-links">
+              <a
+                class="btn btn-primary"
+                href="mailto:phamthanhlam.work@gmail.com"
+                ><i class="fa-solid fa-envelope"></i> Email me</a
+              ><a
+                class="btn"
+                href="https://www.linkedin.com/in/thanhlam-uit"
+                target="_blank"
+                rel="noopener noreferrer"
+                ><i class="fa-brands fa-linkedin"></i> LinkedIn</a
+              ><a
+                class="btn"
+                href="https://github.com/ThanhLam-NetEng"
+                target="_blank"
+                rel="noopener noreferrer"
+                ><i class="fa-brands fa-github"></i> GitHub</a
+              >
+            </div>
+            <div class="form-success" id="formSuccess">
+              <i class="fa-solid fa-circle-check"></i> Message sent. I will get
+              back to you soon.
+            </div>
+            <form
+              class="contact-form"
+              id="contactForm"
+              action="https://formspree.io/f/mqegennk"
+              method="POST"
+            >
+              <div class="contact-row">
+                <input
+                  type="text"
+                  name="name"
+                  placeholder="Your name"
+                  required
+                /><input
+                  type="email"
+                  name="email"
+                  placeholder="Your email"
+                  required
+                />
+              </div>
+              <textarea
+                name="message"
+                placeholder="Your message..."
+                required
+              ></textarea>
+              <button class="btn btn-primary" type="submit" id="submitBtn">
+                Send message
+              </button>
             </form>
           </div>
         </div>
       </section>
     </main>
 
-    <footer>© 2026 Phạm Thanh Lâm · Built for <span>network/security engineering</span> · Ho Chi Minh City</footer>
+    <footer>
+      © 2026 Phạm Thanh Lâm · Built for
+      <span>network/security engineering</span> · Ho Chi Minh City
+    </footer>
 
     <script>
       const nav = document.getElementById("nav");
@@ -870,7 +1808,9 @@
       navToggle.addEventListener("click", () => {
         const isOpen = mobileMenu.classList.toggle("open");
         navToggle.setAttribute("aria-expanded", String(isOpen));
-        navToggle.innerHTML = isOpen ? '<i class="fa-solid fa-xmark"></i>' : '<i class="fa-solid fa-bars"></i>';
+        navToggle.innerHTML = isOpen
+          ? '<i class="fa-solid fa-xmark"></i>'
+          : '<i class="fa-solid fa-bars"></i>';
       });
       mobileMenu.querySelectorAll("a").forEach((link) => {
         link.addEventListener("click", () => {
@@ -907,7 +1847,9 @@
         }
       });
 
-      const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      const reduceMotion = window.matchMedia(
+        "(prefers-reduced-motion: reduce)",
+      ).matches;
       if (!reduceMotion) {
         const observer = new IntersectionObserver(
           (entries) => {
@@ -925,7 +1867,9 @@
           observer.observe(element);
         });
       } else {
-        document.querySelectorAll(".reveal").forEach((element) => element.classList.add("visible"));
+        document
+          .querySelectorAll(".reveal")
+          .forEach((element) => element.classList.add("visible"));
       }
     </script>
   </body>
