@@ -138,8 +138,13 @@ const translations = {
       {
         title: "Linux Unhatched",
         desc: "Linux CLI fundamentals, file system navigation, permissions, and shell basics."
+      },
+      {
+        title: "VSTEP B1 English Proficiency Certificate",
+        desc: "Vietnamese Standardized Test of English Proficiency (Level 3/6 - CEFR B1), certifying intermediate English listening, speaking, reading, and writing capabilities."
       }
     ],
+    langVal: "Vietnamese (Native) · English (VSTEP B1 / CEFR B1)",
     aboutLabel: "Background",
     aboutTitle: "UIT Graduate in Computer Networks & Data Communications (GPA 3.1 / 4.0).",
     aboutP: [
@@ -295,8 +300,13 @@ const translations = {
       {
         title: "Linux Unhatched",
         desc: "Các lệnh Linux CLI cơ bản, điều hướng hệ thống tệp, phân quyền và shell cơ bản."
+      },
+      {
+        title: "Chứng chỉ Tiếng Anh VSTEP B1 (CEFR B1)",
+        desc: "Khung năng lực ngoại ngữ 6 bậc dùng cho Việt Nam (Bậc 3/6 - B1), xác nhận năng lực giao tiếp, đọc hiểu và làm việc bằng tiếng Anh."
       }
     ],
+    langVal: "Tiếng Việt (Mẹ đẻ) · Tiếng Anh (VSTEP B1 / CEFR B1)",
     aboutLabel: "Giới thiệu",
     aboutTitle: "Cử nhân Mạng máy tính & Truyền thông dữ liệu UIT (GPA 3.1 / 4.0).",
     aboutP: [

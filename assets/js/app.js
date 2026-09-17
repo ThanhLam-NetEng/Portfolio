@@ -182,6 +182,10 @@ function applyLanguage(lang) {
   setText("#about .section-label", t.aboutLabel);
   setText("#about .section-title", t.aboutTitle);
   setAll("#about .about-copy p", t.aboutP, true);
+  if (t.langVal) {
+    const langRow = document.querySelectorAll("#about .info-panel .info-row");
+    if (langRow[4]) setTextIn(langRow[4], ".info-value", t.langVal);
+  }
   
   // Contact section translations
   setText("#contact .section-label", t.contactLabel);
