@@ -164,10 +164,31 @@ function applyLanguage(lang) {
     setTextIn(card, ".focus-copy", focus.desc);
   });
 
-  // Certifications section label translations
+  // Certifications section label & tab translations
   setText("#certifications .section-label", t.certLabel);
   setText("#certifications .section-title", t.certTitle);
   setText("#certifications .section-desc", t.certDesc);
+
+  if (t.certTabs) {
+    const filterBtns = document.querySelectorAll(".cert-filter-btn");
+    t.certTabs.forEach((tabText, idx) => {
+      if (filterBtns[idx]) filterBtns[idx].textContent = tabText;
+    });
+  }
+
+  if (t.certCategories) {
+    const categoryTitles = document.querySelectorAll(".cert-category-title");
+    const categoryIcons = [
+      '<i class="fa-solid fa-award"></i>',
+      '<i class="fa-solid fa-network-wired"></i>',
+      '<i class="fa-solid fa-book-open"></i>'
+    ];
+    t.certCategories.forEach((catTitle, idx) => {
+      if (categoryTitles[idx]) {
+        categoryTitles[idx].innerHTML = `${categoryIcons[idx] || ""} ${catTitle}`;
+      }
+    });
+  }
   
   // Certifications cards translations
   const certCards = document.querySelectorAll("#certifications .cert-card");
@@ -205,6 +226,27 @@ document.querySelectorAll("[data-lang-switch]").forEach((btn) => {
   btn.addEventListener("click", () => applyLanguage(btn.dataset.langSwitch));
 });
 applyLanguage(getStoredLanguage() || "en");
+
+// Certifications Filter Tab Switching
+const certFilterBtns = document.querySelectorAll("[data-cert-filter]");
+const certCategoryBlocks = document.querySelectorAll("[data-category-block]");
+
+certFilterBtns.forEach((btn) => {
+  btn.addEventListener("click", () => {
+    const filter = btn.dataset.certFilter;
+    certFilterBtns.forEach((b) => b.classList.remove("active"));
+    btn.classList.add("active");
+
+    certCategoryBlocks.forEach((block) => {
+      const blockCat = block.dataset.categoryBlock;
+      if (filter === "all" || blockCat === filter) {
+        block.classList.remove("hidden");
+      } else {
+        block.classList.add("hidden");
+      }
+    });
+  });
+});
 
 // Header scroll & Back to top effect
 const nav = document.getElementById("nav");

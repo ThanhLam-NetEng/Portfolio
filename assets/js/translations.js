@@ -92,8 +92,19 @@ const translations = {
       }
     ],
     certLabel: "Certifications",
-    certTitle: "Verified credentials.",
-    certDesc: "Cisco NetAcad and Linux credentials supporting the networking and IT foundation.",
+    certTitle: "Categorized Professional Credentials.",
+    certDesc: "Structured learning credentials categorized into Professional Specialization & Language, Network & Linux Infrastructure, and Coursera Course Modules.",
+    certTabs: [
+      "All Credentials (12)",
+      "Specialization & Language",
+      "Network & Linux",
+      "Coursera Modules"
+    ],
+    certCategories: [
+      "Professional Specialization & Language",
+      "Network & System Infrastructure Credentials",
+      "Coursera Specialized Course Modules"
+    ],
     certs: [
       {
         title: "Google IT Support Professional Certificate",
@@ -254,8 +265,19 @@ const translations = {
       }
     ],
     certLabel: "Chứng chỉ",
-    certTitle: "Lộ trình học tập có xác thực.",
-    certDesc: "Chứng chỉ Cisco NetAcad và Linux hỗ trợ nền tảng mạng/bảo mật.",
+    certTitle: "Hệ thống chứng chỉ được phân loại chuẩn hóa.",
+    certDesc: "Danh mục chứng chỉ được phân loại khoa học gồm Chứng chỉ Chuyên sâu & Ngoại ngữ, Hạ tầng Mạng & Linux, và Các khóa học Coursera.",
+    certTabs: [
+      "Tất cả chứng chỉ (12)",
+      "Chuyên sâu & Ngoại ngữ",
+      "Mạng & Linux",
+      "Khóa học Coursera"
+    ],
+    certCategories: [
+      "Chứng chỉ Chuyên sâu & Ngoại ngữ",
+      "Chứng chỉ Hạ tầng Mạng & Linux",
+      "Các khóa học chuyên môn Coursera"
+    ],
     certs: [
       {
         title: "Google IT Support Professional Certificate",
