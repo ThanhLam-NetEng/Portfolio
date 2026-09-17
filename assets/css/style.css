@@ -184,16 +184,31 @@ textarea:focus-visible {
 }
 
 .nav-links a {
+  position: relative;
   font-family: var(--mono);
   font-size: 0.74rem;
   color: var(--muted);
   letter-spacing: 0.08em;
   text-transform: uppercase;
   transition: color 0.2s ease, transform 0.2s ease;
+  padding-bottom: 0.2rem;
 }
 
-.nav-links a:hover {
+.nav-links a:hover,
+.nav-links a.active {
   color: var(--accent);
+}
+
+.nav-links a.active::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: var(--accent);
+  border-radius: 99px;
+  box-shadow: 0 0 8px var(--accent-glow);
 }
 
 .nav-actions {
@@ -209,7 +224,7 @@ textarea:focus-visible {
   padding: 0.25rem;
   border: 1px solid var(--border);
   border-radius: 999px;
-  background: rgba(17, 24, 39, 0.6);
+  background: var(--surface);
   backdrop-filter: blur(8px);
 }
 
@@ -228,9 +243,9 @@ textarea:focus-visible {
 }
 
 .lang-btn.active {
-  color: #030712;
+  color: #ffffff;
   background: var(--accent);
-  box-shadow: 0 2px 8px rgba(45, 212, 191, 0.3);
+  box-shadow: 0 2px 8px var(--accent-glow);
 }
 
 .mobile-lang-switch {
@@ -244,12 +259,13 @@ textarea:focus-visible {
 .mobile-lang-switch .lang-btn {
   flex: 1;
   border: 1px solid var(--border);
-  background: rgba(17, 24, 39, 0.7);
+  background: var(--surface);
+  color: var(--muted);
 }
 
 .mobile-lang-switch .lang-btn.active {
   background: var(--accent);
-  color: #030712;
+  color: #ffffff;
 }
 
 .btn,
@@ -266,7 +282,7 @@ textarea:focus-visible {
   font-size: 0.78rem;
   font-weight: 500;
   color: var(--text);
-  background: rgba(17, 24, 39, 0.6);
+  background: var(--surface);
   backdrop-filter: blur(8px);
   transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
 }
@@ -276,7 +292,7 @@ textarea:focus-visible {
   transform: translateY(-2px);
   border-color: var(--accent);
   color: var(--accent);
-  box-shadow: 0 4px 12px rgba(45, 212, 191, 0.1);
+  box-shadow: 0 4px 12px var(--accent-glow);
 }
 
 .btn-primary {
@@ -286,8 +302,12 @@ textarea:focus-visible {
   font-weight: 600;
 }
 
+[data-theme="light"] .btn-primary {
+  color: #ffffff;
+}
+
 .btn-primary:hover {
-  color: #030712;
+  color: #ffffff;
   background: #24bfa9;
   border-color: #24bfa9;
   box-shadow: 0 10px 25px rgba(45, 212, 191, 0.25);
@@ -333,7 +353,7 @@ textarea:focus-visible {
   height: 42px;
   border-radius: 12px;
   border: 1px solid var(--border);
-  background: rgba(17, 24, 39, 0.8);
+  background: var(--surface);
   color: var(--text);
   cursor: pointer;
   transition: border-color 0.2s ease;
@@ -375,7 +395,7 @@ textarea:focus-visible {
 
 .mobile-menu a:hover {
   color: var(--accent);
-  background: rgba(255, 255, 255, 0.05);
+  background: var(--surface-2);
 }
 
 /* Hero Section */
@@ -465,8 +485,8 @@ textarea:focus-visible {
   padding: 0.45rem 0.85rem;
   border: 1px solid var(--border);
   border-radius: 999px;
-  color: var(--muted);
-  background: rgba(17, 24, 39, 0.4);
+  color: var(--text);
+  background: var(--surface);
   font-family: var(--mono);
   font-size: 0.74rem;
 }
@@ -1187,8 +1207,8 @@ section {
 .contact-form textarea:focus {
   outline: none;
   border-color: var(--accent);
-  background: rgba(17, 24, 39, 0.85);
-  box-shadow: 0 0 20px rgba(45, 212, 191, 0.15);
+  background: var(--surface-2);
+  box-shadow: 0 0 20px var(--accent-glow);
 }
 
 .contact-form textarea {
@@ -1226,14 +1246,52 @@ footer {
   padding: 2.5rem 1rem;
   border-top: 1px solid var(--border);
   text-align: center;
-  color: var(--muted-2);
+  color: var(--muted);
   font-family: var(--mono);
   font-size: 0.76rem;
-  background: rgba(3, 7, 18, 0.5);
+  background: var(--bg-soft);
 }
 
 footer span {
   color: var(--accent);
+}
+
+/* Back to Top Button */
+.back-to-top {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 90;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid var(--border-strong);
+  background: var(--surface);
+  color: var(--accent);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  font-size: 1rem;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease, background-color 0.2s ease, border-color 0.2s ease;
+  box-shadow: var(--shadow);
+}
+
+.back-to-top.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.back-to-top:hover {
+  background: var(--accent);
+  color: #ffffff;
+  border-color: var(--accent);
+  transform: translateY(-3px);
 }
 
 /* Reveal Transition */

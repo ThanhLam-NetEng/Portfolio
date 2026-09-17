@@ -202,26 +202,74 @@ document.querySelectorAll("[data-lang-switch]").forEach((btn) => {
 });
 applyLanguage(getStoredLanguage() || "en");
 
-// Header scroll effect
+// Header scroll & Back to top effect
 const nav = document.getElementById("nav");
 const navToggle = document.getElementById("navToggle");
 const mobileMenu = document.getElementById("mobileMenu");
+const backToTopBtn = document.getElementById("backToTop");
+
 window.addEventListener("scroll", () => {
-  nav.classList.toggle("scrolled", window.scrollY > 32);
+  const scrollY = window.scrollY;
+  nav.classList.toggle("scrolled", scrollY > 32);
+  if (backToTopBtn) {
+    backToTopBtn.classList.toggle("visible", scrollY > 400);
+  }
+  updateActiveNav();
 });
 
-// Mobile menu toggle
-navToggle.addEventListener("click", () => {
+if (backToTopBtn) {
+  backToTopBtn.addEventListener("click", () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+}
+
+// Scrollspy for active nav link
+const sections = document.querySelectorAll("section[id]");
+const navLinks = document.querySelectorAll(".nav-links a");
+
+function updateActiveNav() {
+  const scrollPosition = window.scrollY + 120;
+  sections.forEach((section) => {
+    const sectionTop = section.offsetTop;
+    const sectionHeight = section.offsetHeight;
+    const sectionId = section.getAttribute("id");
+
+    if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+      navLinks.forEach((link) => {
+        link.classList.toggle("active", link.getAttribute("href") === `#${sectionId}`);
+      });
+    }
+  });
+}
+
+// Mobile menu toggle & click-outside handling
+function closeMobileMenu() {
+  mobileMenu.classList.remove("open");
+  navToggle.setAttribute("aria-expanded", "false");
+  navToggle.innerHTML = '<i class="fa-solid fa-bars"></i>';
+}
+
+navToggle.addEventListener("click", (e) => {
+  e.stopPropagation();
   const isOpen = mobileMenu.classList.toggle("open");
   navToggle.setAttribute("aria-expanded", String(isOpen));
   navToggle.innerHTML = isOpen ? '<i class="fa-solid fa-xmark"></i>' : '<i class="fa-solid fa-bars"></i>';
 });
+
 mobileMenu.querySelectorAll("a").forEach((link) => {
-  link.addEventListener("click", () => {
-    mobileMenu.classList.remove("open");
-    navToggle.setAttribute("aria-expanded", "false");
-    navToggle.innerHTML = '<i class="fa-solid fa-bars"></i>';
-  });
+  link.addEventListener("click", closeMobileMenu);
+});
+
+document.addEventListener("click", (e) => {
+  if (mobileMenu.classList.contains("open") && !mobileMenu.contains(e.target) && !navToggle.contains(e.target)) {
+    closeMobileMenu();
+  }
+});
+
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape" && mobileMenu.classList.contains("open")) {
+    closeMobileMenu();
+  }
 });
 
 // Contact Formspree integration
@@ -230,7 +278,10 @@ const successMsg = document.getElementById("formSuccess");
 const submitBtn = document.getElementById("submitBtn");
 form.addEventListener("submit", async (event) => {
   event.preventDefault();
-  submitBtn.textContent = "Sending...";
+  const currentLang = document.documentElement.lang || "en";
+  const t = translations[currentLang] || translations.en;
+
+  submitBtn.textContent = t.formSending || "Sending...";
   submitBtn.setAttribute("disabled", "true");
   try {
     const response = await fetch(form.action, {
@@ -243,11 +294,11 @@ form.addEventListener("submit", async (event) => {
       form.style.display = "none";
       successMsg.style.display = "block";
     } else {
-      submitBtn.textContent = "Failed — use email instead";
+      submitBtn.textContent = t.formFailed || "Failed — send email instead";
       submitBtn.removeAttribute("disabled");
     }
   } catch (error) {
-    submitBtn.textContent = "Failed — use email instead";
+    submitBtn.textContent = t.formFailed || "Failed — send email instead";
     submitBtn.removeAttribute("disabled");
   }
 });

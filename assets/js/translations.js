@@ -152,6 +152,8 @@ const translations = {
     contactDesc: "Open to IT Support, Network Engineer, System Administrator, and Helpdesk opportunities around Ho Chi Minh City & Binh Duong.",
     emailMe: `<i class="fa-solid fa-envelope"></i> Email me`,
     form: ["Your name", "Your email", "Your message...", "Send message"],
+    formSending: "Sending...",
+    formFailed: "Failed — send direct email instead",
     footer: "© 2026 Phạm Thanh Lâm · Built for <span>IT Support & Network Engineering</span> · Ho Chi Minh City"
   },
   vi: {
@@ -307,6 +309,8 @@ const translations = {
     contactDesc: "Sẵn sàng cho các cơ hội IT Support, Network Engineer, System Administrator và Helpdesk quanh TP.HCM / Bình Dương.",
     emailMe: `<i class="fa-solid fa-envelope"></i> Gửi email`,
     form: ["Tên của bạn", "Email của bạn", "Nội dung...", "Gửi tin nhắn"],
+    formSending: "Đang gửi...",
+    formFailed: "Lỗi — vui lòng gửi email trực tiếp",
     footer: "© 2026 Phạm Thanh Lâm · Portfolio cho <span>IT Support & Network Engineering</span> · TP. Hồ Chí Minh"
   }
 };
