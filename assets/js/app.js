@@ -190,13 +190,18 @@ function applyLanguage(lang) {
     });
   }
   
-  // Certifications cards translations
+  // Certifications cards translations (robust matching by data-cert-id)
   const certCards = document.querySelectorAll("#certifications .cert-card");
-  t.certs.forEach((cert, idx) => {
-    const card = certCards[idx];
-    if (!card) return;
-    setTextIn(card, "h3", cert.title);
-    setTextIn(card, "p", cert.desc);
+  certCards.forEach((card, idx) => {
+    const certId = card.dataset.certId;
+    const certData = (certId && t.certs.find((c) => c.id === certId)) || t.certs[idx];
+    if (!certData) return;
+    setTextIn(card, "h3", certData.title);
+    setTextIn(card, "p", certData.desc);
+    if (certData.badge) {
+      const badgeEl = card.querySelector(".cert-badge");
+      if (badgeEl) badgeEl.innerHTML = certData.badge;
+    }
   });
 
   // About section translations

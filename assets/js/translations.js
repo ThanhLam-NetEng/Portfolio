@@ -107,52 +107,76 @@ const translations = {
     ],
     certs: [
       {
+        id: "google-it-support",
         title: "Google IT Support Professional Certificate",
-        desc: "6-course professional Specialization covering Technical Support, Networking, Operating Systems, Systems Administration, IT Security, and Generative AI for Job Search."
+        desc: "6-course professional Specialization covering Technical Support, Networking, Operating Systems, Systems Administration, IT Security, and Generative AI for Job Search.",
+        badge: `<i class="fa-solid fa-star"></i> Full Specialization`
       },
       {
-        title: "Technical Support Fundamentals",
-        desc: "Computer hardware, operating systems, troubleshooting, system administration, and network protocols."
-      },
-      {
-        title: "The Bits and Bytes of Computer Networking",
-        desc: "Computer networking fundamentals, TCP/IP model, IP addressing & subnetting, routing protocols, and network troubleshooting."
-      },
-      {
-        title: "Operating Systems and You: Becoming a Power User",
-        desc: "Operating system architecture, directory structures, user & process management, file systems, and CLI administration (Windows & Linux)."
-      },
-      {
-        title: "System Administration and IT Infrastructure Services",
-        desc: "Infrastructure services management, Active Directory & LDAP, cloud resources, data backup & recovery, and system administration best practices."
-      },
-      {
-        title: "IT Security: Defense against the digital dark arts",
-        desc: "Encryption algorithms, authentication & authorization mechanisms, network security defense in depth, threat analysis, and security hardening."
-      },
-      {
-        title: "Accelerate Your Job Search with AI",
-        desc: "Utilizing generative AI tools to optimize career workflows, resume tailoring, interview prep, and professional personal branding."
-      },
-      {
-        title: "Networking Devices & Initial Configuration",
-        desc: "Hands-on Cisco router/switch configuration, VLANs, STP, and device hardening."
-      },
-      {
-        title: "Linux Essentials",
-        desc: "Linux OS concepts, open-source fundamentals, processes, users/groups, and networking basics."
-      },
-      {
-        title: "Networking Basics",
-        desc: "Network types, protocols, IP addressing, and basic switching foundations."
-      },
-      {
-        title: "Linux Unhatched",
-        desc: "Linux CLI fundamentals, file system navigation, permissions, and shell basics."
-      },
-      {
+        id: "vstep-b1",
         title: "VSTEP B1 English Proficiency Certificate",
-        desc: "Vietnamese Standardized Test of English Proficiency (Level 3/6 - CEFR B1), certifying intermediate English listening, speaking, reading, and writing capabilities."
+        desc: "Vietnamese Standardized Test of English Proficiency (Level 3/6 - CEFR B1), certifying intermediate English listening, speaking, reading, and writing capabilities.",
+        badge: `<i class="fa-solid fa-language"></i> Language Qualification`
+      },
+      {
+        id: "cisco-devices",
+        title: "Networking Devices & Initial Configuration",
+        desc: "Hands-on Cisco router/switch configuration, VLANs, STP, and device hardening.",
+        badge: `<i class="fa-solid fa-layer-group"></i> Cisco NetAcad`
+      },
+      {
+        id: "cisco-basics",
+        title: "Networking Basics",
+        desc: "Network types, protocols, IP addressing, and basic switching foundations.",
+        badge: `<i class="fa-solid fa-layer-group"></i> Cisco NetAcad`
+      },
+      {
+        id: "linux-essentials",
+        title: "Linux Essentials",
+        desc: "Linux OS concepts, open-source fundamentals, processes, users/groups, and networking basics.",
+        badge: `<i class="fa-brands fa-linux"></i> Credly Linux`
+      },
+      {
+        id: "linux-unhatched",
+        title: "Linux Unhatched",
+        desc: "Linux CLI fundamentals, file system navigation, permissions, and shell basics.",
+        badge: `<i class="fa-brands fa-linux"></i> Credly Linux`
+      },
+      {
+        id: "tech-support",
+        title: "Technical Support Fundamentals",
+        desc: "Computer hardware, operating systems, troubleshooting, system administration, and network protocols.",
+        badge: `Coursera Course`
+      },
+      {
+        id: "bits-bytes",
+        title: "The Bits and Bytes of Computer Networking",
+        desc: "Computer networking fundamentals, TCP/IP model, IP addressing & subnetting, routing protocols, and network troubleshooting.",
+        badge: `Coursera Course`
+      },
+      {
+        id: "os-power-user",
+        title: "Operating Systems and You: Becoming a Power User",
+        desc: "Operating system architecture, directory structures, user & process management, file systems, and CLI administration (Windows & Linux).",
+        badge: `Coursera Course`
+      },
+      {
+        id: "sysadmin",
+        title: "System Administration and IT Infrastructure Services",
+        desc: "Infrastructure services management, Active Directory & LDAP, cloud resources, data backup & recovery, and system administration best practices.",
+        badge: `Coursera Course`
+      },
+      {
+        id: "it-security",
+        title: "IT Security: Defense against the digital dark arts",
+        desc: "Encryption algorithms, authentication & authorization mechanisms, network security defense in depth, threat analysis, and security hardening.",
+        badge: `Coursera Course`
+      },
+      {
+        id: "ai-job-search",
+        title: "Accelerate Your Job Search with AI",
+        desc: "Utilizing generative AI tools to optimize career workflows, resume tailoring, interview prep, and professional personal branding.",
+        badge: `Coursera Course`
       }
     ],
     langVal: "Vietnamese (Native) · English (VSTEP B1 / CEFR B1)",
@@ -280,52 +304,76 @@ const translations = {
     ],
     certs: [
       {
+        id: "google-it-support",
         title: "Google IT Support Professional Certificate",
-        desc: "Chương trình chứng chỉ chuyên nghiệp gồm 6 khóa học toàn diện về Hỗ trợ kỹ thuật, Mạng máy tính, Hệ điều hành, Quản trị hệ thống, Bảo mật CNTT và Ứng dụng AI tạo sinh."
+        desc: "Chương trình chứng chỉ chuyên nghiệp gồm 6 khóa học toàn diện về Hỗ trợ kỹ thuật, Mạng máy tính, Hệ điều hành, Quản trị hệ thống, Bảo mật CNTT và Ứng dụng AI tạo sinh.",
+        badge: `<i class="fa-solid fa-star"></i> Chuyên sâu 6 khóa`
       },
       {
-        title: "Technical Support Fundamentals",
-        desc: "Phần cứng máy tính, hệ điều hành, xử lý sự cố, quản trị hệ thống và giao thức mạng."
-      },
-      {
-        title: "The Bits and Bytes of Computer Networking",
-        desc: "Khái niệm cơ bản về mạng máy tính, mô hình TCP/IP, địa chỉ IP & chia mạng con (subnetting), các giao thức định tuyến và xử lý sự cố mạng."
-      },
-      {
-        title: "Operating Systems and You: Becoming a Power User",
-        desc: "Kiến trúc hệ điều hành, cấu trúc thư mục, quản lý người dùng & tiến trình, hệ thống tệp và quản trị bằng dòng lệnh CLI (Windows & Linux)."
-      },
-      {
-        title: "System Administration and IT Infrastructure Services",
-        desc: "Quản trị dịch vụ hạ tầng, Active Directory & LDAP, tài nguyên điện toán đám mây, sao lưu & khôi phục dữ liệu và quy chuẩn quản trị hệ thống."
-      },
-      {
-        title: "IT Security: Defense against the digital dark arts",
-        desc: "Các thuật toán mã hóa, cơ chế xác thực & phân quyền, phòng thủ chuyên sâu cho mạng (defense in depth), phân tích mối đe dọa và bảo mật hệ thống."
-      },
-      {
-        title: "Accelerate Your Job Search with AI",
-        desc: "Ứng dụng các công cụ AI tạo sinh để tối ưu hóa quy trình tìm việc, tinh chỉnh CV, luyện tập phỏng vấn và xây dựng thương hiệu cá nhân chuyên nghiệp."
-      },
-      {
-        title: "Networking Devices & Initial Configuration",
-        desc: "Cấu hình router/switch Cisco thực tế, VLANs, STP và bảo mật thiết bị (hardening)."
-      },
-      {
-        title: "Linux Essentials",
-        desc: "Khái niệm HĐH Linux, mã nguồn mở, tiến trình, user/group và mạng cơ bản."
-      },
-      {
-        title: "Networking Basics",
-        desc: "Các loại mạng, giao thức, địa chỉ IP và nền tảng chuyển mạch (switching) cơ bản."
-      },
-      {
-        title: "Linux Unhatched",
-        desc: "Các lệnh Linux CLI cơ bản, điều hướng hệ thống tệp, phân quyền và shell cơ bản."
-      },
-      {
+        id: "vstep-b1",
         title: "Chứng chỉ Tiếng Anh VSTEP B1 (CEFR B1)",
-        desc: "Khung năng lực ngoại ngữ 6 bậc dùng cho Việt Nam (Bậc 3/6 - B1), xác nhận năng lực giao tiếp, đọc hiểu và làm việc bằng tiếng Anh."
+        desc: "Khung năng lực ngoại ngữ 6 bậc dùng cho Việt Nam (Bậc 3/6 - B1), xác nhận năng lực giao tiếp, đọc hiểu và làm việc bằng tiếng Anh.",
+        badge: `<i class="fa-solid fa-language"></i> Chứng chỉ Ngoại ngữ`
+      },
+      {
+        id: "cisco-devices",
+        title: "Networking Devices & Initial Configuration",
+        desc: "Cấu hình router/switch Cisco thực tế, VLANs, STP và bảo mật thiết bị (hardening).",
+        badge: `<i class="fa-solid fa-layer-group"></i> Cisco NetAcad`
+      },
+      {
+        id: "cisco-basics",
+        title: "Networking Basics",
+        desc: "Các loại mạng, giao thức, địa chỉ IP và nền tảng chuyển mạch (switching) cơ bản.",
+        badge: `<i class="fa-solid fa-layer-group"></i> Cisco NetAcad`
+      },
+      {
+        id: "linux-essentials",
+        title: "Linux Essentials",
+        desc: "Khái niệm HĐH Linux, mã nguồn mở, tiến trình, user/group và mạng cơ bản.",
+        badge: `<i class="fa-brands fa-linux"></i> Credly Linux`
+      },
+      {
+        id: "linux-unhatched",
+        title: "Linux Unhatched",
+        desc: "Các lệnh Linux CLI cơ bản, điều hướng hệ thống tệp, phân quyền và shell cơ bản.",
+        badge: `<i class="fa-brands fa-linux"></i> Credly Linux`
+      },
+      {
+        id: "tech-support",
+        title: "Technical Support Fundamentals",
+        desc: "Phần cứng máy tính, hệ điều hành, xử lý sự cố, quản trị hệ thống và giao thức mạng.",
+        badge: `Khóa học Coursera`
+      },
+      {
+        id: "bits-bytes",
+        title: "The Bits and Bytes of Computer Networking",
+        desc: "Khái niệm cơ bản về mạng máy tính, mô hình TCP/IP, địa chỉ IP & chia mạng con (subnetting), các giao thức định tuyến và xử lý sự cố mạng.",
+        badge: `Khóa học Coursera`
+      },
+      {
+        id: "os-power-user",
+        title: "Operating Systems and You: Becoming a Power User",
+        desc: "Kiến trúc hệ điều hành, cấu trúc thư mục, quản lý người dùng & tiến trình, hệ thống tệp và quản trị bằng dòng lệnh CLI (Windows & Linux).",
+        badge: `Khóa học Coursera`
+      },
+      {
+        id: "sysadmin",
+        title: "System Administration and IT Infrastructure Services",
+        desc: "Quản trị dịch vụ hạ tầng, Active Directory & LDAP, tài nguyên điện toán đám mây, sao lưu & khôi phục dữ liệu và quy chuẩn quản trị hệ thống.",
+        badge: `Khóa học Coursera`
+      },
+      {
+        id: "it-security",
+        title: "IT Security: Defense against the digital dark arts",
+        desc: "Các thuật toán mã hóa, cơ chế xác thực & phân quyền, phòng thủ chuyên sâu cho mạng (defense in depth), phân tích mối đe dọa và bảo mật hệ thống.",
+        badge: `Khóa học Coursera`
+      },
+      {
+        id: "ai-job-search",
+        title: "Accelerate Your Job Search with AI",
+        desc: "Ứng dụng các công cụ AI tạo sinh để tối ưu hóa quy trình tìm việc, tinh chỉnh CV, luyện tập phỏng vấn và xây dựng thương hiệu cá nhân chuyên nghiệp.",
+        badge: `Khóa học Coursera`
       }
     ],
     langVal: "Tiếng Việt (Mẹ đẻ) · Tiếng Anh (VSTEP B1 / CEFR B1)",
