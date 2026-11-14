@@ -1,396 +1,200 @@
+// English lives in index.html (single source of truth).
+// This file only holds Vietnamese text, keyed by data-i18n / data-i18n-placeholder.
+// Any key missing here simply falls back to the English in the HTML.
 const translations = {
-  en: {
-    title: "Phạm Thanh Lâm — IT Support · Mạng máy tính & Truyền thông dữ liệu",
-    nav: ["Work", "Experience", "Focus", "Certs", "About", "Contact"],
-    mobile: ["Featured Work", "Experience", "Technical Focus", "Certifications", "About", "Contact", "Download CV →"],
-    cv: "Download CV",
-    cvFile: "cv-en.pdf",
-    downloadPdf: `Download PDF <i class="fa-solid fa-arrow-right"></i>`,
-    eyebrow: "IT Support · Computer Networks & Data Communications",
-    heroTitle: "IT Support Specialist with strong networking & infrastructure background.",
-    heroLead: "IT Support Specialist with a solid networking foundation, experienced in receiving & resolving technical support tickets (hardware, software, network), deploying security devices, and configuring internal network infrastructure.",
-    heroCta: `View featured work <i class="fa-solid fa-arrow-right"></i>`,
-    trust: [
-      "UIT GPA 3.1/4.0 (2022–2026)",
-      "Maersk & FSI IT Support",
-      "Tăng Nhơn Phú, TP. HCM"
-    ],
-    terminal: ["show --validated-results", "HA firewall failover", "OPNsense Active-Passive cluster validated in thesis lab.", "WAF alerts analyzed", "ModSecurity + OWASP CRS validation with payload-level review.", "Network/security labs", "SD-WAN, SIEM, VPN/DNS security, AI security proxy."],
-    proof: ["Firewall architecture, SSL offloading, ModSecurity, SIEM pipeline.", "Cisco dCloud/CML, vManage, C8000v, AAR policy, IPsec.", "AWS/GCP labs, WireGuard, DNS sinkhole, API security.", "Python, FastAPI, Docker, shell scripts, monitoring workflows."],
-    workLabel: "Featured Work",
-    workTitle: "Project summaries with direct links to technical details.",
-    workDesc: "Each project links to GitHub details: diagrams, screenshots, commands, and validation notes.",
-    thesisBadge: "Thesis",
-    thesisPeriod: "Jan – May 2026",
-    thesisTitle: "HA Firewall & AI-driven Security Monitoring",
-    thesisDesc: "Graduation thesis combining OPNsense HA firewall, WAF, Wazuh SIEM, and ML-based security log analysis in a controlled lab.",
-    thesisLink: `View thesis repository <i class="fa-solid fa-arrow-right"></i>`,
-    sdwanBadge: "Academic",
-    sdwanDesc: "3-site Hub-and-Spoke SD-WAN overlay with encrypted dual transport and least-privilege traffic steering for critical medical systems.",
-    github: `View GitHub <i class="fa-solid fa-arrow-right"></i>`,
-    aiBadge: "Personal",
-    aiDesc: "Bilingual LLM security proxy enforcing DLP and prompt-injection controls at the API perimeter for enterprise-style AI workflows.",
-    vpnDesc: "Privacy-first VPN gateway chaining WireGuard, AdGuard Home, and Unbound to reduce telemetry and avoid third-party DNS tracking.",
-    moreLabel: "More Projects",
-    moreTitle: "Additional labs and automation work.",
-    moreDesc: "Kept shorter here so the page scans quickly. Each item links out when public proof is available.",
-    makeFlowTitle: "AI Document Parser — Make.com Automation",
-    makeFlowDesc: "Automated document processing workflow built on Make.com. It monitors a Google Drive folder for new files, downloads them, invokes the Anthropic Claude API to analyze and extract structured data via custom prompts, parses the JSON payload, and records the parsed information into Google Sheets in real-time.",
-    makeFlowLink: `View workflow diagram <i class="fa-solid fa-arrow-right"></i>`,
-    expLabel: "Experience",
-    expTitle: "Practical experience in IT Support & Network operations.",
-    expDesc: "Hands-on IT Support experience in enterprise environments, warehouse logistics, and network security appliance deployment.",
-    experience: [
-      {
-        company: "Maersk (L&A Provider)",
-        role: "IT Support",
-        period: "Jun 2026 – Aug 2026",
-        address: "No. 9, DT 743 Street, Binh Thang Ward, Di An City, Binh Duong Province.",
-        bullets: [
-          "Received and handled technical tickets via Outlook and MS Teams adhering strictly to SLA workflows.",
-          "Supported operations and monitoring of RPA system (Power Automate); provided remote employee support via AnyDesk.",
-          "Deployed and configured software for employees; developed operational user guides and SOPs.",
-          "Administered user accounts and supported operations on the Körber One WMS system.",
-          "Queried and processed data via SQLDBX for ticket investigation and issue resolution.",
-          "Proficient in logistics processes, EDI data integration flows, and warehouse operating SOPs.",
-          "Conducted direct on-site technical support at other warehouses and branch locations upon request."
-        ]
-      },
-      {
-        company: "Công ty CP Đầu Tư Thương Mại và Phát Triển Công Nghệ FSI",
-        role: "IT Support Intern",
-        period: "Feb 2026 – Jun 2026",
-        address: "No. 26/22 Street No. 3, Do Thanh Residence, Ward 4, District 3, Ho Chi Minh City",
-        bullets: [
-          "Deployed and validated network security appliances (F-DDH BOX) in lab/production environments.",
-          "Participated in network infrastructure deployment projects and supported system troubleshooting.",
-          "Monitored and managed IT assets (hardware and software).",
-          "Configured internal network systems (modem, Wi-Fi, router, switch).",
-          "Supported end users directly and remotely via UltraViewer and Remote Desktop."
-        ]
-      }
-    ],
-    focusLabel: "Technical Skills",
-    focusTitle: "Skill groups aligned to my IT Support & Networking profile.",
-    focusDesc: "Categorized skill set covering Hardware & OS, Networking, Technical Support Tools, and Development.",
-    focusCards: [
-      {
-        title: "Hardware & OS",
-        desc: "Windows, macOS, Linux, PC/Laptop, Printer/Scanner, Windows Server."
-      },
-      {
-        title: "Networking",
-        desc: "Switch/Router/Modem, TCP/IP, DHCP, DNS, IPv4/IPv6, ACL/NAT, HTTP/HTTPS, VPN."
-      },
-      {
-        title: "Technical Support & Tools",
-        desc: "Ticketing system, MS Office 365, Google Workspace, UltraViewer, AnyDesk, Remote Desktop."
-      },
-      {
-        title: "Dev & Tools",
-        desc: "Python, C++, SQL, Git, Shell Script, Postman/cURL, VMware, VirtualBox."
-      }
-    ],
-    certLabel: "Certifications",
-    certTitle: "Categorized Professional Credentials.",
-    certDesc: "Structured learning credentials categorized into Professional Specialization & Language, Network & Linux Infrastructure, and Coursera Course Modules.",
-    certTabs: [
-      "All Credentials (12)",
-      "Specialization & Language",
-      "Network & Linux",
-      "Coursera Modules"
-    ],
-    certCategories: [
-      "Professional Specialization & Language",
-      "Network & System Infrastructure Credentials",
-      "Coursera Specialized Course Modules"
-    ],
-    certs: [
-      {
-        id: "google-it-support",
-        title: "Google IT Support Professional Certificate",
-        desc: "6-course professional Specialization covering Technical Support, Networking, Operating Systems, Systems Administration, IT Security, and Generative AI for Job Search.",
-        badge: `<i class="fa-solid fa-star"></i> Full Specialization`
-      },
-      {
-        id: "vstep-b1",
-        title: "VSTEP B1 English Proficiency Certificate",
-        desc: "Vietnamese Standardized Test of English Proficiency (Level 3/6 - CEFR B1), certifying intermediate English listening, speaking, reading, and writing capabilities.",
-        badge: `<i class="fa-solid fa-language"></i> Language Qualification`
-      },
-      {
-        id: "cisco-devices",
-        title: "Networking Devices & Initial Configuration",
-        desc: "Hands-on Cisco router/switch configuration, VLANs, STP, and device hardening.",
-        badge: `<i class="fa-solid fa-layer-group"></i> Cisco NetAcad`
-      },
-      {
-        id: "cisco-basics",
-        title: "Networking Basics",
-        desc: "Network types, protocols, IP addressing, and basic switching foundations.",
-        badge: `<i class="fa-solid fa-layer-group"></i> Cisco NetAcad`
-      },
-      {
-        id: "linux-essentials",
-        title: "Linux Essentials",
-        desc: "Linux OS concepts, open-source fundamentals, processes, users/groups, and networking basics.",
-        badge: `<i class="fa-brands fa-linux"></i> Credly Linux`
-      },
-      {
-        id: "linux-unhatched",
-        title: "Linux Unhatched",
-        desc: "Linux CLI fundamentals, file system navigation, permissions, and shell basics.",
-        badge: `<i class="fa-brands fa-linux"></i> Credly Linux`
-      },
-      {
-        id: "tech-support",
-        title: "Technical Support Fundamentals",
-        desc: "Computer hardware, operating systems, troubleshooting, system administration, and network protocols.",
-        badge: `Coursera Course`
-      },
-      {
-        id: "bits-bytes",
-        title: "The Bits and Bytes of Computer Networking",
-        desc: "Computer networking fundamentals, TCP/IP model, IP addressing & subnetting, routing protocols, and network troubleshooting.",
-        badge: `Coursera Course`
-      },
-      {
-        id: "os-power-user",
-        title: "Operating Systems and You: Becoming a Power User",
-        desc: "Operating system architecture, directory structures, user & process management, file systems, and CLI administration (Windows & Linux).",
-        badge: `Coursera Course`
-      },
-      {
-        id: "sysadmin",
-        title: "System Administration and IT Infrastructure Services",
-        desc: "Infrastructure services management, Active Directory & LDAP, cloud resources, data backup & recovery, and system administration best practices.",
-        badge: `Coursera Course`
-      },
-      {
-        id: "it-security",
-        title: "IT Security: Defense against the digital dark arts",
-        desc: "Encryption algorithms, authentication & authorization mechanisms, network security defense in depth, threat analysis, and security hardening.",
-        badge: `Coursera Course`
-      },
-      {
-        id: "ai-job-search",
-        title: "Accelerate Your Job Search with AI",
-        desc: "Utilizing generative AI tools to optimize career workflows, resume tailoring, interview prep, and professional personal branding.",
-        badge: `Coursera Course`
-      }
-    ],
-    langVal: "Vietnamese (Native) · English (VSTEP B1 / CEFR B1)",
-    aboutLabel: "Background",
-    aboutTitle: "UIT Graduate in Computer Networks & Data Communications (GPA 3.1 / 4.0).",
-    aboutP: [
-      "I graduated from the <strong>University of Information Technology (UIT – VNU-HCM)</strong> majoring in <strong>Computer Networks & Data Communications</strong> (GPA 3.1 / 4.0, 2022–2026). My technical background encompasses IT support, networking infrastructure, and security lab automation.",
-      "I have professional IT Support experience at <strong>Maersk (L&A Provider)</strong> and <strong>FSI</strong>, specializing in SLA ticket handling, WMS/RPA support, endpoint deployment, and internal network configuration.",
-      "My goal is to leverage my IT support and networking capabilities to deliver reliable infrastructure operations and user support."
-    ],
-    contactLabel: "Contact",
-    contactTitle: "Let’s connect.",
-    contactDesc: "Open to IT Support, Network Engineer, System Administrator, and Helpdesk opportunities around Ho Chi Minh City & Binh Duong.",
-    emailMe: `<i class="fa-solid fa-envelope"></i> Email me`,
-    form: ["Your name", "Your email", "Your message...", "Send message"],
-    formSending: "Sending...",
-    formFailed: "Failed — send direct email instead",
-    footer: "© 2026 Phạm Thanh Lâm · Built for <span>IT Support & Network Engineering</span> · Ho Chi Minh City"
-  },
   vi: {
-    title: "Phạm Thanh Lâm — IT Support · Mạng máy tính & Truyền thông dữ liệu",
-    nav: ["Dự án", "Kinh nghiệm", "Trọng tâm", "Chứng chỉ", "Giới thiệu", "Liên hệ"],
-    mobile: ["Dự án nổi bật", "Kinh nghiệm", "Trọng tâm kỹ thuật", "Chứng chỉ", "Giới thiệu", "Liên hệ", "Tải CV →"],
-    cv: "Tải CV",
-    cvFile: "cv-vi.pdf",
-    downloadPdf: `Tải PDF <i class="fa-solid fa-arrow-right"></i>`,
-    eyebrow: "IT Support · Mạng máy tính & Truyền thông dữ liệu",
-    heroTitle: "IT Support với nền tảng Mạng máy tính & Hạ tầng kỹ thuật.",
-    heroLead: "IT Support với nền tảng networking, kinh nghiệm tiếp nhận và xử lý ticket hỗ trợ kỹ thuật (phần cứng, phần mềm, mạng), triển khai thiết bị và hệ thống bảo mật mạng, cấu hình hệ thống mạng nội bộ; có khả năng chẩn đoán, xử lý đa yêu cầu và làm việc trực tiếp với người dùng/đối tác.",
-    heroCta: `Xem dự án nổi bật <i class="fa-solid fa-arrow-right"></i>`,
-    trust: [
-      "UIT GPA 3.1/4.0 (2022–2026)",
-      "Kinh nghiệm Maersk & FSI",
-      "Tăng Nhơn Phú, TP. HCM"
-    ],
-    terminal: ["show --validated-results", "Failover HA firewall", "Cụm OPNsense Active-Passive được kiểm chứng trong lab khóa luận.", "WAF alerts đã phân tích", "Kiểm chứng ModSecurity + OWASP CRS ở mức payload.", "Lab network/security", "SD-WAN, SIEM, VPN/DNS security, AI security proxy."],
-    proof: ["Kiến trúc firewall, SSL offloading, ModSecurity, SIEM pipeline.", "Cisco dCloud/CML, vManage, C8000v, AAR policy, IPsec.", "AWS/GCP labs, WireGuard, DNS sinkhole, API security.", "Python, FastAPI, Docker, shell scripts, monitoring workflows."],
-    workLabel: "Dự án nổi bật",
-    workTitle: "Tóm tắt dự án, dẫn thẳng tới chi tiết kỹ thuật.",
-    workDesc: "Mỗi dự án có link GitHub chứa diagram, screenshot, command và ghi chú kiểm chứng.",
-    thesisBadge: "Khóa luận",
-    thesisPeriod: "01 – 05/2026",
-    thesisTitle: "HA Firewall & AI-driven Security Monitoring",
-    thesisDesc: "Khóa luận kết hợp OPNsense HA firewall, WAF, Wazuh SIEM và phân tích log bảo mật bằng ML trong môi trường lab có kiểm chứng.",
-    thesisLink: `Xem repo khóa luận <i class="fa-solid fa-arrow-right"></i>`,
-    sdwanBadge: "Học thuật",
-    sdwanDesc: "Mô hình SD-WAN Hub-and-Spoke 3 site, dual transport mã hóa và điều hướng traffic theo least-privilege cho hệ thống y tế quan trọng.",
-    github: `Xem GitHub <i class="fa-solid fa-arrow-right"></i>`,
-    aiBadge: "Cá nhân",
-    aiDesc: "Proxy bảo mật LLM song ngữ, kiểm soát DLP và prompt injection ở API perimeter cho workflow AI kiểu doanh nghiệp.",
-    vpnDesc: "VPN gateway ưu tiên privacy, kết hợp WireGuard, AdGuard Home và Unbound để giảm telemetry và tránh DNS tracking bên thứ ba.",
-    moreLabel: "Dự án khác",
-    moreTitle: "Các lab và dự án automation bổ sung.",
-    moreDesc: "Phần này được giữ ngắn để trang dễ đọc. Dự án nào public sẽ có link bằng chứng bên ngoài.",
-    makeFlowTitle: "AI Document Parser — Tự động hóa với Make.com",
-    makeFlowDesc: "Luồng tự động hóa xử lý tài liệu xây dựng trên Make.com. Hệ thống tự động theo dõi thư mục Google Drive, tải xuống tài liệu mới, gọi API Anthropic Claude để phân tích và trích xuất dữ liệu có cấu trúc qua prompt tùy chỉnh, phân tích dữ liệu JSON và lưu trữ vào Google Sheets theo thời gian thực.",
-    makeFlowLink: `Xem sơ đồ workflow <i class="fa-solid fa-arrow-right"></i>`,
-    expLabel: "Kinh nghiệm",
-    expTitle: "Kinh nghiệm thực tế trong vận hành IT Support & Mạng.",
-    expDesc: "Kinh nghiệm IT Support thực tế tại môi trường doanh nghiệp logistics, hệ thống kho bãi và triển khai thiết bị bảo mật mạng.",
-    experience: [
-      {
-        company: "Maersk (L&A Provider)",
-        role: "IT Support",
-        period: "6/2026 – 8/2026",
-        address: "Số 9, Đường ĐT 743, Phường Bình Thắng, Thành phố Dĩ An, Tỉnh Bình Dương.",
-        bullets: [
-          "Tiếp nhận, xử lý ticket qua Outlook và MS Teams theo quy trình SLA",
-          "Hỗ trợ vận hành và theo dõi hệ thống RPA (Power Automate), remote support nhân viên qua AnyDesk",
-          "Triển khai, cấu hình phần mềm cho nhân viên; xây dựng tài liệu hướng dẫn nghiệp vụ",
-          "Quản trị tài khoản người dùng và hỗ trợ vận hành trên hệ thống WMS Körber One",
-          "Truy vấn, xử lý dữ liệu qua SQLDBX phục vụ điều tra và xử lý ticket",
-          "Am hiểu quy trình logistics, luồng tích hợp dữ liệu EDI và SOP vận hành kho",
-          "Công tác hỗ trợ kỹ thuật trực tiếp tại các kho/chi nhánh khác khi có yêu cầu"
-        ]
-      },
-      {
-        company: "Công ty CP Đầu Tư Thương Mại và Phát Triển Công Nghệ FSI",
-        role: "IT Support Intern",
-        period: "02/2026 – 06/2026",
-        address: "Số 26/22 Đường số 3, Cư Xá Đô Thành, Phường Bàn Cờ, Quận 3, TP. Hồ Chí Minh",
-        bullets: [
-          "Triển khai, kiểm định thiết bị bảo mật mạng (F-DDH BOX) trên môi trường lab/production",
-          "Tham gia dự án triển khai cơ sở hạ tầng mạng, hỗ trợ khắc phục sự cố hệ thống",
-          "Theo dõi, quản lý tài sản CNTT (phần cứng và phần mềm)",
-          "Cấu hình hệ thống mạng nội bộ (modem, wifi, router, switch)",
-          "Hỗ trợ người dùng trực tiếp, từ xa qua UltraViewer, Remote Desktop"
-        ]
-      }
-    ],
-    focusLabel: "Trọng tâm kỹ thuật",
-    focusTitle: "Kỹ năng được hệ thống hóa theo các nhóm trong CV.",
-    focusDesc: "Danh mục kỹ năng gồm Phần cứng & HĐH, Mạng máy tính, Hỗ trợ kỹ thuật và Công cụ Lập trình.",
-    focusCards: [
-      {
-        title: "Hardware & OS",
-        desc: "Windows, macOS, Linux, PC/Laptop, Máy in/Scanner, Windows Server."
-      },
-      {
-        title: "Networking",
-        desc: "Switch/Router/Modem, TCP/IP, DHCP, DNS, IPv4/IPv6, ACL/NAT, HTTP/HTTPS, VPN."
-      },
-      {
-        title: "Technical Support & Tools",
-        desc: "Hệ thống Ticketing, MS Office 365, Google Workspace, UltraViewer, AnyDesk, Remote Desktop."
-      },
-      {
-        title: "Dev & Tools",
-        desc: "Python, C++, SQL, Git, Shell Script, Postman/cURL, VMware, VirtualBox."
-      }
-    ],
-    certLabel: "Chứng chỉ",
-    certTitle: "Hệ thống chứng chỉ được phân loại chuẩn hóa.",
-    certDesc: "Danh mục chứng chỉ được phân loại khoa học gồm Chứng chỉ Chuyên sâu & Ngoại ngữ, Hạ tầng Mạng & Linux, và Các khóa học Coursera.",
-    certTabs: [
-      "Tất cả chứng chỉ (12)",
-      "Chuyên sâu & Ngoại ngữ",
-      "Mạng & Linux",
-      "Khóa học Coursera"
-    ],
-    certCategories: [
-      "Chứng chỉ Chuyên sâu & Ngoại ngữ",
-      "Chứng chỉ Hạ tầng Mạng & Linux",
-      "Các khóa học chuyên môn Coursera"
-    ],
-    certs: [
-      {
-        id: "google-it-support",
-        title: "Google IT Support Professional Certificate",
-        desc: "Chương trình chứng chỉ chuyên nghiệp gồm 6 khóa học toàn diện về Hỗ trợ kỹ thuật, Mạng máy tính, Hệ điều hành, Quản trị hệ thống, Bảo mật CNTT và Ứng dụng AI tạo sinh.",
-        badge: `<i class="fa-solid fa-star"></i> Chuyên sâu 6 khóa`
-      },
-      {
-        id: "vstep-b1",
-        title: "Chứng chỉ Tiếng Anh VSTEP B1 (CEFR B1)",
-        desc: "Khung năng lực ngoại ngữ 6 bậc dùng cho Việt Nam (Bậc 3/6 - B1), xác nhận năng lực giao tiếp, đọc hiểu và làm việc bằng tiếng Anh.",
-        badge: `<i class="fa-solid fa-language"></i> Chứng chỉ Ngoại ngữ`
-      },
-      {
-        id: "cisco-devices",
-        title: "Networking Devices & Initial Configuration",
-        desc: "Cấu hình router/switch Cisco thực tế, VLANs, STP và bảo mật thiết bị (hardening).",
-        badge: `<i class="fa-solid fa-layer-group"></i> Cisco NetAcad`
-      },
-      {
-        id: "cisco-basics",
-        title: "Networking Basics",
-        desc: "Các loại mạng, giao thức, địa chỉ IP và nền tảng chuyển mạch (switching) cơ bản.",
-        badge: `<i class="fa-solid fa-layer-group"></i> Cisco NetAcad`
-      },
-      {
-        id: "linux-essentials",
-        title: "Linux Essentials",
-        desc: "Khái niệm HĐH Linux, mã nguồn mở, tiến trình, user/group và mạng cơ bản.",
-        badge: `<i class="fa-brands fa-linux"></i> Credly Linux`
-      },
-      {
-        id: "linux-unhatched",
-        title: "Linux Unhatched",
-        desc: "Các lệnh Linux CLI cơ bản, điều hướng hệ thống tệp, phân quyền và shell cơ bản.",
-        badge: `<i class="fa-brands fa-linux"></i> Credly Linux`
-      },
-      {
-        id: "tech-support",
-        title: "Technical Support Fundamentals",
-        desc: "Phần cứng máy tính, hệ điều hành, xử lý sự cố, quản trị hệ thống và giao thức mạng.",
-        badge: `Khóa học Coursera`
-      },
-      {
-        id: "bits-bytes",
-        title: "The Bits and Bytes of Computer Networking",
-        desc: "Khái niệm cơ bản về mạng máy tính, mô hình TCP/IP, địa chỉ IP & chia mạng con (subnetting), các giao thức định tuyến và xử lý sự cố mạng.",
-        badge: `Khóa học Coursera`
-      },
-      {
-        id: "os-power-user",
-        title: "Operating Systems and You: Becoming a Power User",
-        desc: "Kiến trúc hệ điều hành, cấu trúc thư mục, quản lý người dùng & tiến trình, hệ thống tệp và quản trị bằng dòng lệnh CLI (Windows & Linux).",
-        badge: `Khóa học Coursera`
-      },
-      {
-        id: "sysadmin",
-        title: "System Administration and IT Infrastructure Services",
-        desc: "Quản trị dịch vụ hạ tầng, Active Directory & LDAP, tài nguyên điện toán đám mây, sao lưu & khôi phục dữ liệu và quy chuẩn quản trị hệ thống.",
-        badge: `Khóa học Coursera`
-      },
-      {
-        id: "it-security",
-        title: "IT Security: Defense against the digital dark arts",
-        desc: "Các thuật toán mã hóa, cơ chế xác thực & phân quyền, phòng thủ chuyên sâu cho mạng (defense in depth), phân tích mối đe dọa và bảo mật hệ thống.",
-        badge: `Khóa học Coursera`
-      },
-      {
-        id: "ai-job-search",
-        title: "Accelerate Your Job Search with AI",
-        desc: "Ứng dụng các công cụ AI tạo sinh để tối ưu hóa quy trình tìm việc, tinh chỉnh CV, luyện tập phỏng vấn và xây dựng thương hiệu cá nhân chuyên nghiệp.",
-        badge: `Khóa học Coursera`
-      }
-    ],
-    langVal: "Tiếng Việt (Mẹ đẻ) · Tiếng Anh (VSTEP B1 / CEFR B1)",
-    aboutLabel: "Giới thiệu",
-    aboutTitle: "Cử nhân Mạng máy tính & Truyền thông dữ liệu UIT (GPA 3.1 / 4.0).",
-    aboutP: [
-      "Tôi tốt nghiệp ngành <strong>Mạng máy tính và Truyền thông dữ liệu</strong> tại <strong>Trường Đại học Công nghệ Thông tin (UIT – ĐHQG-HCM)</strong> với <strong>GPA 3.1 / 4.0 (2022 – 2026)</strong>. Hướng làm việc chính là IT Support, hạ tầng mạng và tự động hóa.",
-      "Tôi đã có kinh nghiệm làm việc thực tế tại <strong>Maersk (L&A Provider)</strong> và <strong>FSI</strong> với vai trò <strong>IT Support</strong>, chuyên xử lý ticket SLA, hỗ trợ vận hành WMS Körber One / RPA, triển khai phần mềm và cấu hình mạng nội bộ.",
-      "Mục tiêu của tôi là phát huy nền tảng IT Support và Networking để vận hành hệ thống thông suốt, hỗ trợ kỹ thuật hiệu quả cho người dùng và doanh nghiệp."
-    ],
-    contactLabel: "Liên hệ",
-    contactTitle: "Kết nối với tôi.",
-    contactDesc: "Sẵn sàng cho các cơ hội IT Support, Network Engineer, System Administrator và Helpdesk quanh TP.HCM / Bình Dương.",
-    emailMe: `<i class="fa-solid fa-envelope"></i> Gửi email`,
-    form: ["Tên của bạn", "Email của bạn", "Nội dung...", "Gửi tin nhắn"],
-    formSending: "Đang gửi...",
-    formFailed: "Lỗi — vui lòng gửi email trực tiếp",
-    footer: "© 2026 Phạm Thanh Lâm · Portfolio cho <span>IT Support & Network Engineering</span> · TP. Hồ Chí Minh"
-  }
+    "meta.title": "Phạm Thanh Lâm — IT Support · Helpdesk & Quản trị hệ thống",
+
+    // Nav
+    "nav.experience": "Kinh nghiệm",
+    "nav.skills": "Kỹ năng",
+    "nav.skillsLong": "Kỹ năng chuyên môn",
+    "nav.certs": "Chứng chỉ",
+    "nav.certsLong": "Chứng chỉ",
+    "nav.projects": "Dự án",
+    "nav.about": "Giới thiệu",
+    "nav.contact": "Liên hệ",
+
+    // Hero
+    "hero.eyebrow": "IT Support · Helpdesk & Quản trị hệ thống",
+    "hero.title": "IT Support có kinh nghiệm thực tế với Active Directory, Microsoft 365 & Helpdesk.",
+    "hero.lead":
+      "Cử nhân Mạng máy tính & Truyền thông dữ liệu (UIT), đã hỗ trợ hơn 100 người dùng tại TP.HCM, Đà Nẵng và Berlin: quản lý tài khoản và phân quyền, MFA, máy trạm Windows và xử lý ticket đúng SLA. Đang xây nền tảng IT Support vững chắc để tiến lên Quản trị hệ thống.",
+    "hero.cta": "Xem kinh nghiệm",
+    "hero.trust1": "Tốt nghiệp UIT · GPA 3.12/4.0",
+    "hero.trust3": "Tăng Nhơn Phú, TP.HCM",
+
+    // Stats
+    "stats.users": "Người dùng được hỗ trợ",
+    "stats.usersDesc": "Kỹ sư và nhân viên văn phòng, trực tiếp và từ xa.",
+    "stats.tickets": "Ticket Helpdesk đúng SLA",
+    "stats.ticketsDesc": "Odoo Helpdesk, cùng yêu cầu qua Microsoft Teams và tại chỗ.",
+    "stats.sites": "Văn phòng được hỗ trợ",
+    "stats.sitesDesc": "TP.HCM, Đà Nẵng và Berlin.",
+
+    // Proof strip
+    "proof.identity": "Active Directory, Entra ID, M365 Admin, MFA, GPO.",
+    "proof.helpdesk": "Odoo Helpdesk, xử lý theo SLA, remote support qua AnyDesk/UltraViewer.",
+    "proof.endpoints": "Cài đặt Windows 10/11, phần mềm kỹ thuật, máy in & scanner.",
+    "proof.network": "TCP/IP, DNS, DHCP, Wi-Fi, VPN và xử lý sự cố mạng.",
+
+    // Experience
+    "exp.label": "Kinh nghiệm",
+    "exp.title": "IT Support thực tế tại công ty kỹ thuật, logistics và bảo mật mạng.",
+    "exp.desc": "Helpdesk hằng ngày, quản lý tài khoản & phân quyền, cài đặt máy trạm và viết tài liệu trong môi trường doanh nghiệp thật.",
+
+    "exp.gbc.role": "IT Support (Freelancer)",
+    "exp.gbc.period": "8/2026 – 11/2026",
+    "exp.gbc.address": "153 Ung Văn Khiêm, Phường Thạnh Mỹ Tây, TP.HCM",
+    "exp.gbc.b1": "Hỗ trợ hơn 100 kỹ sư và nhân viên văn phòng trực tiếp và từ xa (AnyDesk, UltraViewer), bao gồm chi nhánh Đà Nẵng và Berlin.",
+    "exp.gbc.b2": "Xử lý ~100 ticket Odoo Helpdesk đúng SLA, cùng các yêu cầu qua Microsoft Teams và hỗ trợ tại chỗ.",
+    "exp.gbc.b3": "Quản lý tài khoản, phân quyền truy cập và onboarding nhân sự trên Active Directory, Microsoft 365, Odoo và Strator.",
+    "exp.gbc.b4": "Cài đặt, cấu hình máy trạm Windows và phần mềm kỹ thuật (Revit, AutoCAD, Allplan, Tekla); xử lý lỗi phần mềm.",
+    "exp.gbc.b5": "Viết hướng dẫn thiết lập MFA và tài liệu SOP để chuẩn hóa quy trình IT Support.",
+    "exp.gbc.b6": "Kiểm kê tài sản CNTT và cập nhật dữ liệu inventory trên Odoo.",
+
+    "exp.maersk.period": "6/2026 – 8/2026",
+    "exp.maersk.address": "Số 9, Đường ĐT 743, Dĩ An, TP.HCM",
+    "exp.maersk.b1": "Tiếp nhận, xử lý ticket qua Outlook và Microsoft Teams theo quy trình SLA.",
+    "exp.maersk.b2": "Hỗ trợ vận hành và theo dõi hệ thống RPA (Power Automate); remote support nhân viên qua AnyDesk.",
+    "exp.maersk.b3": "Triển khai, cấu hình phần mềm cho nhân viên; viết tài liệu hướng dẫn và SOP.",
+    "exp.maersk.b4": "Quản trị tài khoản người dùng và hỗ trợ vận hành hệ thống WMS Körber One.",
+    "exp.maersk.b5": "Truy vấn, xử lý dữ liệu bằng SQLDBX để điều tra và xử lý ticket.",
+
+    "exp.fsi.company": "Công ty CP Đầu Tư Thương Mại và Phát Triển Công Nghệ FSI",
+    "exp.fsi.period": "2/2026 – 6/2026",
+    "exp.fsi.address": "26/22 Đường số 3, Cư xá Đô Thành, Phường Bàn Cờ, TP.HCM",
+    "exp.fsi.b1": "Triển khai, kiểm thử và xử lý sự cố thiết bị bảo mật mạng (F-DDH BOX) trên môi trường lab và production.",
+    "exp.fsi.b2": "Cấu hình và hỗ trợ modem, Wi-Fi, router, switch; xử lý sự cố kết nối.",
+    "exp.fsi.b3": "Hỗ trợ người dùng trực tiếp và từ xa; quản lý tài sản CNTT.",
+
+    // Skills
+    "skills.label": "Kỹ năng chuyên môn",
+    "skills.title": "Nhóm kỹ năng bám theo hướng IT Support và Quản trị hệ thống.",
+    "skills.desc": "Chia nhóm giống CV để dễ đọc nhanh.",
+    "skills.c1.title": "Định danh & Microsoft 365",
+    "skills.c1.desc": "Active Directory, Microsoft Entra ID (Azure AD), M365 Admin Center, thiết lập & hỗ trợ MFA, phân quyền truy cập, Group Policy (GPO).",
+    "skills.c2.title": "Công cụ hỗ trợ & Tài liệu",
+    "skills.c2.desc": "AnyDesk, UltraViewer, Odoo Helpdesk/ERP, Microsoft Teams, viết hướng dẫn sử dụng & SOP.",
+    "skills.c3.title": "Hệ thống & Phần cứng",
+    "skills.c3.desc": "Windows 10/11, Windows Server, Linux (Ubuntu/CentOS), PC/laptop, xử lý sự cố máy in & scanner.",
+    "skills.c4.title": "Mạng máy tính",
+    "skills.c4.desc": "TCP/IP (IPv4/IPv6), DNS, DHCP, Wi-Fi, VPN, ACL/NAT, xử lý sự cố mạng.",
+    "skills.c5.title": "Scripting & Ảo hóa",
+    "skills.c6.title": "Công cụ AI",
+
+    // Certifications
+    "cert.label": "Chứng chỉ",
+    "cert.title": "Chứng chỉ chuyên môn, phân theo nhóm.",
+    "cert.desc": "Chứng chỉ Chuyên sâu & Ngoại ngữ, Hạ tầng Mạng & Linux, và các khóa học Coursera thành phần.",
+    "cert.tabAll": "Tất cả chứng chỉ",
+    "cert.tabSpec": "Chuyên sâu & Ngoại ngữ",
+    "cert.tabInfra": "Mạng & Linux",
+    "cert.tabModules": "Khóa học Coursera",
+    "cert.cat1": "Chứng chỉ Chuyên sâu & Ngoại ngữ",
+    "cert.cat2": "Hạ tầng Mạng & Hệ thống",
+    "cert.cat3": "Các khóa học Coursera",
+    "cert.full": "Chuyên sâu 6 khóa",
+    "cert.lang": "Chứng chỉ Ngoại ngữ",
+    "cert.course": "Khóa học Coursera",
+    "cert.verify": "Xác minh trên Coursera",
+    "cert.view": "Xem chứng chỉ",
+    "cert.google.desc": "Chương trình chứng chỉ chuyên nghiệp gồm 6 khóa: Hỗ trợ kỹ thuật, Mạng máy tính, Hệ điều hành, Quản trị hệ thống, Bảo mật CNTT và ứng dụng AI tạo sinh khi tìm việc.",
+    "cert.vstep.title": "Chứng chỉ Tiếng Anh VSTEP B1 (CEFR B1)",
+    "cert.vstep.desc": "Khung năng lực ngoại ngữ 6 bậc dùng cho Việt Nam (Bậc 3/6 – B1), xác nhận năng lực nghe, nói, đọc, viết tiếng Anh ở mức trung cấp.",
+    "cert.ciscoDevices.desc": "Cấu hình router/switch Cisco thực tế, VLAN, STP và hardening thiết bị.",
+    "cert.ciscoBasics.desc": "Các loại mạng, giao thức, địa chỉ IP và nền tảng switching cơ bản.",
+    "cert.linuxEss.desc": "Khái niệm HĐH Linux, mã nguồn mở, tiến trình, user/group và mạng cơ bản.",
+    "cert.linuxUnh.desc": "Lệnh Linux CLI cơ bản, điều hướng hệ thống tệp, phân quyền và shell cơ bản.",
+    "cert.techSupport.desc": "Phần cứng máy tính, hệ điều hành, xử lý sự cố, quản trị hệ thống và giao thức mạng.",
+    "cert.bits.desc": "Nền tảng mạng máy tính, mô hình TCP/IP, địa chỉ IP & chia subnet, giao thức định tuyến và xử lý sự cố mạng.",
+    "cert.os.desc": "Kiến trúc hệ điều hành, cấu trúc thư mục, quản lý user & tiến trình, hệ thống tệp và quản trị bằng CLI (Windows & Linux).",
+    "cert.sysadmin.desc": "Quản trị dịch vụ hạ tầng, Active Directory & LDAP, tài nguyên cloud, sao lưu & khôi phục dữ liệu và quy chuẩn quản trị hệ thống.",
+    "cert.sec.desc": "Mã hóa, xác thực & phân quyền, phòng thủ nhiều lớp (defense in depth), phân tích mối đe dọa và hardening hệ thống.",
+    "cert.ai.desc": "Ứng dụng AI tạo sinh để tối ưu quy trình tìm việc, chỉnh CV, luyện phỏng vấn và xây dựng thương hiệu cá nhân.",
+
+    // Projects
+    "proj.label": "Dự án & Lab",
+    "proj.title": "Các lab về mạng, bảo mật và tự động hóa.",
+    "proj.desc": "Làm ở trường và trong thời gian riêng. Mỗi dự án có link GitHub kèm diagram, screenshot, command và ghi chú kiểm chứng.",
+    "proj.badgeThesis": "Khóa luận",
+    "proj.badgeAcademic": "Học thuật",
+    "proj.badgePersonal": "Cá nhân",
+    "proj.thesisPeriod": "1 – 5/2026",
+    "proj.apr2026": "4/2026",
+    "proj.thesisLink": "Xem repo khóa luận",
+    "proj.thesis.desc": "Khóa luận kết hợp OPNsense HA firewall, WAF, Wazuh SIEM và phân tích log bảo mật bằng ML trong môi trường lab có kiểm chứng.",
+    "proj.sdwan.desc": "Mô hình SD-WAN Hub-and-Spoke 3 site, dual transport mã hóa và điều hướng traffic theo nguyên tắc least-privilege cho hệ thống y tế quan trọng.",
+    "proj.aishield.desc": "Proxy bảo mật LLM song ngữ, kiểm soát DLP và prompt injection ở API perimeter cho workflow AI kiểu doanh nghiệp.",
+    "proj.vpn.desc": "VPN gateway ưu tiên quyền riêng tư, kết hợp WireGuard, AdGuard Home và Unbound để giảm telemetry và tránh DNS tracking bên thứ ba.",
+
+    "more.label": "Dự án khác",
+    "more.title": "Các lab và dự án tự động hóa bổ sung.",
+    "more.desc": "Phần này giữ ngắn để trang dễ đọc. Dự án nào public sẽ có link bằng chứng.",
+    "more.librePeriod": "9 – 11/2024",
+    "more.may2026": "5/2026",
+    "more.jul2026": "7/2026",
+    "more.sdn.desc": "Bộ cân bằng tải L3 với POX/OpenFlow và Mininet, so sánh Round Robin và Random, có health-check để chuyển hướng khi server lỗi.",
+    "more.libre.desc": "Hệ thống giám sát mạng tập trung trên Linux/Docker với SNMP v2c/v3, thu thập băng thông/CPU/RAM và cảnh báo qua Email/Telegram.",
+    "more.jd.desc": "Bot lọc việc ITviec mỗi ngày làm việc: chọn vị trí hạ tầng phù hợp fresher, chấm điểm độ khớp JD/CV bằng Claude và gửi tóm tắt qua Telegram.",
+    "more.autocti.desc": "Pipeline threat intelligence kiểu SOC chạy 24/7 với LangGraph ReAct agent, Gemini search, cảnh báo Telegram, IAM Role và bộ nhớ DynamoDB.",
+    "more.tnt.desc": "Bot AI Telegram cá nhân chạy trên Google Cloud Free Tier: tóm tắt ngữ cảnh, bộ nhớ dài hạn, TTS, nhắc việc và sao lưu.",
+    "more.diemchuan.desc": "Website tra cứu điểm chuẩn đại học với <strong>294 mã trường</strong> và <strong>hơn 154.000 bản ghi</strong>, tìm theo trường, ngành, khoảng điểm và phương thức xét tuyển. Tối ưu SEO (canonical, sitemap, Open Graph, JSON-LD), deploy dạng SPA tĩnh trên Netlify.",
+    "more.make.desc": "Workflow Make.com theo dõi thư mục Google Drive, gửi tài liệu mới tới Claude API để trích xuất dữ liệu có cấu trúc, parse JSON và ghi kết quả vào Google Sheets theo thời gian thực.",
+
+    "common.github": "Xem GitHub",
+    "common.demo": "Xem demo",
+    "common.live": "Xem website",
+    "common.diagram": "Xem sơ đồ workflow",
+
+    // About
+    "about.label": "Giới thiệu",
+    "about.title": "Xây nền tảng IT Support vững chắc, hướng tới Quản trị hệ thống.",
+    "about.p1": "Tôi tốt nghiệp ngành <strong>Mạng máy tính và Truyền thông dữ liệu</strong> tại <strong>Trường Đại học Công nghệ Thông tin (UIT – ĐHQG-HCM)</strong> với GPA 3.12/4.0 (2022 – 2026).",
+    "about.p2": "Gần nhất, tôi hỗ trợ hơn 100 kỹ sư và nhân viên văn phòng tại <strong>gbc engineers</strong>, bao gồm văn phòng Đà Nẵng và Berlin: xử lý ticket Odoo Helpdesk đúng SLA, quản lý tài khoản và phân quyền trên Active Directory và Microsoft 365, viết hướng dẫn MFA và SOP. Trước đó tôi làm IT Support tại <strong>Maersk</strong> và <strong>FSI</strong>.",
+    "about.p3": "Kế hoạch của tôi là làm thật vững IT Support trước, sau đó phát triển lên Quản trị hệ thống, đi sâu vào quản lý endpoint, định danh và bảo mật.",
+    "about.school": "Trường",
+    "about.major": "Ngành",
+    "about.majorVal": "Mạng máy tính & Truyền thông dữ liệu",
+    "about.target": "Định hướng",
+    "about.targetVal": "IT Support → Quản trị hệ thống",
+    "about.location": "Nơi ở",
+    "about.locationVal": "Tăng Nhơn Phú, TP.HCM",
+    "about.phone": "Điện thoại",
+    "about.language": "Ngôn ngữ",
+    "about.languageVal": "Tiếng Việt (Bản ngữ) · Tiếng Anh (Trung cấp, VSTEP B1)",
+
+    // Contact
+    "contact.label": "Liên hệ",
+    "contact.title": "Kết nối với tôi.",
+    "contact.desc": "Sẵn sàng cho các vị trí IT Support, Helpdesk và Junior System Administrator tại TP.HCM.",
+    "contact.email": "Gửi email",
+    "contact.success": "Đã gửi tin nhắn. Tôi sẽ phản hồi sớm.",
+    "contact.name": "Tên của bạn",
+    "contact.emailField": "Email của bạn",
+    "contact.message": "Nội dung...",
+    "contact.send": "Gửi tin nhắn",
+
+    footer: "© 2026 Phạm Thanh Lâm · <span>IT Support → Quản trị hệ thống</span> · TP. Hồ Chí Minh",
+  },
+
+  // Small UI strings used by app.js (both languages, since they never appear in the HTML)
+  ui: {
+    en: {
+      sending: "Sending...",
+      failed: "Failed — please email me directly",
+      openMenu: "Open menu",
+      closeMenu: "Close menu",
+      toDark: "Switch to dark mode",
+      toLight: "Switch to light mode",
+    },
+    vi: {
+      sending: "Đang gửi...",
+      failed: "Lỗi — vui lòng gửi email trực tiếp",
+      openMenu: "Mở menu",
+      closeMenu: "Đóng menu",
+      toDark: "Chuyển sang giao diện tối",
+      toLight: "Chuyển sang giao diện sáng",
+    },
+  },
 };

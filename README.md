@@ -1,54 +1,49 @@
-# Phạm Thanh Lâm Portfolio
+# Phạm Thanh Lâm — Portfolio
 
-Personal portfolio website for a Network & Security Engineer, focused on HA firewall, SIEM, SD-WAN, cloud security, VPN/DNS security, and infrastructure automation projects such as JD Daily Bot.
+Personal portfolio for an **IT Support** professional (UIT, Computer Networks & Data Communications) building toward **Systems Administration**.
+
+Live: https://thanhlam-neteng.github.io/Portfolio/
 
 ## Overview
 
-This is a static, responsive portfolio built with HTML, CSS, and vanilla JavaScript. It presents selected technical projects, internship experience, certifications, contact information, and bilingual CV downloads.
+Static, responsive single-page site built with HTML, CSS and vanilla JavaScript — no build step. It highlights hands-on IT Support experience first (gbc engineers, Maersk, FSI), then skills, certifications and side projects/labs.
 
 ## Features
 
-- Responsive single-page portfolio layout
-- English/Vietnamese language switcher
-- Language-specific CV downloads: `cv-en.pdf` and `cv-vi.pdf`
-- Featured network/security project summaries with GitHub links
-- Additional automation project cards, including JD Daily Bot for AI-assisted job matching and Telegram delivery
-- Certification badges and contact form integration
-- No build step required
+- Experience-first layout: helpdesk, identity & access (Active Directory, Microsoft 365, MFA), endpoints
+- English / Vietnamese switcher (remembers your choice, no flash on reload)
+- Dark / light theme (follows the OS until you pick one)
+- Certification filter tabs with live count
+- Contact form via Formspree
+- SEO / social: canonical URL, Open Graph image, JSON-LD `Person` schema
 
 ## Project Structure
 
 ```text
 .
-├── index.html
-├── cv-en.pdf
-├── cv-vi.pdf
+├── index.html                 # Page content — English is the single source of truth
 ├── assets/
-│   ├── css/
-│   │   └── style.css
+│   ├── css/style.css
 │   ├── js/
-│   │   ├── translations.js
-│   │   └── app.js
+│   │   ├── translations.js    # Vietnamese strings only, keyed by data-i18n
+│   │   └── app.js             # i18n, theme, nav, filters, form
 │   └── images/
-│       ├── favicon.svg
-│       ├── og-image.png
-│       └── *.png certification badges
 └── README.md
 ```
 
-## Run Locally
+## Editing content
 
-Open `index.html` directly in a browser, or serve the folder with any static web server.
+1. Edit the English text directly in `index.html`.
+2. If the element has a `data-i18n="some.key"` attribute, update the same key in `assets/js/translations.js` (Vietnamese).
+3. Any key missing from `translations.js` simply shows the English text.
+
+## Run locally
 
 ```bash
 python -m http.server 8000
 ```
 
-Then visit:
-
-```text
-http://localhost:8000
-```
+Then open http://localhost:8000
 
 ## Contact
 

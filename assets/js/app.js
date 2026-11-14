@@ -1,338 +1,201 @@
-function setText(selector, value, html = false) {
-  const el = document.querySelector(selector);
-  if (!el) return;
-  if (html) el.innerHTML = value;
-  else el.textContent = value;
+/* =========================================================
+   i18n — English is read from the HTML once, Vietnamese from translations.js
+   ========================================================= */
+const root = document.documentElement;
+const i18nEls = document.querySelectorAll("[data-i18n]");
+const placeholderEls = document.querySelectorAll("[data-i18n-placeholder]");
+const englishText = new Map();
+const englishPlaceholder = new Map();
+const englishTitle = document.title;
+
+i18nEls.forEach((el) => englishText.set(el, el.innerHTML));
+placeholderEls.forEach((el) => englishPlaceholder.set(el, el.getAttribute("placeholder")));
+
+let currentLang = "en";
+
+function ui(key) {
+  return (translations.ui[currentLang] || translations.ui.en)[key];
 }
 
-function setAll(selector, values, html = false) {
-  document.querySelectorAll(selector).forEach((el, idx) => {
-    if (values[idx] === undefined) return;
-    if (html) el.innerHTML = values[idx];
-    else el.textContent = values[idx];
-  });
-}
-
-function getStoredLanguage() {
+function safeGet(key) {
   try {
-    return localStorage.getItem("portfolioLang");
+    return localStorage.getItem(key);
   } catch (error) {
     return null;
   }
 }
 
-function storeLanguage(lang) {
+function safeSet(key, value) {
   try {
-    localStorage.setItem("portfolioLang", lang);
+    localStorage.setItem(key, value);
   } catch (error) {
-    return;
+    /* storage unavailable — ignore */
   }
 }
 
-function setWorkCard(card, updates = {}) {
-  if (!card) return;
-  if (updates.badge) setTextIn(card, ".badge", updates.badge);
-  if (updates.period) setTextIn(card, ".period", updates.period);
-  if (updates.title) setTextIn(card, ".work-title", updates.title);
-  if (updates.desc) setTextIn(card, ".work-desc", updates.desc);
-  if (updates.link) setTextIn(card, ".card-link", updates.link, true);
-}
+function applyLanguage(lang, persist = false) {
+  currentLang = lang === "vi" ? "vi" : "en";
+  const vi = translations.vi;
+  const useVi = currentLang === "vi";
 
-function setTextIn(parent, selector, value, html = false) {
-  const el = parent.querySelector(selector);
-  if (!el) return;
-  if (html) el.innerHTML = value;
-  else el.textContent = value;
-}
+  i18nEls.forEach((el) => {
+    const key = el.dataset.i18n;
+    el.innerHTML = useVi && vi[key] !== undefined ? vi[key] : englishText.get(el);
+  });
+  placeholderEls.forEach((el) => {
+    const key = el.dataset.i18nPlaceholder;
+    el.setAttribute("placeholder", useVi && vi[key] !== undefined ? vi[key] : englishPlaceholder.get(el));
+  });
 
-function applyLanguage(lang) {
-  lang = translations[lang] ? lang : "en";
-  const t = translations[lang];
-  document.documentElement.lang = lang;
-  document.title = t.title;
-  storeLanguage(lang);
+  document.title = useVi && vi["meta.title"] ? vi["meta.title"] : englishTitle;
+  root.lang = currentLang;
+
   document.querySelectorAll("[data-lang-switch]").forEach((btn) => {
-    const active = btn.dataset.langSwitch === lang;
+    const active = btn.dataset.langSwitch === currentLang;
     btn.classList.toggle("active", active);
     btn.setAttribute("aria-pressed", String(active));
   });
-  setAll(".nav-links a", t.nav);
-  setAll(".mobile-menu > a", t.mobile);
-  setText(".nav-cv", t.cv);
-  document.querySelectorAll(".cv-link").forEach((link) => {
-    link.setAttribute("href", t.cvFile);
-    link.setAttribute("download", t.cvFile);
-  });
-  setText(".card-link.cv-link", t.downloadPdf, true);
-  setText(".eyebrow", t.eyebrow);
-  setText(".hero h1", t.heroTitle);
-  setText(".hero-lead", t.heroLead, true);
-  setText(".hero-actions .btn-primary", t.heroCta, true);
-  
-  // Hero trust pills with icons preserved
-  const trustPills = document.querySelectorAll(".trust-pill");
-  const icons = [
-    '<i class="fa-solid fa-graduation-cap"></i>',
-    '<i class="fa-solid fa-briefcase"></i>',
-    '<i class="fa-solid fa-location-dot"></i>'
-  ];
-  t.trust.forEach((text, idx) => {
-    if (trustPills[idx]) {
-      trustPills[idx].innerHTML = `${icons[idx]} ${text}`;
-    }
-  });
 
-  setText(".console-line", `<span class="prompt">$</span> ${t.terminal[0]}`, true);
-  setAll(".console-metric .metric-copy b", [t.terminal[1], t.terminal[3], t.terminal[5]]);
-  setAll(".console-metric .metric-copy span", [t.terminal[2], t.terminal[4], t.terminal[6]]);
-  setAll(".proof-label", t.proof);
-  setText("#work .section-label", t.workLabel);
-  setText("#work .section-title", t.workTitle);
-  setText("#work .section-desc", t.workDesc);
-  const cards = document.querySelectorAll("#work .work-card");
-  setWorkCard(cards[0], {
-    badge: t.thesisBadge,
-    period: t.thesisPeriod,
-    title: t.thesisTitle,
-    desc: t.thesisDesc,
-    link: t.thesisLink,
-  });
-  setWorkCard(cards[1], {
-    badge: t.sdwanBadge,
-    desc: t.sdwanDesc,
-    link: t.github,
-  });
-  setWorkCard(cards[2], {
-    badge: t.aiBadge,
-    desc: t.aiDesc,
-    link: t.github,
-  });
-  setWorkCard(cards[3], {
-    badge: t.aiBadge,
-    desc: t.vpnDesc,
-    link: t.github,
-  });
-  setText("#more-work .section-label", t.moreLabel);
-  setText("#more-work .section-title", t.moreTitle);
-  setText("#more-work .section-desc", t.moreDesc);
-  document.querySelectorAll("#more-work .card-link").forEach((link) => {
-    if (!link.textContent.includes("Watch") && !link.textContent.includes("demo") && !link.href.includes("netlify.app") && !link.closest("#makeFlowCard")) {
-      link.innerHTML = t.github;
-    }
-  });
-  
-  // Make.com flow project card translation
-  const makeCard = document.getElementById("makeFlowCard");
-  if (makeCard) {
-    setTextIn(makeCard, ".work-title", t.makeFlowTitle);
-    setTextIn(makeCard, ".work-desc", t.makeFlowDesc);
-    setTextIn(makeCard, ".card-link", t.makeFlowLink, true);
-  }
-  
-  // Experience section label translations
-  setText("#experience .section-label", t.expLabel);
-  setText("#experience .section-title", t.expTitle);
-  setText("#experience .section-desc", t.expDesc);
-  
-  // Multiple experience cards translations
-  const expCards = document.querySelectorAll("#experienceList .experience-card");
-  t.experience.forEach((exp, idx) => {
-    const card = expCards[idx];
-    if (!card) return;
-    setTextIn(card, ".company", exp.company);
-    setTextIn(card, ".role", exp.role);
-    setTextIn(card, ".period", exp.period);
-    setTextIn(card, ".address", `<i class="fa-solid fa-location-dot"></i> ${exp.address}`, true);
-    
-    const list = card.querySelector(".bullet-list");
-    if (list) {
-      list.innerHTML = exp.bullets.map(b => `<li>${b}</li>`).join("");
-    }
-  });
+  // Labels that depend on current state
+  updateMenuLabel();
+  updateThemeButtons();
 
-  // Focus section label translations
-  setText("#focus .section-label", t.focusLabel);
-  setText("#focus .section-title", t.focusTitle);
-  setText("#focus .section-desc", t.focusDesc);
-  
-  // Focus cards translations
-  const focusCards = document.querySelectorAll("#focus .focus-card");
-  t.focusCards.forEach((focus, idx) => {
-    const card = focusCards[idx];
-    if (!card) return;
-    setTextIn(card, ".focus-title", focus.title);
-    setTextIn(card, ".focus-copy", focus.desc);
-  });
-
-  // Certifications section label & tab translations
-  setText("#certifications .section-label", t.certLabel);
-  setText("#certifications .section-title", t.certTitle);
-  setText("#certifications .section-desc", t.certDesc);
-
-  if (t.certTabs) {
-    const filterBtns = document.querySelectorAll(".cert-filter-btn");
-    t.certTabs.forEach((tabText, idx) => {
-      if (filterBtns[idx]) filterBtns[idx].textContent = tabText;
-    });
-  }
-
-  if (t.certCategories) {
-    const categoryTitles = document.querySelectorAll(".cert-category-title");
-    const categoryIcons = [
-      '<i class="fa-solid fa-award"></i>',
-      '<i class="fa-solid fa-network-wired"></i>',
-      '<i class="fa-solid fa-book-open"></i>'
-    ];
-    t.certCategories.forEach((catTitle, idx) => {
-      if (categoryTitles[idx]) {
-        categoryTitles[idx].innerHTML = `${categoryIcons[idx] || ""} ${catTitle}`;
-      }
-    });
-  }
-  
-  // Certifications cards translations (robust matching by data-cert-id)
-  const certCards = document.querySelectorAll("#certifications .cert-card");
-  certCards.forEach((card, idx) => {
-    const certId = card.dataset.certId;
-    const certData = (certId && t.certs.find((c) => c.id === certId)) || t.certs[idx];
-    if (!certData) return;
-    setTextIn(card, "h3", certData.title);
-    setTextIn(card, "p", certData.desc);
-    if (certData.badge) {
-      const badgeEl = card.querySelector(".cert-badge");
-      if (badgeEl) badgeEl.innerHTML = certData.badge;
-    }
-  });
-
-  // About section translations
-  setText("#about .section-label", t.aboutLabel);
-  setText("#about .section-title", t.aboutTitle);
-  setAll("#about .about-copy p", t.aboutP, true);
-  if (t.langVal) {
-    const langRow = document.querySelectorAll("#about .info-panel .info-row");
-    if (langRow[4]) setTextIn(langRow[4], ".info-value", t.langVal);
-  }
-  
-  // Contact section translations
-  setText("#contact .section-label", t.contactLabel);
-  setText("#contact .section-title", t.contactTitle);
-  setText("#contact .contact-desc", t.contactDesc);
-  setText("#contact .direct-links .btn-primary", t.emailMe, true);
-  const inputs = document.querySelectorAll("#contactForm input, #contactForm textarea");
-  if (inputs[0]) inputs[0].placeholder = t.form[0];
-  if (inputs[1]) inputs[1].placeholder = t.form[1];
-  if (inputs[2]) inputs[2].placeholder = t.form[2];
-  setText("#submitBtn", t.form[3]);
-  setText("footer", t.footer, true);
+  if (persist) safeSet("portfolioLang", currentLang);
+  root.classList.remove("i18n-pending");
 }
 
-// Event Listeners for Language Switch
 document.querySelectorAll("[data-lang-switch]").forEach((btn) => {
-  btn.addEventListener("click", () => applyLanguage(btn.dataset.langSwitch));
+  btn.addEventListener("click", () => applyLanguage(btn.dataset.langSwitch, true));
 });
-applyLanguage(getStoredLanguage() || "en");
 
-// Certifications Filter Tab Switching
+/* =========================================================
+   Certifications — live count + filter tabs
+   ========================================================= */
+const certCount = document.querySelectorAll("#certifications .cert-card").length;
+document.querySelectorAll(".cert-count").forEach((el) => (el.textContent = certCount));
+
 const certFilterBtns = document.querySelectorAll("[data-cert-filter]");
 const certCategoryBlocks = document.querySelectorAll("[data-category-block]");
 
 certFilterBtns.forEach((btn) => {
   btn.addEventListener("click", () => {
     const filter = btn.dataset.certFilter;
-    certFilterBtns.forEach((b) => b.classList.remove("active"));
-    btn.classList.add("active");
-
+    certFilterBtns.forEach((b) => {
+      const active = b === btn;
+      b.classList.toggle("active", active);
+      b.setAttribute("aria-pressed", String(active));
+    });
     certCategoryBlocks.forEach((block) => {
-      const blockCat = block.dataset.categoryBlock;
-      if (filter === "all" || blockCat === filter) {
-        block.classList.remove("hidden");
-      } else {
-        block.classList.add("hidden");
-      }
+      block.classList.toggle("hidden", !(filter === "all" || block.dataset.categoryBlock === filter));
     });
   });
 });
 
-// Header scroll & Back to top effect
+/* =========================================================
+   Header state, back-to-top (rAF-throttled, passive)
+   ========================================================= */
 const nav = document.getElementById("nav");
-const navToggle = document.getElementById("navToggle");
-const mobileMenu = document.getElementById("mobileMenu");
 const backToTopBtn = document.getElementById("backToTop");
+let scrollTicking = false;
 
-window.addEventListener("scroll", () => {
-  const scrollY = window.scrollY;
-  nav.classList.toggle("scrolled", scrollY > 32);
-  if (backToTopBtn) {
-    backToTopBtn.classList.toggle("visible", scrollY > 400);
-  }
-  updateActiveNav();
-});
+function onScroll() {
+  const y = window.scrollY;
+  nav.classList.toggle("scrolled", y > 32);
+  if (backToTopBtn) backToTopBtn.classList.toggle("visible", y > 400);
+  scrollTicking = false;
+}
+
+window.addEventListener(
+  "scroll",
+  () => {
+    if (!scrollTicking) {
+      scrollTicking = true;
+      requestAnimationFrame(onScroll);
+    }
+  },
+  { passive: true },
+);
+onScroll();
 
 if (backToTopBtn) {
-  backToTopBtn.addEventListener("click", () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  });
+  backToTopBtn.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
 }
 
-// Scrollspy for active nav link
-const sections = document.querySelectorAll("section[id]");
+/* =========================================================
+   Scrollspy — IntersectionObserver instead of measuring every scroll
+   ========================================================= */
 const navLinks = document.querySelectorAll(".nav-links a");
+const linkedIds = new Set([...navLinks].map((a) => a.getAttribute("href").slice(1)));
+// "more-work" belongs to the Projects nav item
+const spyAlias = { "more-work": "projects" };
 
-function updateActiveNav() {
-  const scrollPosition = window.scrollY + 120;
-  sections.forEach((section) => {
-    const sectionTop = section.offsetTop;
-    const sectionHeight = section.offsetHeight;
-    const sectionId = section.getAttribute("id");
-
-    if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
-      navLinks.forEach((link) => {
-        link.classList.toggle("active", link.getAttribute("href") === `#${sectionId}`);
+if ("IntersectionObserver" in window) {
+  const spy = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        const id = spyAlias[entry.target.id] || entry.target.id;
+        navLinks.forEach((link) => link.classList.toggle("active", link.getAttribute("href") === `#${id}`));
       });
-    }
+    },
+    { rootMargin: "-45% 0px -50% 0px" },
+  );
+  document.querySelectorAll("section[id]").forEach((section) => {
+    if (linkedIds.has(section.id) || spyAlias[section.id] || section.id === "hero") spy.observe(section);
   });
 }
 
-// Mobile menu toggle & click-outside handling
-function closeMobileMenu() {
-  mobileMenu.classList.remove("open");
-  navToggle.setAttribute("aria-expanded", "false");
-  navToggle.innerHTML = '<i class="fa-solid fa-bars"></i>';
+/* =========================================================
+   Mobile menu
+   ========================================================= */
+const navToggle = document.getElementById("navToggle");
+const mobileMenu = document.getElementById("mobileMenu");
+
+function updateMenuLabel() {
+  if (!navToggle) return;
+  const open = mobileMenu.classList.contains("open");
+  navToggle.setAttribute("aria-label", open ? ui("closeMenu") : ui("openMenu"));
+}
+
+function setMenu(open) {
+  mobileMenu.classList.toggle("open", open);
+  navToggle.setAttribute("aria-expanded", String(open));
+  navToggle.innerHTML = open ? '<i class="fa-solid fa-xmark"></i>' : '<i class="fa-solid fa-bars"></i>';
+  updateMenuLabel();
 }
 
 navToggle.addEventListener("click", (e) => {
   e.stopPropagation();
-  const isOpen = mobileMenu.classList.toggle("open");
-  navToggle.setAttribute("aria-expanded", String(isOpen));
-  navToggle.innerHTML = isOpen ? '<i class="fa-solid fa-xmark"></i>' : '<i class="fa-solid fa-bars"></i>';
+  setMenu(!mobileMenu.classList.contains("open"));
 });
-
-mobileMenu.querySelectorAll("a").forEach((link) => {
-  link.addEventListener("click", closeMobileMenu);
-});
-
+mobileMenu.querySelectorAll("a").forEach((link) => link.addEventListener("click", () => setMenu(false)));
 document.addEventListener("click", (e) => {
   if (mobileMenu.classList.contains("open") && !mobileMenu.contains(e.target) && !navToggle.contains(e.target)) {
-    closeMobileMenu();
+    setMenu(false);
   }
 });
-
 document.addEventListener("keydown", (e) => {
   if (e.key === "Escape" && mobileMenu.classList.contains("open")) {
-    closeMobileMenu();
+    setMenu(false);
+    navToggle.focus();
   }
 });
 
-// Contact Formspree integration
+/* =========================================================
+   Contact form (Formspree)
+   ========================================================= */
 const form = document.getElementById("contactForm");
 const successMsg = document.getElementById("formSuccess");
 const submitBtn = document.getElementById("submitBtn");
+
+function restoreSubmit(label) {
+  submitBtn.textContent = label;
+  submitBtn.removeAttribute("disabled");
+}
+
 form.addEventListener("submit", async (event) => {
   event.preventDefault();
-  const currentLang = document.documentElement.lang || "en";
-  const t = translations[currentLang] || translations.en;
-
-  submitBtn.textContent = t.formSending || "Sending...";
+  submitBtn.textContent = ui("sending");
   submitBtn.setAttribute("disabled", "true");
   try {
     const response = await fetch(form.action, {
@@ -345,75 +208,67 @@ form.addEventListener("submit", async (event) => {
       form.style.display = "none";
       successMsg.style.display = "block";
     } else {
-      submitBtn.textContent = t.formFailed || "Failed — send email instead";
-      submitBtn.removeAttribute("disabled");
+      restoreSubmit(ui("failed"));
     }
   } catch (error) {
-    submitBtn.textContent = t.formFailed || "Failed — send email instead";
-    submitBtn.removeAttribute("disabled");
+    restoreSubmit(ui("failed"));
   }
 });
 
-// Scroll Reveal animation
+/* =========================================================
+   Scroll reveal
+   ========================================================= */
 const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-if (!reduceMotion) {
-  const observer = new IntersectionObserver(
+const revealEls = document.querySelectorAll(".reveal");
+if (!reduceMotion && "IntersectionObserver" in window) {
+  const revealObserver = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           entry.target.classList.add("visible");
-          observer.unobserve(entry.target);
+          revealObserver.unobserve(entry.target);
         }
       });
     },
     { threshold: 0.12 },
   );
-  document.querySelectorAll(".reveal").forEach((element, index) => {
-    element.style.transitionDelay = `${Math.min(index % 5, 4) * 0.05}s`;
-    observer.observe(element);
+  revealEls.forEach((el, index) => {
+    el.style.transitionDelay = `${(index % 5) * 0.05}s`;
+    revealObserver.observe(el);
   });
 } else {
-  document.querySelectorAll(".reveal").forEach((element) => element.classList.add("visible"));
+  revealEls.forEach((el) => el.classList.add("visible"));
 }
 
-// Theme Toggle Logic
+/* =========================================================
+   Theme — initial value is set in <head>; follows the OS until the user picks one
+   ========================================================= */
 const themeToggleButtons = document.querySelectorAll("[data-theme-toggle]");
+const themeColorMeta = document.querySelector('meta[name="theme-color"]');
 
-function getStoredTheme() {
-  try {
-    return localStorage.getItem("portfolioTheme");
-  } catch (error) {
-    return null;
-  }
-}
-
-function storeTheme(theme) {
-  try {
-    localStorage.setItem("portfolioTheme", theme);
-  } catch (error) {
-    return;
-  }
-}
-
-function applyTheme(theme) {
-  theme = theme === "light" ? "light" : "dark";
-  document.documentElement.setAttribute("data-theme", theme);
-  storeTheme(theme);
-  
+function updateThemeButtons() {
+  const theme = root.getAttribute("data-theme") === "light" ? "light" : "dark";
   themeToggleButtons.forEach((btn) => {
-    btn.innerHTML = theme === "light" 
-      ? '<i class="fa-solid fa-moon"></i>' 
-      : '<i class="fa-solid fa-sun"></i>';
-    btn.setAttribute("aria-label", theme === "light" ? "Switch to dark mode" : "Switch to light mode");
+    btn.innerHTML = theme === "light" ? '<i class="fa-solid fa-moon"></i>' : '<i class="fa-solid fa-sun"></i>';
+    btn.setAttribute("aria-label", theme === "light" ? ui("toDark") : ui("toLight"));
   });
+  if (themeColorMeta) themeColorMeta.setAttribute("content", theme === "light" ? "#f8fafc" : "#030712");
+}
+
+function applyTheme(theme, persist = false) {
+  root.setAttribute("data-theme", theme === "light" ? "light" : "dark");
+  if (persist) safeSet("portfolioTheme", theme);
+  updateThemeButtons();
 }
 
 themeToggleButtons.forEach((btn) => {
   btn.addEventListener("click", () => {
-    const currentTheme = document.documentElement.getAttribute("data-theme") || "dark";
-    applyTheme(currentTheme === "light" ? "dark" : "light");
+    applyTheme(root.getAttribute("data-theme") === "light" ? "dark" : "light", true);
   });
 });
 
-// Initialize theme
-applyTheme(getStoredTheme() || "dark");
+/* =========================================================
+   Init
+   ========================================================= */
+applyLanguage(safeGet("portfolioLang") || "en");
+applyTheme(root.getAttribute("data-theme"));

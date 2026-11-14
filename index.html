@@ -3,24 +3,47 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Phạm Thanh Lâm — IT Support · Helpdesk &amp; Systems Administration</title>
     <meta
       name="description"
-      content="Phạm Thanh Lâm — IT Support · Computer Networks & Data Communications (UIT GPA 3.1/4.0)."
+      content="Phạm Thanh Lâm — IT Support (UIT, Computer Networks & Data Communications). Supported 100+ users across HCMC, Da Nang and Berlin with Active Directory, Microsoft 365, MFA and SLA-based helpdesk. Aiming for Systems Administration."
     />
     <meta name="author" content="Phạm Thanh Lâm" />
-    <meta
-      property="og:title"
-      content="Phạm Thanh Lâm — IT Support · Mạng máy tính & Truyền thông dữ liệu"
-    />
+    <link rel="canonical" href="https://thanhlam-neteng.github.io/Portfolio/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://thanhlam-neteng.github.io/Portfolio/" />
+    <meta property="og:title" content="Phạm Thanh Lâm — IT Support · Helpdesk & Systems Administration" />
     <meta
       property="og:description"
-      content="Portfolio of Phạm Thanh Lâm — IT Support Specialist with a solid networking foundation, experience at Maersk & FSI."
+      content="IT Support supporting 100+ users across HCMC, Da Nang and Berlin — Active Directory, Microsoft 365, MFA and helpdesk tickets within SLA."
     />
-    <meta property="og:image" content="assets/images/og-image.png" />
-    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://thanhlam-neteng.github.io/Portfolio/assets/images/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
     <meta name="theme-color" content="#030712" />
-    <title>Phạm Thanh Lâm — IT Support · Mạng máy tính & Truyền thông dữ liệu</title>
     <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg" />
+
+    <!-- Apply theme + language before first paint (avoids flash) -->
+    <script>
+      (function () {
+        var theme, lang;
+        try {
+          theme = localStorage.getItem("portfolioTheme");
+          lang = localStorage.getItem("portfolioLang");
+        } catch (e) {}
+        if (theme !== "light" && theme !== "dark") {
+          theme = window.matchMedia && window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark";
+        }
+        var root = document.documentElement;
+        root.setAttribute("data-theme", theme);
+        if (lang === "vi") {
+          root.classList.add("i18n-pending");
+          setTimeout(function () { root.classList.remove("i18n-pending"); }, 1500);
+        }
+      })();
+    </script>
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -37,12 +60,29 @@
         "@context": "https://schema.org",
         "@type": "Person",
         "name": "Phạm Thanh Lâm",
-        "jobTitle": "IT Support Specialist",
+        "jobTitle": "IT Support",
+        "url": "https://thanhlam-neteng.github.io/Portfolio/",
+        "image": "https://thanhlam-neteng.github.io/Portfolio/assets/images/og-image.png",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Ho Chi Minh City",
+          "addressCountry": "VN"
+        },
         "alumniOf": {
           "@type": "CollegeOrUniversity",
           "name": "University of Information Technology (UIT - VNU-HCM)"
         },
-        "url": "https://github.com/ThanhLam-NetEng",
+        "knowsAbout": [
+          "IT Support",
+          "Helpdesk",
+          "Active Directory",
+          "Microsoft Entra ID",
+          "Microsoft 365",
+          "Multi-factor authentication",
+          "Group Policy",
+          "Windows",
+          "Computer networking"
+        ],
         "sameAs": [
           "https://github.com/ThanhLam-NetEng",
           "https://www.linkedin.com/in/thanhlam-uit"
@@ -58,44 +98,21 @@
           <span>ThanhLam<span style="color: var(--accent)">.net</span></span>
         </a>
         <ul class="nav-links">
-          <li><a href="#work">Work</a></li>
-          <li><a href="#experience">Experience</a></li>
-          <li><a href="#focus">Focus</a></li>
-          <li><a href="#certifications">Certs</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#contact">Contact</a></li>
+          <li><a href="#experience" data-i18n="nav.experience">Experience</a></li>
+          <li><a href="#skills" data-i18n="nav.skills">Skills</a></li>
+          <li><a href="#certifications" data-i18n="nav.certs">Certs</a></li>
+          <li><a href="#projects" data-i18n="nav.projects">Projects</a></li>
+          <li><a href="#about" data-i18n="nav.about">About</a></li>
+          <li><a href="#contact" data-i18n="nav.contact">Contact</a></li>
         </ul>
         <div class="nav-actions">
           <div class="lang-switch" aria-label="Language switcher">
-            <button
-              class="lang-btn active"
-              type="button"
-              data-lang-switch="en"
-              aria-pressed="true"
-            >
-              EN
-            </button>
-            <button
-              class="lang-btn"
-              type="button"
-              data-lang-switch="vi"
-              aria-pressed="false"
-            >
-              VI
-            </button>
+            <button class="lang-btn active" type="button" data-lang-switch="en" aria-pressed="true">EN</button>
+            <button class="lang-btn" type="button" data-lang-switch="vi" aria-pressed="false">VI</button>
           </div>
           <button class="theme-toggle-btn" data-theme-toggle type="button" aria-label="Toggle dark/light mode">
             <i class="fa-solid fa-sun"></i>
           </button>
-          <a
-            class="nav-cv cv-link"
-            href="cv-en.pdf"
-            download="cv-en.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
-            data-i18n="nav.cv"
-            >Download CV</a
-          >
         </div>
         <div class="mobile-nav-actions">
           <button class="theme-toggle-btn" data-theme-toggle type="button" aria-label="Toggle dark/light mode">
@@ -107,6 +124,7 @@
             type="button"
             aria-label="Open menu"
             aria-expanded="false"
+            aria-controls="mobileMenu"
           >
             <i class="fa-solid fa-bars"></i>
           </button>
@@ -115,121 +133,89 @@
     </nav>
     <div class="mobile-menu" id="mobileMenu" aria-label="Mobile navigation">
       <div class="mobile-lang-switch" aria-label="Language switcher">
-        <button
-          class="lang-btn active"
-          type="button"
-          data-lang-switch="en"
-          aria-pressed="true"
-        >
-          EN
-        </button>
-        <button
-          class="lang-btn"
-          type="button"
-          data-lang-switch="vi"
-          aria-pressed="false"
-        >
-          VI
-        </button>
+        <button class="lang-btn active" type="button" data-lang-switch="en" aria-pressed="true">EN</button>
+        <button class="lang-btn" type="button" data-lang-switch="vi" aria-pressed="false">VI</button>
       </div>
-      <a href="#work">Featured Work</a>
-      <a href="#experience">Experience</a>
-      <a href="#focus">Technical Focus</a>
-      <a href="#certifications">Certifications</a>
-      <a href="#about">About</a>
-      <a href="#contact">Contact</a>
-      <a class="cv-link" href="cv-en.pdf" download="cv-en.pdf" target="_blank" rel="noopener noreferrer"
-        >Download CV →</a
-      >
+      <a href="#experience" data-i18n="nav.experience">Experience</a>
+      <a href="#skills" data-i18n="nav.skillsLong">Technical Skills</a>
+      <a href="#certifications" data-i18n="nav.certsLong">Certifications</a>
+      <a href="#projects" data-i18n="nav.projects">Projects</a>
+      <a href="#about" data-i18n="nav.about">About</a>
+      <a href="#contact" data-i18n="nav.contact">Contact</a>
     </div>
 
     <main>
+      <!-- ================= HERO ================= -->
       <section class="hero" id="hero">
         <div class="container hero-grid">
           <div class="hero-copy reveal">
             <div class="eyebrow">
-              <i class="fa-solid fa-circle-check"></i> IT Support · Computer Networks & Data Communications
+              <i class="fa-solid fa-circle-check"></i>
+              <span data-i18n="hero.eyebrow">IT Support · Helpdesk &amp; Systems Administration</span>
             </div>
-            <h1>
-              IT Support Specialist with strong networking & infrastructure background.
+            <h1 data-i18n="hero.title">
+              IT Support with hands-on Active Directory, Microsoft 365 &amp; helpdesk experience.
             </h1>
-            <p class="hero-lead">
-              IT Support Specialist with a solid networking foundation, experienced in receiving & resolving technical support tickets (hardware, software, network), deploying security devices, and configuring internal network infrastructure.
+            <p class="hero-lead" data-i18n="hero.lead">
+              Computer Networks &amp; Data Communications graduate (UIT) who has supported 100+ users across
+              Ho Chi Minh City, Da Nang and Berlin — accounts and access, MFA, Windows endpoints and
+              helpdesk tickets within SLA. Building a solid IT Support foundation on the way to Systems
+              Administration.
             </p>
             <div class="hero-actions">
-              <a class="btn btn-primary" href="#work"
-                >View featured work <i class="fa-solid fa-arrow-right"></i
+              <a class="btn btn-primary" href="#experience"
+                ><span data-i18n="hero.cta">View experience</span> <i class="fa-solid fa-arrow-right"></i
               ></a>
-              <a
-                class="btn"
-                href="https://github.com/ThanhLam-NetEng"
-                target="_blank"
-                rel="noopener noreferrer"
+              <a class="btn" href="https://github.com/ThanhLam-NetEng" target="_blank" rel="noopener noreferrer"
                 ><i class="fa-brands fa-github"></i> GitHub</a
               >
-              <a
-                class="btn"
-                href="https://www.linkedin.com/in/thanhlam-uit"
-                target="_blank"
-                rel="noopener noreferrer"
+              <a class="btn" href="https://www.linkedin.com/in/thanhlam-uit" target="_blank" rel="noopener noreferrer"
                 ><i class="fa-brands fa-linkedin"></i> LinkedIn</a
               >
             </div>
             <ul class="hero-trust" aria-label="Highlights">
               <li class="trust-pill">
-                <i class="fa-solid fa-graduation-cap"></i> UIT GPA 3.1/4.0 (2022–2026)
+                <i class="fa-solid fa-graduation-cap"></i>
+                <span data-i18n="hero.trust1">UIT graduate · GPA 3.12/4.0</span>
               </li>
               <li class="trust-pill">
-                <i class="fa-solid fa-briefcase"></i> Maersk & FSI IT Support
+                <i class="fa-solid fa-briefcase"></i>
+                <span>gbc engineers · Maersk · FSI</span>
               </li>
               <li class="trust-pill">
-                <i class="fa-solid fa-location-dot"></i> Tăng Nhơn Phú, TP. HCM
+                <i class="fa-solid fa-location-dot"></i>
+                <span data-i18n="hero.trust3">Tăng Nhơn Phú, Ho Chi Minh City</span>
               </li>
             </ul>
           </div>
 
-          <aside
-            class="terminal-card reveal"
-            aria-label="Portfolio metrics summary"
-          >
+          <aside class="terminal-card reveal" aria-label="Support summary">
             <div class="terminal-top">
-              <div class="dots" aria-hidden="true">
-                <span></span><span></span><span></span>
-              </div>
-              <div class="terminal-label">portfolio.signal</div>
+              <div class="dots" aria-hidden="true"><span></span><span></span><span></span></div>
+              <div class="terminal-label">helpdesk.signal</div>
             </div>
             <div class="terminal-body">
-              <div class="console-line">
-                <span class="prompt">$</span> show --validated-results
-              </div>
+              <div class="console-line"><span class="prompt">$</span> show --support-stats</div>
               <div class="console-grid">
                 <div class="console-metric">
-                  <div class="metric-value">2.8s</div>
+                  <div class="metric-value">100+</div>
                   <div class="metric-copy">
-                    <b>HA firewall failover</b
-                    ><span
-                      >OPNsense Active-Passive cluster validated in thesis
-                      lab.</span
-                    >
+                    <b data-i18n="stats.users">Users supported</b
+                    ><span data-i18n="stats.usersDesc">Engineers and back-office staff, on-site and remote.</span>
                   </div>
                 </div>
                 <div class="console-metric">
-                  <div class="metric-value">12,796</div>
+                  <div class="metric-value">~100</div>
                   <div class="metric-copy">
-                    <b>WAF alerts analyzed</b
-                    ><span
-                      >ModSecurity + OWASP CRS validation with payload-level
-                      review.</span
-                    >
+                    <b data-i18n="stats.tickets">Helpdesk tickets within SLA</b
+                    ><span data-i18n="stats.ticketsDesc">Odoo Helpdesk, plus Microsoft Teams and walk-in requests.</span>
                   </div>
                 </div>
                 <div class="console-metric">
-                  <div class="metric-value">4+</div>
+                  <div class="metric-value">3</div>
                   <div class="metric-copy">
-                    <b>Network/security labs</b
-                    ><span
-                      >SD-WAN, SIEM, VPN/DNS security, AI security proxy.</span
-                    >
+                    <b data-i18n="stats.sites">Offices supported</b
+                    ><span data-i18n="stats.sitesDesc">Ho Chi Minh City, Da Nang and Berlin.</span>
                   </div>
                 </div>
               </div>
@@ -241,860 +227,615 @@
       <div class="proof-strip">
         <div class="container proof-grid reveal">
           <div class="proof-item">
-            <div class="proof-value">HA + WAF</div>
-            <div class="proof-label">
-              Firewall architecture, SSL offloading, ModSecurity, SIEM pipeline.
-            </div>
+            <div class="proof-value">Identity &amp; M365</div>
+            <div class="proof-label" data-i18n="proof.identity">Active Directory, Entra ID, M365 Admin, MFA, GPO.</div>
           </div>
           <div class="proof-item">
-            <div class="proof-value">SD-WAN</div>
-            <div class="proof-label">
-              Cisco dCloud/CML, vManage, C8000v, AAR policy, IPsec.
-            </div>
+            <div class="proof-value">Helpdesk</div>
+            <div class="proof-label" data-i18n="proof.helpdesk">Odoo Helpdesk, SLA handling, AnyDesk/UltraViewer remote support.</div>
           </div>
           <div class="proof-item">
-            <div class="proof-value">Cloud Sec</div>
-            <div class="proof-label">
-              AWS/GCP labs, WireGuard, DNS sinkhole, API security.
-            </div>
+            <div class="proof-value">Endpoints</div>
+            <div class="proof-label" data-i18n="proof.endpoints">Windows 10/11 setup, engineering software, printers &amp; scanners.</div>
           </div>
           <div class="proof-item">
-            <div class="proof-value">Automation</div>
-            <div class="proof-label">
-              Python, FastAPI, Docker, shell scripts, monitoring workflows.
-            </div>
+            <div class="proof-value">Networking</div>
+            <div class="proof-label" data-i18n="proof.network">TCP/IP, DNS, DHCP, Wi-Fi, VPN and network troubleshooting.</div>
           </div>
         </div>
       </div>
 
-      <section id="work">
-        <div class="container">
-          <div class="section-head reveal">
-            <div>
-              <div class="section-label">Featured Work</div>
-              <h2 class="section-title">
-                Project summaries with direct links to technical details.
-              </h2>
-            </div>
-            <p class="section-desc">
-              Each project links to GitHub details: diagrams, screenshots,
-              commands, and validation notes.
-            </p>
-          </div>
-
-          <div class="work-grid">
-            <article class="work-card reveal">
-              <div class="work-meta">
-                <span class="badge">Thesis</span
-                ><span class="period">Jan – May 2026</span>
-              </div>
-              <h3 class="work-title">
-                HA Firewall &amp; AI-driven Security Monitoring
-              </h3>
-              <p class="work-desc">
-                Graduation thesis combining OPNsense HA firewall, WAF, Wazuh
-                SIEM, and ML-based security log analysis in a controlled lab.
-              </p>
-              <div class="chips" aria-label="Project metrics">
-                <span class="chip metric">2.8s failover</span
-                ><span class="chip metric">0.71% sync overhead</span
-                ><span class="chip metric">12,796 WAF alerts</span
-                ><span class="chip metric">RF AUC 1.000</span
-                ><span class="chip metric">LR AUC 0.981</span>
-              </div>
-              <div class="chips">
-                <span class="chip">OPNsense</span
-                ><span class="chip">CARP/pfsync</span
-                ><span class="chip">HAProxy</span
-                ><span class="chip">ModSecurity</span
-                ><span class="chip">Wazuh</span><span class="chip">Python</span>
-              </div>
-              <div class="card-links">
-                <a
-                  class="card-link"
-                  href="https://github.com/ThanhLam-NetEng/kltn-firewall-ha-waf-siem.git"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  >View thesis repository <i class="fa-solid fa-arrow-right"></i
-                ></a>
-              </div>
-            </article>
-
-            <article class="work-card reveal">
-              <div class="work-meta">
-                <span class="badge academic">Academic</span
-                ><span class="period">Apr 2026</span>
-              </div>
-              <h3 class="work-title">Cisco SD-WAN Hospital Network</h3>
-              <p class="work-desc">
-                3-site Hub-and-Spoke SD-WAN overlay with encrypted dual
-                transport and least-privilege traffic steering for critical
-                medical systems.
-              </p>
-              <div class="chips">
-                <span class="chip metric">IPsec AES-256-GCM</span
-                ><span class="chip metric">AAR policy</span
-                ><span class="chip metric">~3 min convergence</span
-                ><span class="chip metric">zero manual intervention</span>
-              </div>
-              <div class="chips">
-                <span class="chip">Cisco CML</span
-                ><span class="chip">Catalyst SD-WAN</span
-                ><span class="chip">vManage</span
-                ><span class="chip">C8000v</span><span class="chip">BFD</span>
-              </div>
-              <div class="card-links">
-                <a
-                  class="card-link"
-                  href="https://github.com/ThanhLam-NetEng/cisco-sdwan-hospital-lab"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  >View GitHub <i class="fa-solid fa-arrow-right"></i
-                ></a>
-              </div>
-            </article>
-
-            <article class="work-card reveal">
-              <div class="work-meta">
-                <span class="badge personal">Personal</span
-                ><span class="period">2025 – 2026</span>
-              </div>
-              <h3 class="work-title">
-                AI Shield Firewall — LLM Traffic Inspection Proxy
-              </h3>
-              <p class="work-desc">
-                Bilingual LLM security proxy enforcing DLP and prompt-injection
-                controls at the API perimeter for enterprise-style AI workflows.
-              </p>
-              <div class="chips">
-                <span class="chip metric">5-layer inspection</span
-                ><span class="chip metric">25/25 tests passed</span
-                ><span class="chip metric">&lt;15ms overhead</span
-                ><span class="chip metric">VI PII recognizers</span>
-              </div>
-              <div class="chips">
-                <span class="chip">FastAPI</span
-                ><span class="chip">AWS</span
-                ><span class="chip">Docker</span
-                ><span class="chip">Presidio</span
-                ><span class="chip">DynamoDB</span>
-              </div>
-              <div class="card-links">
-                <a
-                  class="card-link"
-                  href="https://github.com/ThanhLam-NetEng/ai-shield-fw"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  >View GitHub <i class="fa-solid fa-arrow-right"></i
-                ></a>
-              </div>
-            </article>
-
-            <article class="work-card reveal">
-              <div class="work-meta">
-                <span class="badge personal">Personal</span
-                ><span class="period">2026</span>
-              </div>
-              <h3 class="work-title">
-                Cloud-Native Secure VPN Gateway &amp; DNS Sinkhole
-              </h3>
-              <p class="work-desc">
-                Privacy-first VPN gateway chaining WireGuard, AdGuard Home, and
-                Unbound to reduce telemetry and avoid third-party DNS tracking.
-              </p>
-              <div class="chips">
-                <span class="chip metric">&lt;5ms cached DNS</span
-                ><span class="chip metric">~240k block rules</span
-                ><span class="chip metric">DNSSEC validation</span
-                ><span class="chip metric">&lt;150MB memory</span>
-              </div>
-              <div class="chips">
-                <span class="chip">WireGuard</span
-                ><span class="chip">AdGuard Home</span
-                ><span class="chip">Unbound</span
-                ><span class="chip">AWS</span
-                ><span class="chip">Ubuntu</span>
-              </div>
-              <div class="card-links">
-                <a
-                  class="card-link"
-                  href="https://github.com/ThanhLam-NetEng/aws-secure-vpn-gateway"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  >View GitHub <i class="fa-solid fa-arrow-right"></i
-                ></a>
-              </div>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section class="section-soft" id="more-work">
-        <div class="container">
-          <div class="section-head reveal">
-            <div>
-              <div class="section-label">More Projects</div>
-              <h2 class="section-title">
-                Additional labs and automation work.
-              </h2>
-            </div>
-            <p class="section-desc">
-              Kept shorter here so the page scans quickly. Each item links out
-              when public proof is available.
-            </p>
-          </div>
-          <div class="work-grid">
-            <article class="work-card reveal">
-              <div class="work-meta">
-                <span class="badge academic">Academic</span
-                ><span class="period">2025</span>
-              </div>
-              <h3 class="work-title">SDN Server Load Balancer</h3>
-              <p class="work-desc">
-                L3 load balancer with POX/OpenFlow and Mininet, comparing Round
-                Robin vs Random distribution with health-check rerouting.
-              </p>
-              <div class="chips">
-                <span class="chip metric">3-packet variance</span
-                ><span class="chip">POX/OpenFlow</span
-                ><span class="chip">Mininet</span><span class="chip">OVS</span
-                ><span class="chip">Matplotlib</span>
-              </div>
-              <div class="card-links">
-                <a
-                  class="card-link"
-                  href="https://github.com/ThanhLam-NetEng/Server-Load-Balancing"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  >View GitHub <i class="fa-solid fa-arrow-right"></i
-                ></a>
-              </div>
-            </article>
-            <article class="work-card reveal">
-              <div class="work-meta">
-                <span class="badge academic">Academic</span
-                ><span class="period">Sep – Nov 2024</span>
-              </div>
-              <h3 class="work-title">Network Monitoring with LibreNMS</h3>
-              <p class="work-desc">
-                Centralized NMS on Linux/Docker with SNMP v2c/v3,
-                bandwidth/CPU/RAM collection, and Email/Telegram alerting
-                workflow.
-              </p>
-              <div class="chips">
-                <span class="chip">LibreNMS</span
-                ><span class="chip">Docker</span
-                ><span class="chip">SNMP v3</span><span class="chip">Linux</span
-                ><span class="chip">Alerting</span>
-              </div>
-            </article>
-            <article class="work-card reveal">
-              <div class="work-meta">
-                <span class="badge personal">Personal</span
-                ><span class="period">May 2026</span>
-              </div>
-              <h3 class="work-title">
-                JD Daily Bot — AI Job Matching Automation
-              </h3>
-              <p class="work-desc">
-                Weekday ITviec job-matching bot that filters fresher-friendly
-                infrastructure roles, scores JD/CV fit with Claude, and sends a
-                concise Telegram digest.
-              </p>
-              <div class="chips">
-                <span class="chip metric">08:07 VN weekdays</span
-                ><span class="chip metric">Claude match scoring</span
-                ><span class="chip metric">stateful dedupe</span
-                ><span class="chip">Python</span
-                ><span class="chip">GitHub Actions</span
-                ><span class="chip">Telegram</span>
-              </div>
-              <div class="card-links">
-                <a
-                  class="card-link"
-                  href="https://github.com/ThanhLam-NetEng/jd-daily-bot"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  >View GitHub <i class="fa-solid fa-arrow-right"></i
-                ></a>
-              </div>
-            </article>
-            <article class="work-card reveal">
-              <div class="work-meta">
-                <span class="badge personal">Personal</span
-                ><span class="period">2025 – 2026</span>
-              </div>
-              <h3 class="work-title">
-                AutoCTI — Autonomous Cyber Threat Intelligence Agent
-              </h3>
-              <p class="work-desc">
-                24/7 SOC-style threat intelligence pipeline using LangGraph
-                ReAct Agent, Gemini search, Telegram alerting, IAM Role, and
-                DynamoDB memory.
-              </p>
-              <div class="chips">
-                <span class="chip metric">~80% RAM reduction</span
-                ><span class="chip">AWS</span><span class="chip">SQS</span
-                ><span class="chip">LangGraph</span
-                ><span class="chip">Python</span>
-              </div>
-              <div class="card-links">
-                <a
-                  class="card-link"
-                  href="https://github.com/ThanhLam-NetEng/AutoCTI"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  >View GitHub <i class="fa-solid fa-arrow-right"></i
-                ></a>
-              </div>
-            </article>
-            <article class="work-card reveal">
-              <div class="work-meta">
-                <span class="badge personal">Personal</span
-                ><span class="period">2025 – 2026</span>
-              </div>
-              <h3 class="work-title">TNT Bot — Telegram AI Companion</h3>
-              <p class="work-desc">
-                Personal Telegram AI bot on Google Cloud Free Tier with context
-                summarization, long-term memory, TTS, reminders, and backups.
-              </p>
-              <div class="chips">
-                <span class="chip">Cloud Functions</span
-                ><span class="chip">Gemini 2.5 Flash</span
-                ><span class="chip">Firestore</span
-                ><span class="chip">Cloud Scheduler</span>
-              </div>
-              <div class="card-links">
-                <a
-                  class="card-link"
-                  href="https://youtu.be/QtNU9-8xPZo?si=ydzWkFhIk7S6oovl"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  ><i class="fa-brands fa-youtube"></i> Watch demo
-                  <i class="fa-solid fa-arrow-right"></i
-                ></a>
-              </div>
-            </article>
-
-            <article class="work-card reveal">
-              <div class="work-meta">
-                <span class="badge personal">Personal</span
-                ><span class="period">2026</span>
-              </div>
-              <h3 class="work-title">
-                DiemChuan.info — University Admission Scores Lookup
-              </h3>
-              <p class="work-desc">
-                Vietnamese university admission scores lookup website covering
-                <strong>294 admission codes</strong> and
-                <strong>154,000+ records</strong> across majors, subject
-                combinations, years, methods, and score thresholds. Supports
-                search by school, major, score range, GPA, and admission method.
-                SEO-optimized with canonical URLs, sitemap, Open Graph metadata,
-                and JSON-LD schemas (WebSite, Dataset, FAQ, Breadcrumb).
-                Deployed as a static SPA on Netlify with SPA fallback and cache
-                headers.
-              </p>
-              <div class="chips">
-                <span class="chip">React</span
-                ><span class="chip">Vite</span
-                ><span class="chip">Tailwind CSS</span
-                ><span class="chip">React Router</span
-                ><span class="chip">Netlify</span
-                ><span class="chip">JSON-LD</span
-                ><span class="chip">SEO</span>
-              </div>
-              <div class="card-links">
-                <a
-                  class="card-link"
-                  href="https://diemchuan-vn.netlify.app/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  >Live site <i class="fa-solid fa-arrow-right"></i
-                ></a>
-              </div>
-            </article>
-
-            <article class="work-card reveal" id="makeFlowCard">
-              <div class="work-meta">
-                <span class="badge personal">Personal</span>
-                <span class="period">Jul 2026</span>
-              </div>
-              <div class="flow-preview">
-                <img src="assets/images/make-automation-flow.png" alt="Make.com AI Document Parser Workflow" />
-              </div>
-              <h3 class="work-title">AI Document Parser — Make.com Automation</h3>
-              <p class="work-desc">
-                Automated document processing workflow built on Make.com. It monitors a Google Drive folder for new files, downloads them, invokes the Anthropic Claude API to analyze and extract structured data via custom prompts, parses the JSON payload, and records the parsed information into Google Sheets in real-time.
-              </p>
-              <div class="chips">
-                <span class="chip metric">Real-time processing</span>
-                <span class="chip">Make.com</span>
-                <span class="chip">Claude API</span>
-                <span class="chip">Google Drive</span>
-                <span class="chip">JSON Parser</span>
-                <span class="chip">Google Sheets</span>
-              </div>
-              <div class="card-links">
-                <a
-                  class="card-link"
-                  href="assets/images/make-automation-flow.png"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  >View workflow diagram <i class="fa-solid fa-arrow-right"></i></a
-                >
-              </div>
-            </article>
-          </div>
-        </div>
-      </section>
-
+      <!-- ================= EXPERIENCE ================= -->
       <section id="experience">
         <div class="container">
           <div class="section-head reveal">
             <div>
-              <div class="section-label">Experience</div>
-              <h2 class="section-title">
-                Practical exposure in network and security operations.
+              <div class="section-label" data-i18n="exp.label">Experience</div>
+              <h2 class="section-title" data-i18n="exp.title">
+                Hands-on IT Support across engineering, logistics and network security companies.
               </h2>
             </div>
-            <p class="section-desc">
-              Internship and current professional work focused on IT support operations, security appliance validation, and networking.
+            <p class="section-desc" data-i18n="exp.desc">
+              Day-to-day helpdesk, identity &amp; access, endpoint setup and documentation in real company
+              environments.
             </p>
           </div>
           <div class="experience-list" id="experienceList">
+            <!-- gbc engineers -->
+            <article class="experience-card reveal">
+              <div class="experience-top">
+                <div>
+                  <h3 class="company">gbc engineers Vietnam LLC</h3>
+                  <div class="role" data-i18n="exp.gbc.role">IT Support (Freelancer)</div>
+                </div>
+                <span class="badge" data-i18n="exp.gbc.period">Aug 2026 – Nov 2026</span>
+              </div>
+              <div class="address">
+                <i class="fa-solid fa-location-dot"></i>
+                <span data-i18n="exp.gbc.address">153 Ung Van Khiem St., Thanh My Tay Ward, Ho Chi Minh City</span>
+              </div>
+              <ul class="bullet-list">
+                <li data-i18n="exp.gbc.b1">Supported 100+ engineers and back-office staff on-site and remotely (AnyDesk, UltraViewer), including the Da Nang and Berlin branch offices.</li>
+                <li data-i18n="exp.gbc.b2">Resolved ~100 Odoo Helpdesk tickets within SLA, in addition to Microsoft Teams and walk-in requests.</li>
+                <li data-i18n="exp.gbc.b3">Managed user accounts, access permissions and onboarding across Active Directory, Microsoft 365, Odoo and Strator.</li>
+                <li data-i18n="exp.gbc.b4">Installed and configured Windows workstations and engineering software (Revit, AutoCAD, Allplan, Tekla); fixed software errors.</li>
+                <li data-i18n="exp.gbc.b5">Wrote MFA setup guides and SOP documents to standardize IT support procedures.</li>
+                <li data-i18n="exp.gbc.b6">Audited IT assets and updated inventory records in Odoo.</li>
+              </ul>
+            </article>
+
+            <!-- Maersk -->
             <article class="experience-card reveal">
               <div class="experience-top">
                 <div>
                   <h3 class="company">Maersk (L&amp;A Provider)</h3>
                   <div class="role">IT Support</div>
                 </div>
-                <span class="badge">Jun 2026 – Aug 2026</span>
+                <span class="badge" data-i18n="exp.maersk.period">Jun 2026 – Aug 2026</span>
               </div>
               <div class="address">
-                <i class="fa-solid fa-location-dot"></i> No. 9, DT 743 Street, Binh Thang Ward, Di An City, Binh Duong Province
+                <i class="fa-solid fa-location-dot"></i>
+                <span data-i18n="exp.maersk.address">No. 9, DT 743 St., Di An, Ho Chi Minh City</span>
               </div>
               <ul class="bullet-list">
-                <li>
-                  Received and handled technical tickets via Outlook and MS Teams adhering strictly to SLA workflows.
-                </li>
-                <li>
-                  Supported operations and monitoring of RPA system (Power Automate); provided remote employee support via AnyDesk.
-                </li>
-                <li>
-                  Deployed and configured software for employees; developed operational user guides and SOPs.
-                </li>
-                <li>
-                  Administered user accounts and supported operations on the Körber One WMS system.
-                </li>
-                <li>
-                  Queried and processed data via SQLDBX for ticket investigation and issue resolution.
-                </li>
+                <li data-i18n="exp.maersk.b1">Received and handled technical tickets via Outlook and Microsoft Teams following SLA workflows.</li>
+                <li data-i18n="exp.maersk.b2">Supported operation and monitoring of the RPA system (Power Automate); provided remote employee support via AnyDesk.</li>
+                <li data-i18n="exp.maersk.b3">Deployed and configured software for employees; wrote user guides and SOPs.</li>
+                <li data-i18n="exp.maersk.b4">Administered user accounts and supported operations on the Körber One WMS.</li>
+                <li data-i18n="exp.maersk.b5">Queried and processed data with SQLDBX to investigate and resolve tickets.</li>
               </ul>
             </article>
 
+            <!-- FSI -->
             <article class="experience-card reveal">
               <div class="experience-top">
                 <div>
-                  <h3 class="company">Công ty CP Đầu Tư Thương Mại và Phát Triển Công Nghệ FSI</h3>
+                  <h3 class="company" data-i18n="exp.fsi.company">FSI Investment, Trading and Technology Development JSC</h3>
                   <div class="role">IT Support Intern</div>
                 </div>
-                <span class="badge">Feb 2026 – Jun 2026</span>
+                <span class="badge" data-i18n="exp.fsi.period">Feb 2026 – Jun 2026</span>
               </div>
               <div class="address">
-                <i class="fa-solid fa-location-dot"></i> No. 26/22 Street No. 3, Do Thanh Residence, Ward 4, District 3, Ho Chi Minh City
+                <i class="fa-solid fa-location-dot"></i>
+                <span data-i18n="exp.fsi.address">26/22 Street 3, Do Thanh Residential Area, Ban Co Ward, Ho Chi Minh City</span>
               </div>
               <ul class="bullet-list">
-                <li>
-                  Deployed and validated network security appliances (F-DDH BOX) in lab/production environments.
-                </li>
-                <li>
-                  Participated in network infrastructure deployment projects and supported system troubleshooting.
-                </li>
-                <li>
-                  Monitored and managed IT assets (hardware and software).
-                </li>
-                <li>
-                  Configured internal network systems (modem, Wi-Fi, router, switch).
-                </li>
-                <li>
-                  Supported end users directly and remotely via UltraViewer and Remote Desktop.
-                </li>
+                <li data-i18n="exp.fsi.b1">Deployed, tested and troubleshot network security appliances (F-DDH BOX) in lab and production environments.</li>
+                <li data-i18n="exp.fsi.b2">Configured and supported modems, Wi-Fi, routers and switches; resolved connectivity issues.</li>
+                <li data-i18n="exp.fsi.b3">Provided on-site and remote end-user support and managed IT assets.</li>
               </ul>
             </article>
           </div>
         </div>
       </section>
 
-      <section class="section-soft" id="focus">
+      <!-- ================= SKILLS ================= -->
+      <section class="section-soft" id="skills">
         <div class="container">
           <div class="section-head reveal">
             <div>
-              <div class="section-label">Technical Focus</div>
-              <h2 class="section-title">
-                Skill groups mapped to the roles I am targeting.
+              <div class="section-label" data-i18n="skills.label">Technical Skills</div>
+              <h2 class="section-title" data-i18n="skills.title">
+                Skill groups aligned to IT Support and Systems Administration.
               </h2>
             </div>
-            <p class="section-desc">
-              A cleaner alternative to a long wall of skill pills: focused,
-              readable, and aligned to network/security hiring signals.
+            <p class="section-desc" data-i18n="skills.desc">
+              Grouped the same way as my CV, so it is quick to scan.
             </p>
           </div>
           <div class="focus-grid">
             <div class="focus-card reveal">
-              <div class="focus-icon">
-                <i class="fa-solid fa-network-wired"></i>
-              </div>
-              <h3 class="focus-title">Network Architecture</h3>
-              <p class="focus-copy">
-                Routing/Switching, SD-WAN, HA, LAN/WAN/DMZ, Cisco IOS, CML,
-                StackWise, IPv6.
+              <div class="focus-icon"><i class="fa-solid fa-id-badge"></i></div>
+              <h3 class="focus-title" data-i18n="skills.c1.title">Identity &amp; Microsoft 365</h3>
+              <p class="focus-copy" data-i18n="skills.c1.desc">
+                Active Directory, Microsoft Entra ID (Azure AD), M365 Admin Center, MFA setup &amp; support,
+                access permissions, Group Policy (GPO).
               </p>
             </div>
             <div class="focus-card reveal">
-              <div class="focus-icon">
-                <i class="fa-solid fa-shield-halved"></i>
-              </div>
-              <h3 class="focus-title">Security Engineering</h3>
-              <p class="focus-copy">
-                OPNsense, WAF, IDS/IPS, Wazuh SIEM, ModSecurity, Suricata, VPN,
-                monitoring.
+              <div class="focus-icon"><i class="fa-solid fa-headset"></i></div>
+              <h3 class="focus-title" data-i18n="skills.c2.title">Support Tools &amp; Documentation</h3>
+              <p class="focus-copy" data-i18n="skills.c2.desc">
+                AnyDesk, UltraViewer, Odoo Helpdesk/ERP, Microsoft Teams, user guides &amp; SOP writing.
               </p>
             </div>
             <div class="focus-card reveal">
-              <div class="focus-icon"><i class="fa-solid fa-server"></i></div>
-              <h3 class="focus-title">Cloud &amp; Infrastructure</h3>
-              <p class="focus-copy">
-                AWS, Google Cloud, Docker, Linux, Windows Server, VMware, nested
-                virtualization.
+              <div class="focus-icon"><i class="fa-solid fa-laptop"></i></div>
+              <h3 class="focus-title" data-i18n="skills.c3.title">Systems &amp; Hardware</h3>
+              <p class="focus-copy" data-i18n="skills.c3.desc">
+                Windows 10/11, Windows Server, Linux (Ubuntu/CentOS), PC/laptop, printer &amp; scanner
+                troubleshooting.
               </p>
             </div>
             <div class="focus-card reveal">
-              <div class="focus-icon"><i class="fa-solid fa-code"></i></div>
-              <h3 class="focus-title">Automation &amp; Tools</h3>
-              <p class="focus-copy">
-                Python, C++, FastAPI, Shell, Git, Wireshark, Mininet, Matplotlib,
-                scikit-learn.
+              <div class="focus-icon"><i class="fa-solid fa-network-wired"></i></div>
+              <h3 class="focus-title" data-i18n="skills.c4.title">Networking</h3>
+              <p class="focus-copy" data-i18n="skills.c4.desc">
+                TCP/IP (IPv4/IPv6), DNS, DHCP, Wi-Fi, VPN, ACL/NAT, network troubleshooting.
               </p>
+            </div>
+            <div class="focus-card reveal">
+              <div class="focus-icon"><i class="fa-solid fa-terminal"></i></div>
+              <h3 class="focus-title" data-i18n="skills.c5.title">Scripting &amp; Virtualization</h3>
+              <p class="focus-copy">PowerShell, Python, VMware, Git, SQL, C++.</p>
+            </div>
+            <div class="focus-card reveal">
+              <div class="focus-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+              <h3 class="focus-title" data-i18n="skills.c6.title">AI Tools</h3>
+              <p class="focus-copy">ChatGPT, Claude, Gemini.</p>
             </div>
           </div>
         </div>
       </section>
 
+      <!-- ================= CERTIFICATIONS ================= -->
       <section id="certifications">
         <div class="container">
           <div class="section-head reveal">
             <div>
-              <div class="section-label">Certifications</div>
-              <h2 class="section-title">Categorized Professional Credentials.</h2>
+              <div class="section-label" data-i18n="cert.label">Certifications</div>
+              <h2 class="section-title" data-i18n="cert.title">Professional credentials, grouped by category.</h2>
             </div>
-            <p class="section-desc">
-              Structured learning credentials categorized into Professional Specialization &amp; Language, Network &amp; Linux Infrastructure, and Coursera Course Modules.
+            <p class="section-desc" data-i18n="cert.desc">
+              Professional Specialization &amp; Language, Network &amp; Linux Infrastructure, and the individual
+              Coursera course modules.
             </p>
           </div>
 
-          <!-- Category Filter Tabs -->
           <div class="cert-filters reveal" aria-label="Certificate filter tabs">
-            <button class="cert-filter-btn active" data-cert-filter="all" type="button">All Credentials (12)</button>
-            <button class="cert-filter-btn" data-cert-filter="spec" type="button">Specialization &amp; Language</button>
-            <button class="cert-filter-btn" data-cert-filter="infra" type="button">Network &amp; Linux</button>
-            <button class="cert-filter-btn" data-cert-filter="modules" type="button">Coursera Modules</button>
+            <button class="cert-filter-btn active" data-cert-filter="all" type="button" aria-pressed="true">
+              <span data-i18n="cert.tabAll">All Credentials</span> (<span class="cert-count">12</span>)
+            </button>
+            <button class="cert-filter-btn" data-cert-filter="spec" type="button" aria-pressed="false" data-i18n="cert.tabSpec">Specialization &amp; Language</button>
+            <button class="cert-filter-btn" data-cert-filter="infra" type="button" aria-pressed="false" data-i18n="cert.tabInfra">Network &amp; Linux</button>
+            <button class="cert-filter-btn" data-cert-filter="modules" type="button" aria-pressed="false" data-i18n="cert.tabModules">Coursera Modules</button>
           </div>
 
-          <!-- Category Block 1: Specialization & Language -->
+          <!-- Block 1: Specialization & Language -->
           <div class="cert-category-block" data-category-block="spec">
-            <h3 class="cert-category-title"><i class="fa-solid fa-award"></i> Professional Specialization &amp; Language</h3>
+            <h3 class="cert-category-title">
+              <i class="fa-solid fa-award"></i> <span data-i18n="cert.cat1">Professional Specialization &amp; Language</span>
+            </h3>
             <div class="cert-grid">
-              <article class="cert-card cert-featured reveal" data-category="spec" data-cert-id="google-it-support">
+              <article class="cert-card cert-featured reveal">
                 <div class="cert-featured-header">
                   <img
-                    src="assets/images/google-it-support-badge.png"
+                    src="assets/images/google-it-support-badge.webp"
                     alt="Google IT Support Professional Certificate badge"
+                    width="320"
+                    height="320"
+                    loading="lazy"
+                    decoding="async"
                     onerror="this.style.display = 'none'"
                   />
                   <div>
-                    <span class="cert-badge"><i class="fa-solid fa-star"></i> Full Specialization</span>
+                    <span class="cert-badge"><i class="fa-solid fa-star"></i> <span data-i18n="cert.full">Full Specialization</span></span>
                     <h3>Google IT Support Professional Certificate</h3>
                   </div>
                 </div>
-                <p>
-                  6-course professional Specialization covering Technical Support, Networking, Operating Systems, Systems Administration, IT Security, and Generative AI for Job Search.
+                <p data-i18n="cert.google.desc">
+                  6-course professional Specialization covering Technical Support, Networking, Operating Systems,
+                  Systems Administration, IT Security, and Generative AI for Job Search.
                 </p>
-                <a
-                  class="card-link"
-                  href="https://coursera.org/share/b38bb6e47c21aee00fef03061b8c2858"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  >Coursera Verify <i class="fa-solid fa-arrow-right"></i></a
-                >
+                <a class="card-link" href="https://coursera.org/share/b38bb6e47c21aee00fef03061b8c2858" target="_blank" rel="noopener noreferrer"
+                  ><span data-i18n="cert.verify">Verify on Coursera</span> <i class="fa-solid fa-arrow-right"></i
+                ></a>
               </article>
-              <article class="cert-card reveal" data-category="spec" data-cert-id="vstep-b1">
-                <span class="cert-badge"><i class="fa-solid fa-language"></i> Language Qualification</span>
+              <article class="cert-card reveal">
+                <span class="cert-badge"><i class="fa-solid fa-language"></i> <span data-i18n="cert.lang">Language Qualification</span></span>
                 <img
                   src="assets/images/vstep-b1-badge.svg"
                   alt="VSTEP B1 Certificate badge"
+                  width="120"
+                  height="120"
+                  loading="lazy"
+                  decoding="async"
                   onerror="this.style.display = 'none'"
                 />
-                <h3>VSTEP B1 English Proficiency Certificate</h3>
-                <p>
-                  Vietnamese Standardized Test of English Proficiency (Level 3/6 - CEFR B1), certifying intermediate English listening, speaking, reading, and writing capabilities.
+                <h3 data-i18n="cert.vstep.title">VSTEP B1 English Proficiency Certificate</h3>
+                <p data-i18n="cert.vstep.desc">
+                  Vietnamese Standardized Test of English Proficiency (Level 3/6 – CEFR B1), certifying intermediate
+                  English listening, speaking, reading and writing.
                 </p>
-                <a
-                  class="card-link"
-                  href="https://drive.google.com/file/d/1YEPUak4dMthv4ycDXQGUm4rV3sA6y1Xe/view"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  >View Certificate <i class="fa-solid fa-arrow-right"></i></a
-                >
+                <a class="card-link" href="https://drive.google.com/file/d/1YEPUak4dMthv4ycDXQGUm4rV3sA6y1Xe/view" target="_blank" rel="noopener noreferrer"
+                  ><span data-i18n="cert.view">View certificate</span> <i class="fa-solid fa-arrow-right"></i
+                ></a>
               </article>
             </div>
           </div>
 
-          <!-- Category Block 2: Network & Linux Infrastructure -->
+          <!-- Block 2: Network & Linux -->
           <div class="cert-category-block" data-category-block="infra">
-            <h3 class="cert-category-title"><i class="fa-solid fa-network-wired"></i> Network &amp; System Infrastructure Credentials</h3>
+            <h3 class="cert-category-title">
+              <i class="fa-solid fa-network-wired"></i> <span data-i18n="cert.cat2">Network &amp; System Infrastructure</span>
+            </h3>
             <div class="cert-grid">
-              <article class="cert-card reveal" data-category="infra" data-cert-id="cisco-devices">
+              <article class="cert-card reveal">
                 <span class="cert-badge"><i class="fa-solid fa-layer-group"></i> Cisco NetAcad</span>
-                <img
-                  src="assets/images/networking-devices-and-initial-configuration.png"
-                  alt="Networking Devices and Initial Configuration badge"
-                  onerror="this.style.display = 'none'"
-                />
+                <img src="assets/images/networking-devices-and-initial-configuration.png" alt="Networking Devices and Initial Configuration badge" width="650" height="650" loading="lazy" decoding="async" onerror="this.style.display = 'none'" />
                 <h3>Networking Devices and Initial Configuration</h3>
-                <p>
-                  Hands-on Cisco router/switch configuration, VLANs, STP, and device hardening.
-                </p>
-                <a
-                  class="card-link"
-                  href="https://www.credly.com/badges/37e3e425-f4f6-408a-b053-b8c94ce936a6/public_url"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  >Credly <i class="fa-solid fa-arrow-right"></i></a
-                >
+                <p data-i18n="cert.ciscoDevices.desc">Hands-on Cisco router/switch configuration, VLANs, STP and device hardening.</p>
+                <a class="card-link" href="https://www.credly.com/badges/37e3e425-f4f6-408a-b053-b8c94ce936a6/public_url" target="_blank" rel="noopener noreferrer">Credly <i class="fa-solid fa-arrow-right"></i></a>
               </article>
-              <article class="cert-card reveal" data-category="infra" data-cert-id="cisco-basics">
+              <article class="cert-card reveal">
                 <span class="cert-badge"><i class="fa-solid fa-layer-group"></i> Cisco NetAcad</span>
-                <img
-                  src="assets/images/networking-basics.png"
-                  alt="Networking Basics badge"
-                  onerror="this.style.display = 'none'"
-                />
+                <img src="assets/images/networking-basics.png" alt="Networking Basics badge" width="650" height="650" loading="lazy" decoding="async" onerror="this.style.display = 'none'" />
                 <h3>Networking Basics</h3>
-                <p>
-                  Network types, protocols, IP addressing, and basic switching foundations.
-                </p>
-                <a
-                  class="card-link"
-                  href="https://www.credly.com/badges/dc21c31f-6e67-491d-b1a4-95f09e6195a3/public_url"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  >Credly <i class="fa-solid fa-arrow-right"></i></a
-                >
+                <p data-i18n="cert.ciscoBasics.desc">Network types, protocols, IP addressing and basic switching foundations.</p>
+                <a class="card-link" href="https://www.credly.com/badges/dc21c31f-6e67-491d-b1a4-95f09e6195a3/public_url" target="_blank" rel="noopener noreferrer">Credly <i class="fa-solid fa-arrow-right"></i></a>
               </article>
-              <article class="cert-card reveal" data-category="infra" data-cert-id="linux-essentials">
-                <span class="cert-badge"><i class="fa-brands fa-linux"></i> Credly Linux</span>
-                <img
-                  src="assets/images/linux-essentials.png"
-                  alt="Linux Essentials badge"
-                  onerror="this.style.display = 'none'"
-                />
+              <article class="cert-card reveal">
+                <span class="cert-badge"><i class="fa-brands fa-linux"></i> Cisco NetAcad</span>
+                <img src="assets/images/linux-essentials.png" alt="Linux Essentials badge" width="600" height="600" loading="lazy" decoding="async" onerror="this.style.display = 'none'" />
                 <h3>Linux Essentials</h3>
-                <p>
-                  Linux OS concepts, open-source fundamentals, processes, users/groups, and networking basics.
-                </p>
-                <a
-                  class="card-link"
-                  href="https://www.credly.com/badges/40b398d3-f95f-40c6-a2c8-242a715b76c9/public_url"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  >Credly <i class="fa-solid fa-arrow-right"></i></a
-                >
+                <p data-i18n="cert.linuxEss.desc">Linux OS concepts, open-source fundamentals, processes, users/groups and networking basics.</p>
+                <a class="card-link" href="https://www.credly.com/badges/40b398d3-f95f-40c6-a2c8-242a715b76c9/public_url" target="_blank" rel="noopener noreferrer">Credly <i class="fa-solid fa-arrow-right"></i></a>
               </article>
-              <article class="cert-card reveal" data-category="infra" data-cert-id="linux-unhatched">
-                <span class="cert-badge"><i class="fa-brands fa-linux"></i> Credly Linux</span>
-                <img
-                  src="assets/images/linux-unhatched.png"
-                  alt="Linux Unhatched badge"
-                  onerror="this.style.display = 'none'"
-                />
+              <article class="cert-card reveal">
+                <span class="cert-badge"><i class="fa-brands fa-linux"></i> Cisco NetAcad</span>
+                <img src="assets/images/linux-unhatched.png" alt="Linux Unhatched badge" width="600" height="600" loading="lazy" decoding="async" onerror="this.style.display = 'none'" />
                 <h3>Linux Unhatched</h3>
-                <p>
-                  Linux CLI fundamentals, file system navigation, permissions, and shell basics.
-                </p>
-                <a
-                  class="card-link"
-                  href="https://www.credly.com/badges/7932c302-7cfd-404d-bb4e-e7b7ec0149e5/public_url"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  >Credly <i class="fa-solid fa-arrow-right"></i></a
-                >
+                <p data-i18n="cert.linuxUnh.desc">Linux CLI fundamentals, file system navigation, permissions and shell basics.</p>
+                <a class="card-link" href="https://www.credly.com/badges/7932c302-7cfd-404d-bb4e-e7b7ec0149e5/public_url" target="_blank" rel="noopener noreferrer">Credly <i class="fa-solid fa-arrow-right"></i></a>
               </article>
             </div>
           </div>
 
-          <!-- Category Block 3: Coursera Specialized Modules -->
+          <!-- Block 3: Coursera modules -->
           <div class="cert-category-block" data-category-block="modules">
-            <h3 class="cert-category-title"><i class="fa-solid fa-book-open"></i> Coursera Specialized Course Modules</h3>
+            <h3 class="cert-category-title">
+              <i class="fa-solid fa-book-open"></i> <span data-i18n="cert.cat3">Coursera Course Modules</span>
+            </h3>
             <div class="cert-grid">
-              <article class="cert-card reveal" data-category="modules" data-cert-id="tech-support">
-                <span class="cert-badge">Coursera Course</span>
-                <img
-                  src="assets/images/google-it-support-badge.png"
-                  alt="Technical Support Fundamentals badge"
-                  onerror="this.style.display = 'none'"
-                />
+              <article class="cert-card reveal">
+                <span class="cert-badge" data-i18n="cert.course">Coursera Course</span>
+                <img src="assets/images/google-it-support-badge.webp" alt="Technical Support Fundamentals badge" width="320" height="320" loading="lazy" decoding="async" onerror="this.style.display = 'none'" />
                 <h3>Technical Support Fundamentals</h3>
-                <p>
-                  Computer hardware, operating systems, troubleshooting, system administration, and network protocols.
-                </p>
-                <a
-                  class="card-link"
-                  href="https://coursera.org/verify/LSDP4K60DDFX"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  >Coursera <i class="fa-solid fa-arrow-right"></i></a
-                >
+                <p data-i18n="cert.techSupport.desc">Computer hardware, operating systems, troubleshooting, system administration and network protocols.</p>
+                <a class="card-link" href="https://coursera.org/verify/LSDP4K60DDFX" target="_blank" rel="noopener noreferrer">Coursera <i class="fa-solid fa-arrow-right"></i></a>
               </article>
-              <article class="cert-card reveal" data-category="modules" data-cert-id="bits-bytes">
-                <span class="cert-badge">Coursera Course</span>
-                <img
-                  src="assets/images/google-it-support-badge.png"
-                  alt="The Bits and Bytes of Computer Networking badge"
-                  onerror="this.style.display = 'none'"
-                />
+              <article class="cert-card reveal">
+                <span class="cert-badge" data-i18n="cert.course">Coursera Course</span>
+                <img src="assets/images/google-it-support-badge.webp" alt="The Bits and Bytes of Computer Networking badge" width="320" height="320" loading="lazy" decoding="async" onerror="this.style.display = 'none'" />
                 <h3>The Bits and Bytes of Computer Networking</h3>
-                <p>
-                  Computer networking fundamentals, TCP/IP model, IP addressing &amp; subnetting, routing protocols, and network troubleshooting.
-                </p>
-                <a
-                  class="card-link"
-                  href="https://coursera.org/share/020234a0bef4a5b6a83f6300dfdef29f"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  >Coursera <i class="fa-solid fa-arrow-right"></i></a
-                >
+                <p data-i18n="cert.bits.desc">Networking fundamentals, the TCP/IP model, IP addressing &amp; subnetting, routing protocols and network troubleshooting.</p>
+                <a class="card-link" href="https://coursera.org/share/020234a0bef4a5b6a83f6300dfdef29f" target="_blank" rel="noopener noreferrer">Coursera <i class="fa-solid fa-arrow-right"></i></a>
               </article>
-              <article class="cert-card reveal" data-category="modules" data-cert-id="os-power-user">
-                <span class="cert-badge">Coursera Course</span>
-                <img
-                  src="assets/images/google-it-support-badge.png"
-                  alt="Operating Systems and You: Becoming a Power User badge"
-                  onerror="this.style.display = 'none'"
-                />
+              <article class="cert-card reveal">
+                <span class="cert-badge" data-i18n="cert.course">Coursera Course</span>
+                <img src="assets/images/google-it-support-badge.webp" alt="Operating Systems and You: Becoming a Power User badge" width="320" height="320" loading="lazy" decoding="async" onerror="this.style.display = 'none'" />
                 <h3>Operating Systems and You: Becoming a Power User</h3>
-                <p>
-                  Operating system architecture, directory structures, user &amp; process management, file systems, and CLI administration (Windows &amp; Linux).
-                </p>
-                <a
-                  class="card-link"
-                  href="https://coursera.org/share/93e0793e89b5437b55ccff54d40e3741"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  >Coursera <i class="fa-solid fa-arrow-right"></i></a
-                >
+                <p data-i18n="cert.os.desc">Operating system architecture, directory structures, user &amp; process management, file systems and CLI administration (Windows &amp; Linux).</p>
+                <a class="card-link" href="https://coursera.org/share/93e0793e89b5437b55ccff54d40e3741" target="_blank" rel="noopener noreferrer">Coursera <i class="fa-solid fa-arrow-right"></i></a>
               </article>
-              <article class="cert-card reveal" data-category="modules" data-cert-id="sysadmin">
-                <span class="cert-badge">Coursera Course</span>
-                <img
-                  src="assets/images/google-it-support-badge.png"
-                  alt="System Administration and IT Infrastructure Services badge"
-                  onerror="this.style.display = 'none'"
-                />
+              <article class="cert-card reveal">
+                <span class="cert-badge" data-i18n="cert.course">Coursera Course</span>
+                <img src="assets/images/google-it-support-badge.webp" alt="System Administration and IT Infrastructure Services badge" width="320" height="320" loading="lazy" decoding="async" onerror="this.style.display = 'none'" />
                 <h3>System Administration and IT Infrastructure Services</h3>
-                <p>
-                  Infrastructure services management, Active Directory &amp; LDAP, cloud resources, data backup &amp; recovery, and system administration best practices.
-                </p>
-                <a
-                  class="card-link"
-                  href="https://coursera.org/share/0d3fac7d5672b7f8ed242c40deddbe73"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  >Coursera <i class="fa-solid fa-arrow-right"></i></a
-                >
+                <p data-i18n="cert.sysadmin.desc">Infrastructure services, Active Directory &amp; LDAP, cloud resources, data backup &amp; recovery and system administration best practices.</p>
+                <a class="card-link" href="https://coursera.org/share/0d3fac7d5672b7f8ed242c40deddbe73" target="_blank" rel="noopener noreferrer">Coursera <i class="fa-solid fa-arrow-right"></i></a>
               </article>
-              <article class="cert-card reveal" data-category="modules" data-cert-id="it-security">
-                <span class="cert-badge">Coursera Course</span>
-                <img
-                  src="assets/images/google-it-support-badge.png"
-                  alt="IT Security: Defense against the digital dark arts badge"
-                  onerror="this.style.display = 'none'"
-                />
+              <article class="cert-card reveal">
+                <span class="cert-badge" data-i18n="cert.course">Coursera Course</span>
+                <img src="assets/images/google-it-support-badge.webp" alt="IT Security: Defense against the digital dark arts badge" width="320" height="320" loading="lazy" decoding="async" onerror="this.style.display = 'none'" />
                 <h3>IT Security: Defense against the digital dark arts</h3>
-                <p>
-                  Encryption algorithms, authentication &amp; authorization mechanisms, network security defense in depth, threat analysis, and security hardening.
-                </p>
-                <a
-                  class="card-link"
-                  href="https://coursera.org/share/13f6a8bfde294a631f4648ac32221c8f"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  >Coursera <i class="fa-solid fa-arrow-right"></i></a
-                >
+                <p data-i18n="cert.sec.desc">Encryption, authentication &amp; authorization, defense in depth, threat analysis and security hardening.</p>
+                <a class="card-link" href="https://coursera.org/share/13f6a8bfde294a631f4648ac32221c8f" target="_blank" rel="noopener noreferrer">Coursera <i class="fa-solid fa-arrow-right"></i></a>
               </article>
-              <article class="cert-card reveal" data-category="modules" data-cert-id="ai-job-search">
-                <span class="cert-badge">Coursera Course</span>
-                <img
-                  src="assets/images/google-it-support-badge.png"
-                  alt="Accelerate Your Job Search with AI badge"
-                  onerror="this.style.display = 'none'"
-                />
+              <article class="cert-card reveal">
+                <span class="cert-badge" data-i18n="cert.course">Coursera Course</span>
+                <img src="assets/images/google-it-support-badge.webp" alt="Accelerate Your Job Search with AI badge" width="320" height="320" loading="lazy" decoding="async" onerror="this.style.display = 'none'" />
                 <h3>Accelerate Your Job Search with AI</h3>
-                <p>
-                  Utilizing generative AI tools to optimize career workflows, resume tailoring, interview prep, and professional personal branding.
-                </p>
-                <a
-                  class="card-link"
-                  href="https://coursera.org/share/2ef7f2dadb06d222b04e641660f3cb1d"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  >Coursera <i class="fa-solid fa-arrow-right"></i></a
-                >
+                <p data-i18n="cert.ai.desc">Using generative AI tools for career workflows, resume tailoring, interview prep and personal branding.</p>
+                <a class="card-link" href="https://coursera.org/share/2ef7f2dadb06d222b04e641660f3cb1d" target="_blank" rel="noopener noreferrer">Coursera <i class="fa-solid fa-arrow-right"></i></a>
               </article>
             </div>
           </div>
         </div>
       </section>
 
+      <!-- ================= PROJECTS (featured) ================= -->
+      <section class="section-soft" id="projects">
+        <div class="container">
+          <div class="section-head reveal">
+            <div>
+              <div class="section-label" data-i18n="proj.label">Projects &amp; Labs</div>
+              <h2 class="section-title" data-i18n="proj.title">Network, security and automation labs.</h2>
+            </div>
+            <p class="section-desc" data-i18n="proj.desc">
+              Built at university and in my own time. Each one links to GitHub with diagrams, screenshots,
+              commands and validation notes.
+            </p>
+          </div>
+
+          <div class="work-grid">
+            <article class="work-card reveal">
+              <div class="work-meta">
+                <span class="badge" data-i18n="proj.badgeThesis">Thesis</span><span class="period" data-i18n="proj.thesisPeriod">Jan – May 2026</span>
+              </div>
+              <h3 class="work-title">HA Firewall &amp; AI-driven Security Monitoring</h3>
+              <p class="work-desc" data-i18n="proj.thesis.desc">
+                Graduation thesis combining an OPNsense HA firewall, WAF, Wazuh SIEM and ML-based security log
+                analysis in a controlled lab.
+              </p>
+              <div class="chips" aria-label="Project metrics">
+                <span class="chip metric">2.8s failover</span><span class="chip metric">0.71% sync overhead</span><span class="chip metric">12,796 WAF alerts</span><span class="chip metric">RF AUC 1.000</span><span class="chip metric">LR AUC 0.981</span>
+              </div>
+              <div class="chips">
+                <span class="chip">OPNsense</span><span class="chip">CARP/pfsync</span><span class="chip">HAProxy</span><span class="chip">ModSecurity</span><span class="chip">Wazuh</span><span class="chip">Python</span>
+              </div>
+              <div class="card-links">
+                <a class="card-link" href="https://github.com/ThanhLam-NetEng/kltn-firewall-ha-waf-siem" target="_blank" rel="noopener noreferrer"
+                  ><span data-i18n="proj.thesisLink">View thesis repository</span> <i class="fa-solid fa-arrow-right"></i
+                ></a>
+              </div>
+            </article>
+
+            <article class="work-card reveal">
+              <div class="work-meta">
+                <span class="badge academic" data-i18n="proj.badgeAcademic">Academic</span><span class="period" data-i18n="proj.apr2026">Apr 2026</span>
+              </div>
+              <h3 class="work-title">Cisco SD-WAN Hospital Network</h3>
+              <p class="work-desc" data-i18n="proj.sdwan.desc">
+                3-site Hub-and-Spoke SD-WAN overlay with encrypted dual transport and least-privilege traffic
+                steering for critical medical systems.
+              </p>
+              <div class="chips">
+                <span class="chip metric">IPsec AES-256-GCM</span><span class="chip metric">AAR policy</span><span class="chip metric">~3 min convergence</span>
+              </div>
+              <div class="chips">
+                <span class="chip">Cisco CML</span><span class="chip">Catalyst SD-WAN</span><span class="chip">vManage</span><span class="chip">C8000v</span><span class="chip">BFD</span>
+              </div>
+              <div class="card-links">
+                <a class="card-link" href="https://github.com/ThanhLam-NetEng/cisco-sdwan-hospital-lab" target="_blank" rel="noopener noreferrer"
+                  ><span data-i18n="common.github">View GitHub</span> <i class="fa-solid fa-arrow-right"></i
+                ></a>
+              </div>
+            </article>
+
+            <article class="work-card reveal">
+              <div class="work-meta">
+                <span class="badge personal" data-i18n="proj.badgePersonal">Personal</span><span class="period">2025 – 2026</span>
+              </div>
+              <h3 class="work-title">AI Shield Firewall — LLM Traffic Inspection Proxy</h3>
+              <p class="work-desc" data-i18n="proj.aishield.desc">
+                Bilingual LLM security proxy enforcing DLP and prompt-injection controls at the API perimeter for
+                enterprise-style AI workflows.
+              </p>
+              <div class="chips">
+                <span class="chip metric">5-layer inspection</span><span class="chip metric">25/25 tests passed</span><span class="chip metric">&lt;15ms overhead</span>
+              </div>
+              <div class="chips">
+                <span class="chip">FastAPI</span><span class="chip">AWS</span><span class="chip">Docker</span><span class="chip">Presidio</span><span class="chip">DynamoDB</span>
+              </div>
+              <div class="card-links">
+                <a class="card-link" href="https://github.com/ThanhLam-NetEng/ai-shield-fw" target="_blank" rel="noopener noreferrer"
+                  ><span data-i18n="common.github">View GitHub</span> <i class="fa-solid fa-arrow-right"></i
+                ></a>
+              </div>
+            </article>
+
+            <article class="work-card reveal">
+              <div class="work-meta">
+                <span class="badge personal" data-i18n="proj.badgePersonal">Personal</span><span class="period">2026</span>
+              </div>
+              <h3 class="work-title">Cloud-Native Secure VPN Gateway &amp; DNS Sinkhole</h3>
+              <p class="work-desc" data-i18n="proj.vpn.desc">
+                Privacy-first VPN gateway chaining WireGuard, AdGuard Home and Unbound to reduce telemetry and avoid
+                third-party DNS tracking.
+              </p>
+              <div class="chips">
+                <span class="chip metric">&lt;5ms cached DNS</span><span class="chip metric">~240k block rules</span><span class="chip metric">DNSSEC validation</span>
+              </div>
+              <div class="chips">
+                <span class="chip">WireGuard</span><span class="chip">AdGuard Home</span><span class="chip">Unbound</span><span class="chip">AWS</span><span class="chip">Ubuntu</span>
+              </div>
+              <div class="card-links">
+                <a class="card-link" href="https://github.com/ThanhLam-NetEng/aws-secure-vpn-gateway" target="_blank" rel="noopener noreferrer"
+                  ><span data-i18n="common.github">View GitHub</span> <i class="fa-solid fa-arrow-right"></i
+                ></a>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= MORE PROJECTS ================= -->
+      <section id="more-work">
+        <div class="container">
+          <div class="section-head reveal">
+            <div>
+              <div class="section-label" data-i18n="more.label">More Projects</div>
+              <h2 class="section-title" data-i18n="more.title">Additional labs and automation work.</h2>
+            </div>
+            <p class="section-desc" data-i18n="more.desc">
+              Kept short so the page scans quickly. Each item links out when public proof is available.
+            </p>
+          </div>
+          <div class="work-grid">
+            <article class="work-card reveal">
+              <div class="work-meta">
+                <span class="badge academic" data-i18n="proj.badgeAcademic">Academic</span><span class="period">2025</span>
+              </div>
+              <h3 class="work-title">SDN Server Load Balancer</h3>
+              <p class="work-desc" data-i18n="more.sdn.desc">
+                L3 load balancer with POX/OpenFlow and Mininet, comparing Round Robin vs Random distribution with
+                health-check rerouting.
+              </p>
+              <div class="chips">
+                <span class="chip">POX/OpenFlow</span><span class="chip">Mininet</span><span class="chip">OVS</span><span class="chip">Matplotlib</span>
+              </div>
+              <div class="card-links">
+                <a class="card-link" href="https://github.com/ThanhLam-NetEng/Server-Load-Balancing" target="_blank" rel="noopener noreferrer"
+                  ><span data-i18n="common.github">View GitHub</span> <i class="fa-solid fa-arrow-right"></i
+                ></a>
+              </div>
+            </article>
+
+            <article class="work-card reveal">
+              <div class="work-meta">
+                <span class="badge academic" data-i18n="proj.badgeAcademic">Academic</span><span class="period" data-i18n="more.librePeriod">Sep – Nov 2024</span>
+              </div>
+              <h3 class="work-title">Network Monitoring with LibreNMS</h3>
+              <p class="work-desc" data-i18n="more.libre.desc">
+                Centralized NMS on Linux/Docker with SNMP v2c/v3, bandwidth/CPU/RAM collection and an Email/Telegram
+                alerting workflow.
+              </p>
+              <div class="chips">
+                <span class="chip">LibreNMS</span><span class="chip">Docker</span><span class="chip">SNMP v3</span><span class="chip">Linux</span><span class="chip">Alerting</span>
+              </div>
+            </article>
+
+            <article class="work-card reveal">
+              <div class="work-meta">
+                <span class="badge personal" data-i18n="proj.badgePersonal">Personal</span><span class="period" data-i18n="more.may2026">May 2026</span>
+              </div>
+              <h3 class="work-title">JD Daily Bot — AI Job Matching Automation</h3>
+              <p class="work-desc" data-i18n="more.jd.desc">
+                Weekday ITviec job-matching bot that filters fresher-friendly infrastructure roles, scores JD/CV fit
+                with Claude and sends a concise Telegram digest.
+              </p>
+              <div class="chips">
+                <span class="chip metric">Claude match scoring</span><span class="chip metric">stateful dedupe</span><span class="chip">Python</span><span class="chip">GitHub Actions</span><span class="chip">Telegram</span>
+              </div>
+              <div class="card-links">
+                <a class="card-link" href="https://github.com/ThanhLam-NetEng/jd-daily-bot" target="_blank" rel="noopener noreferrer"
+                  ><span data-i18n="common.github">View GitHub</span> <i class="fa-solid fa-arrow-right"></i
+                ></a>
+              </div>
+            </article>
+
+            <article class="work-card reveal">
+              <div class="work-meta">
+                <span class="badge personal" data-i18n="proj.badgePersonal">Personal</span><span class="period">2025 – 2026</span>
+              </div>
+              <h3 class="work-title">AutoCTI — Autonomous Cyber Threat Intelligence Agent</h3>
+              <p class="work-desc" data-i18n="more.autocti.desc">
+                24/7 SOC-style threat intelligence pipeline using a LangGraph ReAct agent, Gemini search, Telegram
+                alerting, IAM Role and DynamoDB memory.
+              </p>
+              <div class="chips">
+                <span class="chip metric">~80% RAM reduction</span><span class="chip">AWS</span><span class="chip">SQS</span><span class="chip">LangGraph</span><span class="chip">Python</span>
+              </div>
+              <div class="card-links">
+                <a class="card-link" href="https://github.com/ThanhLam-NetEng/AutoCTI" target="_blank" rel="noopener noreferrer"
+                  ><span data-i18n="common.github">View GitHub</span> <i class="fa-solid fa-arrow-right"></i
+                ></a>
+              </div>
+            </article>
+
+            <article class="work-card reveal">
+              <div class="work-meta">
+                <span class="badge personal" data-i18n="proj.badgePersonal">Personal</span><span class="period">2025 – 2026</span>
+              </div>
+              <h3 class="work-title">TNT Bot — Telegram AI Companion</h3>
+              <p class="work-desc" data-i18n="more.tnt.desc">
+                Personal Telegram AI bot on Google Cloud Free Tier with context summarization, long-term memory, TTS,
+                reminders and backups.
+              </p>
+              <div class="chips">
+                <span class="chip">Cloud Functions</span><span class="chip">Gemini 2.5 Flash</span><span class="chip">Firestore</span><span class="chip">Cloud Scheduler</span>
+              </div>
+              <div class="card-links">
+                <a class="card-link" href="https://youtu.be/QtNU9-8xPZo" target="_blank" rel="noopener noreferrer"
+                  ><i class="fa-brands fa-youtube"></i> <span data-i18n="common.demo">Watch demo</span> <i class="fa-solid fa-arrow-right"></i
+                ></a>
+              </div>
+            </article>
+
+            <article class="work-card reveal">
+              <div class="work-meta">
+                <span class="badge personal" data-i18n="proj.badgePersonal">Personal</span><span class="period">2026</span>
+              </div>
+              <h3 class="work-title">DiemChuan.info — University Admission Scores Lookup</h3>
+              <p class="work-desc" data-i18n="more.diemchuan.desc">
+                Vietnamese university admission score lookup covering <strong>294 admission codes</strong> and
+                <strong>154,000+ records</strong>, searchable by school, major, score range and admission method.
+                SEO-ready (canonical URLs, sitemap, Open Graph, JSON-LD) and deployed as a static SPA on Netlify.
+              </p>
+              <div class="chips">
+                <span class="chip">React</span><span class="chip">Vite</span><span class="chip">Tailwind CSS</span><span class="chip">Netlify</span><span class="chip">SEO</span>
+              </div>
+              <div class="card-links">
+                <a class="card-link" href="https://diemchuan-vn.netlify.app/" target="_blank" rel="noopener noreferrer"
+                  ><span data-i18n="common.live">Live site</span> <i class="fa-solid fa-arrow-right"></i
+                ></a>
+              </div>
+            </article>
+
+            <article class="work-card reveal">
+              <div class="work-meta">
+                <span class="badge personal" data-i18n="proj.badgePersonal">Personal</span><span class="period" data-i18n="more.jul2026">Jul 2026</span>
+              </div>
+              <div class="flow-preview">
+                <img src="assets/images/make-automation-flow.png" alt="Make.com AI Document Parser workflow" width="1024" height="571" loading="lazy" decoding="async" />
+              </div>
+              <h3 class="work-title">AI Document Parser — Make.com Automation</h3>
+              <p class="work-desc" data-i18n="more.make.desc">
+                Make.com workflow that watches a Google Drive folder, sends new documents to the Claude API to extract
+                structured data, parses the JSON and writes the results to Google Sheets in real time.
+              </p>
+              <div class="chips">
+                <span class="chip">Make.com</span><span class="chip">Claude API</span><span class="chip">Google Drive</span><span class="chip">Google Sheets</span>
+              </div>
+              <div class="card-links">
+                <a class="card-link" href="assets/images/make-automation-flow.png" target="_blank" rel="noopener noreferrer"
+                  ><span data-i18n="common.diagram">View workflow diagram</span> <i class="fa-solid fa-arrow-right"></i
+                ></a>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= ABOUT ================= -->
       <section class="section-soft" id="about">
         <div class="container about-grid">
           <div class="about-copy reveal">
-            <div class="section-label">Background</div>
-            <h2 class="section-title">
-              UIT network graduate building security-focused infrastructure
-              labs.
+            <div class="section-label" data-i18n="about.label">About</div>
+            <h2 class="section-title" data-i18n="about.title">
+              Building a solid IT Support foundation, aiming for Systems Administration.
             </h2>
-            <p>
-              I majored in
-              <strong>Computer Networks &amp; Data Communications</strong> at
-              the University of Information Technology (UIT – VNU-HCM). My work
-              focuses on network security, system infrastructure, and practical
-              automation.
+            <p data-i18n="about.p1">
+              I graduated in <strong>Computer Networks &amp; Data Communications</strong> from the
+              <strong>University of Information Technology (UIT – VNU-HCM)</strong> with a GPA of 3.12/4.0
+              (2022 – 2026).
             </p>
-            <p>
-              I have worked with production-adjacent tasks at FSI, including
-              security appliance validation, Cisco hardware support, SD-WAN
-              evaluation, VPN visibility research, and local service deployment.
+            <p data-i18n="about.p2">
+              Most recently I supported 100+ engineers and back-office staff at <strong>gbc engineers</strong>,
+              including the Da Nang and Berlin offices: Odoo Helpdesk tickets within SLA, user accounts and access in
+              Active Directory and Microsoft 365, MFA setup guides and SOPs. Before that I worked in IT Support at
+              <strong>Maersk</strong> and <strong>FSI</strong>.
             </p>
-            <p>
-              My near-term direction is to grow into Network/Security
-              Engineering, then deepen into network automation and cloud
-              networking.
+            <p data-i18n="about.p3">
+              My plan is to get really solid at IT Support first, then grow into Systems Administration, going
+              deeper into endpoint management, identity and security.
             </p>
             <div class="direct-links">
-              <a class="btn" href="mailto:phamthanhlam.work@gmail.com"
-                ><i class="fa-solid fa-envelope"></i> Email</a
-              ><a
-                class="btn"
-                href="https://github.com/ThanhLam-NetEng"
-                target="_blank"
-                rel="noopener noreferrer"
+              <a class="btn" href="mailto:phamthanhlam.work@gmail.com"><i class="fa-solid fa-envelope"></i> Email</a
+              ><a class="btn" href="https://github.com/ThanhLam-NetEng" target="_blank" rel="noopener noreferrer"
                 ><i class="fa-brands fa-github"></i> GitHub</a
-              ><a
-                class="btn"
-                href="https://www.linkedin.com/in/thanhlam-uit"
-                target="_blank"
-                rel="noopener noreferrer"
+              ><a class="btn" href="https://www.linkedin.com/in/thanhlam-uit" target="_blank" rel="noopener noreferrer"
                 ><i class="fa-brands fa-linkedin"></i> LinkedIn</a
               >
             </div>
@@ -1102,115 +843,81 @@
           <aside class="info-panel reveal" aria-label="Profile details">
             <div class="info-row">
               <i class="fa-solid fa-graduation-cap"></i>
-              <span class="info-label">School</span>
-              <span class="info-value">UIT – VNU-HCM (GPA 3.1/4.0)</span>
+              <span class="info-label" data-i18n="about.school">School</span>
+              <span class="info-value">UIT – VNU-HCM (GPA 3.12/4.0)</span>
             </div>
             <div class="info-row">
               <i class="fa-solid fa-book"></i>
-              <span class="info-label">Major</span>
-              <span class="info-value">Computer Networks &amp; Data Communications</span>
+              <span class="info-label" data-i18n="about.major">Major</span>
+              <span class="info-value" data-i18n="about.majorVal">Computer Networks &amp; Data Communications</span>
+            </div>
+            <div class="info-row">
+              <i class="fa-solid fa-bullseye"></i>
+              <span class="info-label" data-i18n="about.target">Target</span>
+              <span class="info-value" data-i18n="about.targetVal">IT Support → Systems Administration</span>
             </div>
             <div class="info-row">
               <i class="fa-solid fa-location-dot"></i>
-              <span class="info-label">Location</span>
-              <span class="info-value">Tăng Nhơn Phú, TP. HCM</span>
+              <span class="info-label" data-i18n="about.location">Location</span>
+              <span class="info-value" data-i18n="about.locationVal">Tăng Nhơn Phú, Ho Chi Minh City</span>
             </div>
             <div class="info-row">
               <i class="fa-solid fa-phone"></i>
-              <span class="info-label">Phone</span>
-              <span class="info-value">0868 745 540</span>
+              <span class="info-label" data-i18n="about.phone">Phone</span>
+              <span class="info-value"><a href="tel:+84868745540">0868 745 540</a></span>
             </div>
             <div class="info-row">
               <i class="fa-solid fa-language"></i>
-              <span class="info-label">Language</span>
-              <span class="info-value">Vietnamese (Native) · English (VSTEP B1 / CEFR B1)</span>
-            </div>
-            <div class="info-row">
-              <i class="fa-solid fa-file-lines"></i
-              ><span class="info-label">CV</span
-              ><span class="info-value"
-                ><a
-                  class="card-link cv-link"
-                  href="cv-en.pdf"
-                  download="cv-en.pdf"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  >Download PDF <i class="fa-solid fa-arrow-right"></i></a
-              ></span>
+              <span class="info-label" data-i18n="about.language">Language</span>
+              <span class="info-value" data-i18n="about.languageVal">Vietnamese (Native) · English (Intermediate, VSTEP B1)</span>
             </div>
           </aside>
         </div>
       </section>
 
+      <!-- ================= CONTACT ================= -->
       <section id="contact">
         <div class="container">
           <div class="contact-card reveal">
-            <div class="section-label">Contact</div>
-            <h2 class="section-title">Let’s connect.</h2>
-            <p class="contact-desc">
-              Open to Network Engineer, Security Engineer, IT Helpdesk with
-              networking/security focus, and infrastructure support
-              opportunities around HCM City / Bình Dương.
+            <div class="section-label" data-i18n="contact.label">Contact</div>
+            <h2 class="section-title" data-i18n="contact.title">Let’s connect.</h2>
+            <p class="contact-desc" data-i18n="contact.desc">
+              Open to IT Support, Helpdesk and junior Systems Administrator roles in Ho Chi Minh City.
             </p>
             <div class="direct-links">
-              <a
-                class="btn btn-primary"
-                href="mailto:phamthanhlam.work@gmail.com"
-                ><i class="fa-solid fa-envelope"></i> Email me</a
-              ><a
-                class="btn"
-                href="https://www.linkedin.com/in/thanhlam-uit"
-                target="_blank"
-                rel="noopener noreferrer"
+              <a class="btn btn-primary" href="mailto:phamthanhlam.work@gmail.com"
+                ><i class="fa-solid fa-envelope"></i> <span data-i18n="contact.email">Email me</span></a
+              ><a class="btn" href="https://www.linkedin.com/in/thanhlam-uit" target="_blank" rel="noopener noreferrer"
                 ><i class="fa-brands fa-linkedin"></i> LinkedIn</a
-              ><a
-                class="btn"
-                href="https://github.com/ThanhLam-NetEng"
-                target="_blank"
-                rel="noopener noreferrer"
+              ><a class="btn" href="https://github.com/ThanhLam-NetEng" target="_blank" rel="noopener noreferrer"
                 ><i class="fa-brands fa-github"></i> GitHub</a
               >
             </div>
-            <div class="form-success" id="formSuccess">
-              <i class="fa-solid fa-circle-check"></i> Message sent. I will get
-              back to you soon.
+            <div class="form-success" id="formSuccess" role="status">
+              <i class="fa-solid fa-circle-check"></i>
+              <span data-i18n="contact.success">Message sent. I will get back to you soon.</span>
             </div>
-            <form
-              class="contact-form"
-              id="contactForm"
-              action="https://formspree.io/f/mqegennk"
-              method="POST"
-            >
+            <form class="contact-form" id="contactForm" action="https://formspree.io/f/mqegennk" method="POST">
               <div class="contact-row">
-                <input
-                  type="text"
-                  name="name"
-                  placeholder="Your name"
-                  required
-                /><input
+                <input type="text" name="name" placeholder="Your name" data-i18n-placeholder="contact.name" aria-label="Your name" required /><input
                   type="email"
                   name="email"
                   placeholder="Your email"
+                  data-i18n-placeholder="contact.emailField"
+                  aria-label="Your email"
                   required
                 />
               </div>
-              <textarea
-                name="message"
-                placeholder="Your message..."
-                required
-              ></textarea>
-              <button class="btn btn-primary" type="submit" id="submitBtn">
-                Send message
-              </button>
+              <textarea name="message" placeholder="Your message..." data-i18n-placeholder="contact.message" aria-label="Your message" required></textarea>
+              <button class="btn btn-primary" type="submit" id="submitBtn" data-i18n="contact.send">Send message</button>
             </form>
           </div>
         </div>
       </section>
     </main>
 
-    <footer>
-      © 2026 Phạm Thanh Lâm · Built for
-      <span>IT Support &amp; Network Engineering</span> · Ho Chi Minh City
+    <footer data-i18n="footer">
+      © 2026 Phạm Thanh Lâm · <span>IT Support → Systems Administration</span> · Ho Chi Minh City
     </footer>
 
     <button class="back-to-top" id="backToTop" type="button" aria-label="Back to top">
